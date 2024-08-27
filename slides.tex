@@ -9,7 +9,17 @@
 \usepackage{mathrsfs}  
 \usepackage{cancel}
 % \usepackage{caption}
+% \usepackage{tikz}
+
+\setbeamercovered{transparent}
 \usepackage{tikz}
+\usetikzlibrary{overlay-beamer-styles}
+ \tikzset{
+    highlight on/.style={alt={#1{fill=customblue!80!black,color=customblue!80!black}{fill=gray!30!white,color=gray!30!white}}},
+}
+\usetikzlibrary{shapes}
+\usetikzlibrary{plotmarks}
+
 \usepackage{xcolor}
 \usepackage{graphicx}
 \usepackage{empheq}
@@ -624,16 +634,18 @@
             \only<2>{\includegraphics[width=0.75\textwidth]{images/glasma.eps}
                 \caption{\scriptsize\itshape Figure from K. Fukushima \href{https://arxiv.org/abs/1603.02340}{{\color{lightgray}\texttt{[1603.02340]}}}}
             }
-            \only<3>{\includegraphics[width=0.9\textwidth]{images/dilute_2.png}
-                % \caption{\scriptsize\itshape Figure from T. Lappi \href{https://arxiv.org/abs/hep-ph/0602189}{{\color{lightgray}\textit{[hep-ph/0602189]}}}}
-            }
-            \only<4>{\includegraphics[width=0.75\textwidth]{images/components.eps}
+            % \only<3>{\includegraphics[width=0.9\textwidth]{images/dilute_2.png}
+            %     % \caption{\scriptsize\itshape Figure from T. Lappi \href{https://arxiv.org/abs/hep-ph/0602189}{{\color{lightgray}\textit{[hep-ph/0602189]}}}}
+            % }
+            \only<3>{\includegraphics[width=0.75\textwidth]{images/components.eps}
                 \caption{\scriptsize\itshape Figure from T. Lappi \href{https://arxiv.org/abs/hep-ph/0602189}{{\color{lightgray}\texttt{[hep-ph/0602189]}}}}
             }
-            \only<5>{\includegraphics[width=0.9\textwidth]{images/correlation_2.png}
+            \only<4>{\includegraphics[width=0.9\textwidth]{images/correlation_2.png}
                 % \caption{\scriptsize\itshape Figure from T. Lappi \href{https://arxiv.org/abs/hep-ph/0602189}{{\color{lightgray}\textit{[hep-ph/0602189]}}}}
             }
-            \only<6>{\includegraphics[width=0.9\textwidth]{images/anisotropy.png}
+            % \only<5>{\includegraphics[width=0.9\textwidth]{images/anisotropy.png}
+            \only<5>{\includegraphics[width=0.9\textwidth]{images/ratio-0_1-1.pdf}
+            \caption{\scriptsize\itshape Figure from F. Gelis \href{https://arxiv.org/abs/1307.2214}{{\color{lightgray}\texttt{[1307.2214]}}}}
             % \caption{\scriptsize\itshape Figure from T. Lappi \href{https://arxiv.org/abs/hep-ph/0602189}{{\color{lightgray}\textit{[hep-ph/0602189]}}}}
         }
             % \includegraphics[width=0.85\columnwidth]{images/components.eps}
@@ -646,11 +658,11 @@
         \vspace{0.2cm}
         \begin{center}
             \begin{itemize}
-                \onslide<1,2,3,4,5,6>{\item Relevant scale {\color{custompink}saturation momentum $Q_s$}}
-                \onslide<2,3,4,5,6>{\item Initial longitudinal color flux tubes}
-                \onslide<3,4,5,6>{\item Fields {\color{customgreen}dilute} after $\tau\simeq {\color{custompink}Q}^{-1}_{\color{custompink}s}$}
-                \onslide<5,6>{\item Fields arranged in {\color{customgreen}correlation domains} of $\delta x_T \simeq {\color{custompink}Q}^{-1}_{\color{custompink}s}$}
-                \onslide<6>{\item Longitudinal $\neq$ transverse pressures $\Rightarrow$ {\color{pinky}anisotropy}}
+                \onslide<1,2,3,4,5>{\item Relevant scale {\color{custompink}saturation momentum $Q_s$}}
+                \onslide<2,3,4,5>{\item Initial longitudinal color flux tubes}
+                \onslide<3,4,5>{\item Fields {\color{customgreen}dilute} after $\tau\simeq {\color{custompink}Q}^{-1}_{\color{custompink}s}$}
+                \onslide<4,5>{\item Fields arranged in {\color{customgreen}correlation domains} of $\delta x_T \simeq {\color{custompink}Q}^{-1}_{\color{custompink}s}$}
+                \onslide<5>{\item Longitudinal $\neq$ transverse pressures $\Rightarrow$ {\color{pinky}anisotropy}}
             \end{itemize}
         \end{center}
         \column{.02\textwidth}
@@ -791,19 +803,211 @@
 
 \section{{\color{jyublue}Heavy quarks} in pre-equilibrium}
 
+\setbeamertemplate{background}{
+\tikz[overlay,remember picture] \node[opacity=0.1, at=(current page.center), align=center] {
+    % \\[-20pt]
+    \\[45pt]
+{\transparent{0.3}\includegraphics[height=0.6\paperheight]{images/Greco-HF-Theory-HP2020-v-5_edit.png}}
+   \\[10pt]  
+   {\transparent{0.3}\footnotesize\itshape Figure credits to V. Greco}};
+}
+\begin{frame}[plain,noframenumbering]{}
+    \begin{center}
+        \vspace{1cm}
+        {\huge\color{destacado}Heavy quarks in pre-equilibrium}
+    \end{center}
+\end{frame}
+\setbeamertemplate{background}{}
+
+
 \subsection{Glasma}
 
-\begin{frame}
-    \frametitle{Title}
-    \framesubtitle{Subtitle}
+\setbeamertemplate{background}{
+\tikz[overlay,remember picture] \node[opacity=0.1, at=(current page.center), align=center] {\\[10pt]
+{\transparent{0.1}\includegraphics[height=0.7\paperheight]{images/momentum_broadening_flipped.pdf}}
+   \\[10pt]  
+   {\transparent{0.3}\footnotesize\itshape Figure from  A. Ipp, D. Müller, D. Schuh \href{https://arxiv.org/abs/2009.14206}{{\color{lightgray}\texttt{[2009.14206]}}}}};
+}
+
+\setbeamertemplate{itemize item}{\raisebox{0.2em}{\scalebox{0.7}{${\color{normal}\blacktriangleright}$}}} 
+
+\begin{frame}[plain,noframenumbering]{}
+    \begin{center}
+        \vspace{1cm}
+        {\large\color{normal}Initial stage of pre-equilibrium}\\[0.3cm]
+        {\huge\color{destacado}Heavy quarks in glasma}\\[0.3cm]
+        {\large\color{normal}
+        \begin{center}
+            % \begin{minipage}{0.45\textwidth}
+            % \begin{itemize}
+            %     \item Momentum broadening $\langle \delta p^2\rangle$
+            %     \item Transport coefficient $\kappa$
+            %     \item Observables $R_{AA}$, $v_2$, $\mathcal{C}(\Delta\phi)$
+            % \end{itemize}
+            % \end{minipage}
+            \begin{columns}
+                \begin{column}{0.066\textwidth}\end{column}
+                \begin{column}{0.45\textwidth}
+                    \centering
+                    \\[10pt]
+                    \setbeamertemplate{itemize item}{\raisebox{0.2em}{\scalebox{0.7}{${\color{pinky}\blacktriangleright}$}}} 
+                    {\Large\color{pinky} Quantities}
+                    \begin{itemize}
+                        \item Momentum broadening $\langle \delta p^2\rangle$
+                        \item Transport coefficient $\kappa$
+                        \item Observables $R_{AA}$, $v_2$, $\mathcal{C}(\Delta\phi)$
+                    \end{itemize}
+                \end{column}
+                \begin{column}{0.066\textwidth}\end{column}
+                \begin{column}{0.35\textwidth}
+                    \centering
+                    \setbeamertemplate{itemize item}{\raisebox{0.2em}{\scalebox{0.7}{${\color{ming}\blacktriangleright}$}}} 
+                    {\Large\color{ming} Approaches}
+                    \begin{itemize}
+                        \item Numerical trajectories
+                        \item Correlator method
+                    \end{itemize}
+                \end{column}
+                \begin{column}{0.066\textwidth}\end{column}
+            \end{columns}
+        \end{center}
+        }
+        % \\[0.3cm]
+    \end{center}
 \end{frame}
+\setbeamertemplate{background}{}
+
+\begin{frame}
+    \frametitle{Particles in Yang-Mills fields}
+    \framesubtitle{Wong's equations of motion}
+        \setbeamertemplate{itemize item}{\raisebox{0.2em}{\scalebox{0.7}{${\color{ming}\blacktriangleright}$}}} 
+        \begin{itemize}
+            \item \begin{center}{\color{ming}Approach}: {\color{ming}numerical trajectories} of classical particles in glasma fields \end{center}
+        \end{itemize} 
+   \begin{center}
+       Wong's equations $\leftrightarrow$ classical equations of motion for particles $({\color{customblue}x^\mu},{\color{customred}p^\mu},{\color{customyellow}Q})$ \\
+    evolving in a Yang-Mills background field ${\color{starrysecond}A^\mu}$
+   \end{center} 
+        \vspace{1cm}
+        \renewcommand{\eqnhighlightheight}{\vphantom{x}}
+        \begin{equation*}
+            \frac{\d}{\d\hspace{-0.1cm}\eqnmark[destacado]{tau}{\boldsymbol{\tau}}\hspace{-0.2cm}}\eqnmark[customblue]{xmu}{x^\mu}=\frac{{\color{customred}p^\mu}}{\eqnmark[destacado]{m}{m}},\qquad \eqnmark[destacado]{Ddtau}{\frac{\mathrm{D}}{\d\boldsymbol{\tau}}}\hspace{-0.2cm}\eqnmark[customred]{pmu}{p^\mu}=2\hspace{-0.1cm}\eqnmark[destacado]{g}{g}\hspace{-0.1cm}\tr{{\color{customyellow}Q}F^{\mu\nu}[\hspace{-0.1cm}\eqnmark[starrysecond]{amu}{A^\mu}\hspace{-0.1cm}]}\frac{{\color{customred}p_\nu}}{m},\qquad 
+            \underbrace{\frac{\d}{\d\boldsymbol{\tau}}\hspace{-0.1cm}\eqnmark[customyellow]{Q}{Q}\hspace{-0.1cm}=-\mathrm{i}g [{\color{starrysecond}A_\mu},{\color{customyellow}Q}]\,\frac{{\color{customred}p^\mu}}{m}}_{\substack{\text{\footnotesize color rotation}\,\rightarrow\,{\color{customgreen}\mathcal{U}}\in\,\mathrm{SU(3)} \\[0.2cm] {\color{customyellow}Q}(\boldsymbol{\tau})=\,{\color{customgreen}\mathcal{U}}(\boldsymbol{\tau},\boldsymbol{\tau}^\prime){\color{customyellow}Q}(\boldsymbol{\tau^\prime})\,{\color{customgreen}\mathcal{U}^\dagger}(\boldsymbol{\tau},\boldsymbol{\tau}^\prime)}}
+            \end{equation*}
+            \annotate[yshift=1.2em]{above}{xmu}{coordinate}
+            \annotate[yshift=1.2em]{above}{pmu}{momentum}
+            \annotate[yshift=-0.5em]{below, right}{m}{\tiny mass}
+            \annotate[yshift=-1.5em]{below, right}{Ddtau}{\tiny covariant derivative}
+            \annotate[yshift=-1.5em]{below, right}{tau}{\tiny proper time}
+            \annotate[yshift=-0.7em]{below, right}{g}{\tiny coupling constant}
+            \annotate[yshift=1.2em]{above}{Q}{color charge}
+            \annotate[yshift=1.2em]{above, right}{amu}{gauge field}
+    %    \\
+        % \begin{center}
+        %     Symplectic numerical solver $\xrightarrow{\mathrm{assures}}$ ${\color{customyellow}Q}\in\mathrm{SU(3)}$, conservation of Casimir invariants 
+        % \end{center} 
+\end{frame}
+
+\begin{frame}[noframenumbering]
+    \frametitle{Particles in Yang-Mills fields}
+    \framesubtitle{Vizualizing the trajectories\footnote{\scriptsize Avramescu, Băran, Greco, Ipp, Müller, Ruggieri  \href{https://journals.aps.org/prd/abstract/10.1103/PhysRevD.107.114021}{{\color{customblue}\texttt{[Phys.Rev.D107(2023)]}}}}}
+    \vspace{-0.5cm}
+    \begin{columns}[onlytextwidth,t]
+        \column{.025\textwidth}
+       \column{.3\textwidth}
+                \begin{center}
+                    Change of coordinates 
+                \end{center}
+                \vspace{-20pt}
+                \begin{figure}[!hbt]
+                    \centering
+                \includegraphics[width=1.1\columnwidth]{images/wong_coord.png}
+                \end{figure}
+                \column{.025\textwidth}
+        \column{.3\textwidth}
+            \begin{center}
+                Color Lorentz force
+            \end{center}
+            \vspace{-20pt}
+            \begin{figure}[!hbt]
+                \centering
+                \includegraphics[width=1.1\columnwidth]{images/wong_mom.png}
+            \end{figure}
+            \column{.025\textwidth}
+        \column{.3\textwidth}
+            \begin{center}
+                Color rotation
+            \end{center}
+            \vspace{-15pt}
+            \begin{figure}[!hbt]
+                \centering
+                \includegraphics[width=1.05\columnwidth]{images/wong_charge.png}
+            \end{figure}
+            \column{.025\textwidth}
+    \end{columns}
+\end{frame}
+
+
+\begin{frame}[t]
+    \frametitle{Timeline}
+    \begin{tikzpicture}[xscale=0.5]%[scale=0.9, every node/.style={scale=0.6}]
+    % \draw[line width=2mm,-latex,red!20] (-0.2,0) -- (9,0);
+    \draw[line width=0.5mm,-latex,customblue!20] (-0.2,0) -- (20+0.2,0);
+    \foreach \X [evaluate=\X as \Y using int(\X-2000),count=\Z] in {2000,2001,2002,2005,2008,2015}
+    {
+    % \draw[highlight on=<\Z>] ({\Y-0.2},-0.5) -- ({\Y+0.2},-0.5) -- (\Y,-0.1) -- cycle;
+    \node[circle, highlight on=<\Z>,inner sep=2pt,color=customblue] at (\Y,0) {};
+    \node[anchor=south,highlight on=<\Z>,fill=white,rotate=45,anchor=south
+    west,inner sep=0pt] at (\Y,0.2) {\X};
+    }
+    \end{tikzpicture}
+    \begin{itemize}
+    \item<1> November 2000: marmots start hibernating
+    \end{itemize}
+\end{frame}
+    
+\begin{frame}[t]
+    \frametitle{Historial}
+    \begin{tikzpicture}[xscale=0.5]
+    \draw[line width=0.5mm,-latex,customblue!20] (-0.2,0) -- (20+0.2,0);
+    \foreach \X [evaluate=\X as \Y using int(\X-2000),count=\Z] in {2000,2001,2002} %<- these are the years not to be highlighted
+    {
+    % \draw[highlight on=<0>] ({\Y-0.2},-0.5) -- ({\Y+0.2},-0.5) -- (\Y,-0.1) -- cycle;
+    \node[circle, highlight on=<\Z>,inner sep=2pt,color=customblue] at (\Y,0) {};
+    \node[anchor=south,highlight on=<0>,fill=white,rotate=45,anchor=south
+    west,inner sep=0pt] at (\Y,0.2) {\X};
+    }
+    \foreach \X [evaluate=\X as \Y using int(\X-2000),count=\Z] in {2005,2008,2015} %<- these are the years which are to be highlighted
+    {
+    % \draw[highlight on=<\Z>] ({\Y-0.2},-0.5) -- ({\Y+0.2},-0.5) -- (\Y,-0.1) -- cycle;
+    \node[circle, highlight on=<\Z>,inner sep=2pt,color=customblue] at (\Y,0) {};
+    \node[anchor=south,highlight on=<\Z>,fill=white,rotate=45,anchor=south
+    west,inner sep=0pt] at (\Y,0.2) {\X};
+    }
+    \end{tikzpicture}
+    \begin{itemize}
+        \item<1> November 2005: marmots start hibernating again
+    \end{itemize}
+\end{frame}
+
+
 
 \subsection{Kinetic theory}
-
-\begin{frame}
-    \frametitle{Title}
-    \framesubtitle{Subtitle}
+\setbeamertemplate{background}{
+\tikz[overlay,remember picture] \node[opacity=0.1, at=(current page.center), align=center] {\\[10pt]
+{\transparent{0.2}\includegraphics[height=0.7\paperheight]{images/heavy-ion3.pdf}}
+   \\[10pt]  
+   {\transparent{0.5}\footnotesize\itshape Figure from  K. Boguslavski, A. Kurkela, T. Lappi, F. Lindenbauer, J. Peuron \href{https://arxiv.org/abs/2312.00447}{{\color{lightgray}\texttt{[2312.00447]}}}}};
+}
+\begin{frame}[plain,noframenumbering]{}
+    \begin{center}
+        \vspace{1cm}
+        {\large\color{normal}Next stages of pre-equilibrium}\\[0.3cm]
+        {\huge\color{destacado}Thermalization of heavy quarks}
+    \end{center}
 \end{frame}
+\setbeamertemplate{background}{}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%% SECTION 4 %%%%%%%%%%%%%%%%
