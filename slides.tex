@@ -31,6 +31,13 @@
 \renewcommand{\thefootnote}{$\star$}
 \makeatletter
 
+\newcommand\blfootnote[1]{%
+  \begingroup
+  \renewcommand\thefootnote{}\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \endgroup
+}
+
 \usepackage{xcolor}
 \usepackage{graphicx}
 \usepackage{empheq}
@@ -71,6 +78,9 @@
 \definecolor{starrymain}{HTML}{3B5B65}
 \definecolor{starrysecond}{HTML}{719593}
 \definecolor{hpblue}{HTML}{44545c}
+
+\definecolor{ektgreen}{HTML}{047c73}
+\definecolor{ektblue}{HTML}{065680}
 
 \definecolor{angcorr}{HTML}{502d7e}
 
@@ -326,40 +336,40 @@
 \maketitle
 
 \usebackgroundtemplate{ } 
-% \addtobeamertemplate{frametitle}{\vspace{-0.7cm}}{\vspace{1cm}}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%% OUTLINE %%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%% TOC %%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \setbeamertemplate{background}{
 \tikz[overlay,remember picture] \node[opacity=0.15, at=(current page.center), align=center] {
     \\[15pt]
-    {\transparent{0.1}\includegraphics[height=0.7\paperheight]{images/fig01_cover_figure_RB10070_Berges.pdf}} \\[10pt]  
-    {\transparent{0.2}\footnotesize\itshape Figure from  J. Berges, M. Heller, A. Mazeliauskas, R. Venugopalan \href{https://arxiv.org/abs/2005.12299}{{\color{lightgray}\texttt{[2005.12299]}}}}
+    {\transparent{0.1}\includegraphics[height=0.7\paperheight]{images/fig01_cover_figure_RB10070_Berges.pdf}} 
+    \\[10pt]  
    };
 }
 \begin{frame}{Brief outline}
     \begin{center}
-        % \setlength{\leftskip}{\dimexpr.5\textwidth-.5\secnamelength\relax}% Advance left margin accordingly
         \tableofcontents
     \end{center}
 \end{frame}
 \setbeamertemplate{background}{}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%% SLIDE %%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \setbeamertemplate{background}{
 \tikz[overlay,remember picture] \node[at=(current page.center), align=center] {
     \\[15pt]
-    {\includegraphics[height=0.7\paperheight]{images/fig01_cover_figure_RB10070_Berges.pdf}} \\[10pt]  
-    {\footnotesize\itshape Figure from  J. Berges, M. Heller, A. Mazeliauskas, R. Venugopalan \href{https://arxiv.org/abs/2005.12299}{{\color{lightgray}\texttt{[2005.12299]}}}}
+    {\includegraphics[height=0.7\paperheight]{images/fig01_cover_figure_RB10070_Berges.pdf}} 
+    \\[10pt]  
    };
 }
 \begin{frame}[noframenumbering]
     \frametitle{{\color{jyured}Pre-equilibrium} dynamics}
-    % \begin{center}
-    %     % \setlength{\leftskip}{\dimexpr.5\textwidth-.5\secnamelength\relax}% Advance left margin accordingly
-    %     \tableofcontents
-    % \end{center}
+    \blfootnote{\scriptsize Berges, Heller, Mazeliauskas, Venugopalan \href{https://arxiv.org/abs/2005.12299}{{\color{customblue}\texttt{[2005.12299]}}}}
 \end{frame}
 \setbeamertemplate{background}{}
 
@@ -370,348 +380,367 @@
 \addtobeamertemplate{headline}{}{\vspace{1cm}\hfill\circcounter\hspace*{1cm}}
 \addtobeamertemplate{frametitle}{\vspace{-0.8cm}}{}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%% SECTION 1 %%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%% SECTION %%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{General context}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%% SLIDE 1 %%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%% SLIDE %%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% \begin{frame}
-%     \frametitle{High-energy collisions}
-%     \framesubtitle{Stitching together effective theories}
+\begin{frame}
+    \frametitle{High-energy collisions}
+    \framesubtitle{Stitching together effective theories}
 
-%     \begin{center}
-%         \begin{tikzpicture}
-%             \node[anchor=south west,inner sep=0] at (0,0) {\includegraphics[width=0.8\textwidth]{images/schlichting_initial_stages_2016.png}};
-%             % \draw<1>[red,ultra thick,rounded corners] (1.6,1) rectangle (\textheight-1cm,5);
-%             % \draw<2>[red,ultra thick,rounded corners] (5.7,4.1) rectangle (7.5,4.9);
-%         \end{tikzpicture}
-%     \end{center}
+    \begin{center}
+        \begin{tikzpicture}
+            \node[anchor=south west,inner sep=0] at (0,0) {\includegraphics[width=0.8\textwidth]{images/schlichting_initial_stages_2016.png}};
+        \end{tikzpicture}
+    \end{center}
         
-%     \begin{center}
-%         {\scriptsize\itshape Figure credits to S. Schlichting}
-%     \end{center}
-% \end{frame}
+    \blfootnote{\scriptsize Schlichting \href{https://indico.cern.ch/event/469857/contributions/1978347/attachments/1277798/1896654/SchlichtingIS2016.pdf}{{\color{customblue}\texttt{[Initial Stages (2016)]}}}}
+\end{frame}
 
-% \setbeamertemplate{itemize item}{\raisebox{0.2em}{\scalebox{0.7}{${\color{pinky}\blacktriangleright}$}}} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%% SLIDE %%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% \begin{frame}[noframenumbering]
-%     \frametitle{High-energy collisions}
-%     \framesubtitle{{\color{jyured}Pre-equilibrium} stages}
+\setbeamertemplate{itemize item}{\raisebox{0.2em}{\scalebox{0.7}{${\color{pinky}\blacktriangleright}$}}} 
+
+\begin{frame}[noframenumbering]
+    \frametitle{High-energy collisions}
+    \framesubtitle{{\color{jyured}Pre-equilibrium} stages}
     
-%     \begin{center}
-%         \begin{tikzpicture}[]
-%             \node[anchor=south west,inner sep=0] at (0,0) {\includegraphics[width=0.8\textwidth]{images/schlichting_initial_stages_2016.png}};
-%             \draw<1>[white, fill=white, fill opacity=0.9] (8.37,0) rectangle (\textheight+4.6cm,5.5) node[pos=0.5, anchor=center, xshift=0.03\linewidth,text width=4cm] {{\Large\color{pinky} Glasma stage}\\[10pt]\footnotesize\begin{itemize}
-%                 \item Gluons as color fields
-%                 \item Classical gauge fields
-%                 \item Weak coupling regime
-%                 \item Color Glass Condensate
-%                 \item Real-time classical lattice gauge theory
-%             \end{itemize}
-%             {\footnotesize\color{red}Add references}
-%             };
-%             \draw<1>[pinky,thick,fill=pinky,fill opacity=0.1] (0,0) rectangle (\textheight+0.6cm,5.5);
-%             % \draw<2>[red,ultra thick,rounded corners] (5.7,4.1) rectangle (7.5,4.9);
-%         \end{tikzpicture}
-%     \end{center}
+    \begin{center}
+        \begin{tikzpicture}[]
+            \node[anchor=south west,inner sep=0] at (0,0) {\includegraphics[width=0.8\textwidth]{images/schlichting_initial_stages_2016.png}};
+            \draw<1>[white, fill=white, fill opacity=0.9] (8.37,0) rectangle (\textheight+4.6cm,5.5) node[pos=0.5, anchor=center, xshift=0.03\linewidth,text width=4cm] {{\Large\color{pinky} Glasma stage\footnotemark}\\[10pt]\footnotesize\begin{itemize}
+                \item Gluons as color fields
+                \item Classical gauge fields
+                \item Weak coupling regime
+                \item Color Glass Condensate
+                \item Real-time classical lattice gauge theory
+            \end{itemize}
+            };
+            \draw<1>[pinky,thick,fill=pinky,fill opacity=0.1] (0,0) rectangle (\textheight+0.6cm,5.5);
+        \end{tikzpicture}
+    \end{center}
         
-%     \begin{center}
-%         {\scriptsize\itshape Figure credits to S. Schlichting}
-%     \end{center}
-% \end{frame}
+    \footnotetext{\scriptsize Gelis \href{https://doi.org/10.1142/S0217751X13300019}{{\color{customblue}\texttt{[Int.J.Mod.Phys.A28(2013)]}}}}
+    \blfootnote{\scriptsize Schlichting \href{https://indico.cern.ch/event/469857/contributions/1978347/attachments/1277798/1896654/SchlichtingIS2016.pdf}{{\color{customblue}\texttt{[Initial Stages (2016)]}}}}
+\end{frame}
 
-% \setbeamertemplate{itemize item}{\raisebox{0.2em}{\scalebox{0.7}{${\color{ming}\blacktriangleright}$}}} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%% SLIDE %%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% \begin{frame}[noframenumbering]
-%     \frametitle{High-energy collisions}
-%     \framesubtitle{{\color{jyured}Pre-equilibrium} stages}
+\setbeamertemplate{itemize item}{\raisebox{0.2em}{\scalebox{0.7}{${\color{ming}\blacktriangleright}$}}} 
+
+\begin{frame}[noframenumbering]
+    \frametitle{High-energy collisions}
+    \framesubtitle{{\color{jyured}Pre-equilibrium} stages}
     
-%     \begin{center}
-%         \begin{tikzpicture}[]
-%             \node[anchor=south west,inner sep=0] at (0,0) {\includegraphics[width=0.8\textwidth]{images/schlichting_initial_stages_2016.png}};
-%             \draw<1>[white, fill=white, fill opacity=0.9] (0,0) rectangle (\textheight-1.55cm,5.5) node[pos=0.5, anchor=center, xshift=-0.01\linewidth,text width=5.5cm] {{\Large\color{ming} Kinetic theory}\\[10pt]\footnotesize\begin{itemize}
-%                 \item Gluons as quasi-particles
-%                 \item Distribution functions
-%                 \item Weak coupling regime
-%                 \item Bottom-up thermalization 
-%                 \item AMY effective kinetic theory 
-%             \end{itemize}
-%             {\footnotesize\color{red}Add references}
-%             };
-%             \draw<1>[ming,thick,fill=ming,fill opacity=0.1] (6.2,0) rectangle (\textheight+4.6cm,5.5);
-%         \end{tikzpicture}
-%     \end{center}
+    \begin{center}
+        \begin{tikzpicture}[]
+            \node[anchor=south west,inner sep=0] at (0,0) {\includegraphics[width=0.8\textwidth]{images/schlichting_initial_stages_2016.png}};
+            \draw<1>[white, fill=white, fill opacity=0.9] (0,0) rectangle (\textheight-1.55cm,5.5) node[pos=0.5, anchor=center, xshift=-0.01\linewidth,text width=5.5cm] {{\Large\color{ming} Kinetic theory\footnotemark}\\[10pt]\footnotesize\begin{itemize}
+                \item Gluons as quasi-particles
+                \item Distribution functions
+                \item Weak coupling regime
+                \item Bottom-up thermalization 
+                \item AMY effective kinetic theory 
+            \end{itemize}
+            };
+            \draw<1>[ming,thick,fill=ming,fill opacity=0.1] (6.2,0) rectangle (\textheight+4.6cm,5.5);
+        \end{tikzpicture}
+    \end{center}
         
-%     \begin{center}
-%         {\scriptsize\itshape Figure credits to S. Schlichting}
-%     \end{center}
-% \end{frame}
+    \footnotetext{\scriptsize Kurkela, Mazeliauskas, Paquet, Schlichting, Teaney \href{https://journals.aps.org/prc/abstract/10.1103/PhysRevC.99.034910}{{\color{customblue}\texttt{[Phys.Rev.C99(2019)]}}}}
+    \blfootnote{\scriptsize Schlichting \href{https://indico.cern.ch/event/469857/contributions/1978347/attachments/1277798/1896654/SchlichtingIS2016.pdf}{{\color{customblue}\texttt{[Initial Stages (2016)]}}}}
+\end{frame}
 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %%%%%%%%%%%%%%%% SECTION 2 %%%%%%%%%%%%%%%%
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%% SECTION %%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% \section{{\color{jyured}Pre-equilibrium} dynamics}
+\section{{\color{jyured}Pre-equilibrium} dynamics}
 
-% \setbeamertemplate{background}{
-% \tikz[overlay,remember picture] \node[opacity=0.1, at=(current page.center), align=center] {
-%     \\[15pt]
-%     {\includegraphics[height=0.7\paperheight]{images/fig01_cover_figure_RB10070_Berges.pdf}} \\[10pt]  
-%     {\footnotesize\itshape Figure from  J. Berges, M. Heller, A. Mazeliauskas, R. Venugopalan \href{https://arxiv.org/abs/2005.12299}{{\color{lightgray}\texttt{[2005.12299]}}}}
-%    };
-% }
-% \begin{frame}[plain, noframenumbering]
-%     \frametitle{\\{\color{jyured}Pre-equilibrium} dynamics}
-%     % \begin{center}
-%     %     {\Huge {\color{jyured}Pre-equilibrium} dynamics}
-%     % \end{center}
-%     % \\[20pt]
-%     \begin{center}
-%         % \huge {\color{jyured}Pre-equilibrium} frameworks \\
-%         {\huge {\color{pinky} Glasma} and {\color{ming}kinetic theory}}\\[20pt]
-%         {\footnotesize\itshape Other frameworks for pre-equilibrium dynamics are not included in this talk\\
-%         {\color{red}Add references}}
-%     \end{center}
-% \end{frame}
-% \setbeamertemplate{background}{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%% SUBSECTION %%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% \subsection{Glasma}
+\subsection{Glasma}
 
-% \setbeamertemplate{background}{
-% \tikz[overlay,remember picture] \node[opacity=0.1, at=(current page.center), align=center] {\\[10pt]
-% {\transparent{0.2}\includegraphics[height=0.8\paperheight]{images/fig1_overview.pdf}}
-%    \\[10pt]  
-%    {\transparent{0.5}\footnotesize\itshape Figure from  A. Ipp, D. Müller \href{https://arxiv.org/abs/1703.00017}{{\color{lightgray}\texttt{[1703.00017]}}}}};
-% }
-% \begin{frame}[plain,noframenumbering]{}
-%     \begin{center}
-%         \vspace{1cm}
-%         {\large\color{normal}Initial stage of pre-equilibrium}\\[0.3cm]
-%         {\huge\color{destacado}The glasma}
-%     \end{center}
-% \end{frame}
-% \setbeamertemplate{background}{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%% SLIDE %%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% \begin{frame}
-%     \frametitle{Color Glass Condensate}
-%     \framesubtitle{An EFT for high energy QCD}
-%     \vspace{-10pt}
-%     \begin{columns}[onlytextwidth,t]
-%         \column{.033\textwidth}
-%        \column{.5\textwidth}
-%             \begin{center}
-%                 {\footnotesize Separation of scales between\\
-%                 {\color{customgreen}small-{\tiny $x$}} and {\color{custompink}large-{\huge $x$}} degrees of freedom}
-%             \end{center}
-%             \vspace{-10pt}
-%             \begin{figure}[!hbt]
-%                 \centering
-%                 \includegraphics[width=\textwidth]{images/qcd_1.png}
-%                 \captionsetup{justification=centering}
-%                 \vspace{-20pt}
-%                 \caption{\tiny\itshape Figure credits to T. Ullrich}
-%             \end{figure}
-%         \column{.033\textwidth}
-%         \column{.4\textwidth}
-%         \begin{center}
-%             {\transparent{0.2}
-%             \begin{figure}[!hbt]
-%                 \centering
-%                 \includegraphics[width=0.9\textwidth]{images/small_large_x.png}
-%                 \captionsetup{justification=centering}
-%                 \vspace{-0.2em}
-%             \end{figure}
-%             \footnotesize
-%             \vspace{-10pt}
-%             Classical Yang-Mills equations\\[20pt]
-%             \renewcommand{\eqnhighlightheight}{\vphantom{\mathcal{D}_\mu}\mathstrut}\begin{equation*}
-%                 \Big(\eqnmark[starrymain]{dmu}{\mathcal{D}_\mu}\eqnmark[starrysecond]{fmunu}{F^{\mu\nu}}\Big)\Big[\eqnmark[customgreen]{amu}{A^\mu}\Big]=\eqnmark[custompink]{jnu}{J^\nu}
-%                 \end{equation*}
-%                 \annotate[yshift=2.2em]{above, right}{dmu}{\scriptsize covariant derivative}
-%                 \annotate[yshift=0.7em]{above}{fmunu}{\scriptsize field strength tensor}
-%                 \annotate[yshift=-0.5em]{below, left}{amu}{\scriptsize gluons gauge field}
-%                 \annotate[yshift=-2em]{below, left}{jnu}{\scriptsize color current of nucleus}}
-%         \end{center}
-%         \column{.033\textwidth}
-%     \end{columns}
-% \end{frame}
+\setbeamertemplate{background}{
+\tikz[overlay,remember picture] \node[opacity=0.1, at=(current page.center), align=center] {\\[10pt]
+{\transparent{0.2}\includegraphics[height=0.8\paperheight]{images/fig1_overview.pdf}}};
+}
+\begin{frame}[plain,noframenumbering]{}
+    \begin{center}
+        \vspace{1cm}
+        {\large\color{normal}Initial stage of pre-equilibrium}\\[0.3cm]
+        {\huge\color{destacado}The glasma}
+    \end{center}
+\end{frame}
+\setbeamertemplate{background}{}
 
-% \begin{frame}[noframenumbering]
-%     \frametitle{Color Glass Condensate}
-%     \framesubtitle{An EFT for high energy QCD}
-%     \vspace{-10pt}
-%     \begin{columns}[onlytextwidth,t]
-%         \column{.033\textwidth}
-%        \column{.5\textwidth}
-%             \begin{center}
-%                 {\footnotesize Separation of scales between\\
-%                 {\color{customgreen}small-{\tiny $x$}} and {\color{custompink}large-{\huge $x$}} degrees of freedom}
-%             \end{center}
-%             \vspace{-10pt}
-%             \begin{figure}[!hbt]
-%                 \centering
-%                 \includegraphics[width=\textwidth]{images/qcd_2.png}
-%                 \captionsetup{justification=centering}
-%                 \vspace{-20pt}
-%                 \caption{\tiny\itshape Figure credits to T. Ullrich}
-%             \end{figure}
-%         \column{.033\textwidth}
-%         \column{.4\textwidth}
-%         \begin{center}
-%             \begin{figure}[!hbt]
-%                 \centering
-%                 \includegraphics[width=0.9\textwidth]{images/small_large_x.png}
-%                 \captionsetup{justification=centering}
-%                 \vspace{-0.2em}
-%             \end{figure}
-%             \footnotesize
-%             \vspace{-10pt}
-%             Classical Yang-Mills equations\\[20pt]
-%             \renewcommand{\eqnhighlightheight}{\vphantom{\mathcal{D}_\mu}\mathstrut}\begin{equation*}
-%                 \Big(\eqnmark[starrymain]{dmu}{\mathcal{D}_\mu}\eqnmark[starrysecond]{fmunu}{F^{\mu\nu}}\Big)\Big[\eqnmark[customgreen]{amu}{A^\mu}\Big]=\eqnmark[custompink]{jnu}{J^\nu}
-%                 \end{equation*}
-%                 \annotate[yshift=2.2em]{above, right}{dmu}{\scriptsize covariant derivative}
-%                 \annotate[yshift=0.7em]{above}{fmunu}{\scriptsize field strength tensor}
-%                 \annotate[yshift=-0.5em]{below, left}{amu}{\scriptsize gluons gauge field}
-%                 \annotate[yshift=-2em]{below, left}{jnu}{\scriptsize color current of nucleus}
-%                 {\footnotesize\color{red}Add references}
-%         \end{center}
-%         \column{.033\textwidth}
-%     \end{columns}
-% \end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%% SLIDE %%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% \begin{frame}
-%     \frametitle{CGC fields}
-%     \framesubtitle{Analytical fields before the collision}
-%         % \begin{center}
-%         %     Initial stage using {\color{customblue}Color Glass Condensate} $\leftrightarrow$ EFT for high energy QCD \\
-%         %     High energy nucleus $\leadsto$ many gluons 
-%         %     % $\Leftrightarrow$ high occupation numbers for gluon fields \\ 
-%         %     $\Rightarrow$ classical colored fields $\equiv$ {\color{custompink}Glasma}
-%         % \end{center}
-%     % \vspace{-0.2cm}
-%     \begin{figure}[!hbt]
-%         \centering
-%     	\includegraphics[width=0.7\textwidth]{images/cgc_nuclei.png}
-%         \captionsetup{justification=centering}
-%     \end{figure}
-%     {\footnotesize\color{red}Add references}
-% \end{frame}
+\setbeamertemplate{background}{
+\tikz[overlay,remember picture] \node[at=(current page.center), align=center] {\\[10pt]
+{\includegraphics[height=0.8\paperheight]{images/fig1_overview.pdf}}};
+}
+\begin{frame}[plain,noframenumbering]{}
+    \blfootnote{\scriptsize Ipp, Müller  \href{https://doi.org/10.1016/j.physletb.2017.05.032}{{\color{customblue}\texttt{[Phys.Lett.B771(2017)]}}}}
+\end{frame}
+\setbeamertemplate{background}{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%% SLIDE %%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+    \frametitle{Color Glass Condensate}
+    \framesubtitle{An EFT for high energy QCD}
+    \vspace{-10pt}
+    \begin{columns}[onlytextwidth,t]
+        \column{.033\textwidth}
+       \column{.5\textwidth}
+            \begin{center}
+                {\footnotesize Separation of scales between\\
+                {\color{customgreen}small-{\tiny $x$}} and {\color{custompink}large-{\huge $x$}} degrees of freedom\footnotemark}
+            \end{center}
+            \vspace{-10pt}
+            \begin{figure}[!hbt]
+                \centering
+                \includegraphics[width=\textwidth]{images/qcd_1.png}
+                \captionsetup{justification=centering}
+            \end{figure}
+        \column{.033\textwidth}
+        \column{.4\textwidth}
+        \begin{center}
+            {\transparent{0.2}
+            \begin{figure}[!hbt]
+                \centering
+                \includegraphics[width=0.9\textwidth]{images/small_large_x.png}
+                \captionsetup{justification=centering}
+                \vspace{-0.2em}
+            \end{figure}
+            \footnotesize
+            \vspace{-10pt}
+            Classical Yang-Mills equations\\[20pt]
+            \renewcommand{\eqnhighlightheight}{\vphantom{\mathcal{D}_\mu}\mathstrut}\begin{equation*}
+                \Big(\eqnmark[starrymain]{dmu}{\mathcal{D}_\mu}\eqnmark[starrysecond]{fmunu}{F^{\mu\nu}}\Big)\Big[\eqnmark[customgreen]{amu}{A^\mu}\Big]=\eqnmark[custompink]{jnu}{J^\nu}
+                \end{equation*}
+                \annotate[yshift=2.2em]{above, right}{dmu}{\scriptsize covariant derivative}
+                \annotate[yshift=0.7em]{above}{fmunu}{\scriptsize field strength tensor}
+                \annotate[yshift=-0.5em]{below, left}{amu}{\scriptsize gluons gauge field}
+                \annotate[yshift=-2em]{below, left}{jnu}{\scriptsize color current of nucleus}}
+        \end{center}
+        \column{.033\textwidth}
+    \end{columns}
+    \footnotetext{\scriptsize Gelis, Iancu, Jalilian-Marian, Venugopalan \href{https://doi.org/10.1146/annurev.nucl.010909.083629}{{\color{customblue}\texttt{[Ann.Rev.Nucl.Part.Sci.60(2010)]}}}}
+    \blfootnote{\scriptsize Artwork by T. Ullrich}
+\end{frame}
 
 
-% % \addtocounter{framenumber}{-1}
-% \begin{frame}[noframenumbering]
-%     \frametitle{Glasma fields}
-%     \framesubtitle{Numerical field after the collision}
-%     \begin{columns}[onlytextwidth,t]
-%         \column{.02\textwidth}
-%        \column{.46\textwidth}
-%        \begin{figure}
-%             \centering
-%             \includegraphics[width=0.85\columnwidth]{images/cgc_col.png}
-%             % \vspace{-0.7cm}
-%             \captionsetup{justification=centering}
-%             % \caption{\scriptsize\itshape Figure credits to D. M\"{u}ller}
-%         \end{figure}
-%         \column{.02\textwidth}
-%         \column{.5\textwidth}
-%         \vspace{0.2cm}
-%         \begin{center}
-%             {\color{customgreen}$\sbullet[0.6]$ Known CGC fields} at $\tau<0$ \\[0.1cm]
-%             {\color{custompink}$\sbullet[0.6]$ Unknown Glasma fields} at $\tau>0$ \\[0.5cm]
-%             {\scriptsize{\color{lightgray}Milne coordinates ($\tau$, $\eta$)} \\
-%             {\color{lightgray}$\tau=\sqrt{2 x^+x^-}$, $\eta=\ln(x^+/x^-)/2$}\\[0.4cm]
-%             {\color{lightgray}Boost-invariant approximation $\mathrm{fields}=\mathrm{indep}(\eta)$} \\[0.3cm]
-%             {\color{lightgray}Numerical solution of Yang-Mills}\\[-0.15cm] {\color{lightgray}equations $\Rightarrow$ Glasma}}
-%             {\footnotesize\color{red}Add references}
-%         \end{center}
-%         \column{.02\textwidth}
-%     \end{columns}
-% \end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%% SLIDE %%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% \begin{frame}
-%     \frametitle{Features of glasma}
-%     \framesubtitle{Saturation scale, flux tubes, anisotropy}
-%     \begin{columns}[onlytextwidth,t]
-%         \column{.02\textwidth}
-%        \column{.44\textwidth}
-%        \begin{figure}
-%             \centering
-%             % \includegraphics[width=0.85\columnwidth]{images/cgc_col.png}
-%             \only<1>{\includegraphics[width=0.75\textwidth]{images/QxA.pdf}
-%                 \caption{\scriptsize\itshape Figure from F. Gelis \href{https://arxiv.org/abs/2102.07604}{{\color{lightgray}\texttt{[2102.07604]}}}}
-%             }
-%             \only<2>{\includegraphics[width=0.75\textwidth]{images/glasma.eps}
-%                 \caption{\scriptsize\itshape Figure from K. Fukushima \href{https://arxiv.org/abs/1603.02340}{{\color{lightgray}\texttt{[1603.02340]}}}}
-%             }
-%             % \only<3>{\includegraphics[width=0.9\textwidth]{images/dilute_2.png}
-%             %     % \caption{\scriptsize\itshape Figure from T. Lappi \href{https://arxiv.org/abs/hep-ph/0602189}{{\color{lightgray}\textit{[hep-ph/0602189]}}}}
-%             % }
-%             \only<3>{\includegraphics[width=0.75\textwidth]{images/components.eps}
-%                 \caption{\scriptsize\itshape Figure from T. Lappi \href{https://arxiv.org/abs/hep-ph/0602189}{{\color{lightgray}\texttt{[hep-ph/0602189]}}}}
-%             }
-%             \only<4>{\includegraphics[width=0.9\textwidth]{images/correlation_2.png}
-%                 % \caption{\scriptsize\itshape Figure from T. Lappi \href{https://arxiv.org/abs/hep-ph/0602189}{{\color{lightgray}\textit{[hep-ph/0602189]}}}}
-%             }
-%             % \only<5>{\includegraphics[width=0.9\textwidth]{images/anisotropy.png}
-%             \only<5>{\includegraphics[width=0.9\textwidth]{images/ratio-0_1-1.pdf}
-%             \caption{\scriptsize\itshape Figure from F. Gelis \href{https://arxiv.org/abs/1307.2214}{{\color{lightgray}\texttt{[1307.2214]}}}}
-%             % \caption{\scriptsize\itshape Figure from T. Lappi \href{https://arxiv.org/abs/hep-ph/0602189}{{\color{lightgray}\textit{[hep-ph/0602189]}}}}
-%         }
-%             % \includegraphics[width=0.85\columnwidth]{images/components.eps}
-%             % \vspace{-0.7cm}
-%             % \captionsetup{justification=centering}
-%             % \caption{\scriptsize\itshape Figure credits to D. M\"{u}ller}
-%         \end{figure}
-%         \column{.02\textwidth}
-%         \column{.5\textwidth}
-%         \vspace{0.2cm}
-%         \begin{center}
-%             \begin{itemize}
-%                 \onslide<1,2,3,4,5>{\item Relevant scale {\color{custompink}saturation momentum $Q_s$}}
-%                 \onslide<2,3,4,5>{\item Initial longitudinal color flux tubes}
-%                 \onslide<3,4,5>{\item Fields {\color{customgreen}dilute} after $\tau\simeq {\color{custompink}Q}^{-1}_{\color{custompink}s}$}
-%                 \onslide<4,5>{\item Fields arranged in {\color{customgreen}correlation domains} of $\delta x_T \simeq {\color{custompink}Q}^{-1}_{\color{custompink}s}$}
-%                 \onslide<5>{\item Longitudinal $\neq$ transverse pressures $\Rightarrow$ {\color{pinky}anisotropy}}
-%             \end{itemize}
-%         \end{center}
-%         \column{.02\textwidth}
-%     \end{columns}
-% \end{frame}
+\begin{frame}[noframenumbering]
+    \frametitle{Color Glass Condensate}
+    \framesubtitle{An EFT for high energy QCD}
+    \vspace{-10pt}
+    \begin{columns}[onlytextwidth,t]
+        \column{.033\textwidth}
+       \column{.5\textwidth}
+            \begin{center}
+                {\footnotesize Separation of scales between\\
+                {\color{customgreen}small-{\tiny $x$}} and {\color{custompink}large-{\huge $x$}} degrees of freedom}
+            \end{center}
+            \vspace{-10pt}
+            \begin{figure}[!hbt]
+                \centering
+                \includegraphics[width=\textwidth]{images/qcd_2.png}
+                \captionsetup{justification=centering}
+            \end{figure}
+        \column{.033\textwidth}
+        \column{.4\textwidth}
+        \begin{center}
+            \begin{figure}[!hbt]
+                \centering
+                \includegraphics[width=0.9\textwidth]{images/small_large_x.png}
+                \captionsetup{justification=centering}
+                \vspace{-0.2em}
+            \end{figure}
+            \footnotesize
+            \vspace{-10pt}
+            Classical Yang-Mills equations\\[20pt]
+            \renewcommand{\eqnhighlightheight}{\vphantom{\mathcal{D}_\mu}\mathstrut}\begin{equation*}
+                \Big(\eqnmark[starrymain]{dmu}{\mathcal{D}_\mu}\eqnmark[starrysecond]{fmunu}{F^{\mu\nu}}\Big)\Big[\eqnmark[customgreen]{amu}{A^\mu}\Big]=\eqnmark[custompink]{jnu}{J^\nu}
+                \end{equation*}
+                \annotate[yshift=2.2em]{above, right}{dmu}{\scriptsize covariant derivative}
+                \annotate[yshift=0.7em]{above}{fmunu}{\scriptsize field strength tensor}
+                \annotate[yshift=-0.5em]{below, left}{amu}{\scriptsize gluons gauge field}
+                \annotate[yshift=-2em]{below, left}{jnu}{\scriptsize color current of nucleus}
+        \end{center}
+        \column{.033\textwidth}
+    \end{columns}
+    \footnotetext{\scriptsize Gelis, Iancu, Jalilian-Marian, Venugopalan \href{https://doi.org/10.1146/annurev.nucl.010909.083629}{{\color{customblue}\texttt{[Ann.Rev.Nucl.Part.Sci.60(2010)]}}}}
+    \blfootnote{\scriptsize Artwork by T. Ullrich}
+\end{frame}
 
-% \subsection{Kinetic theory}
 
-% \setbeamertemplate{background}{
-% \tikz[overlay,remember picture] \node[opacity=0.1, at=(current page.center), align=center] {\\[3pt]
-% {\transparent{0.15}\includegraphics[height=0.6\paperheight]{images/featured_hud17e234a84b7f8be63afa171c5969276_311325_720x0_resize_lanczos_3.png}}
-%    \\[10pt]  
-%    {\transparent{0.5}\footnotesize\itshape Figure from  A. Kurkela, A. Mazeliauskas, J.-F. Paquet, S. Schlichting, D. Teaney \href{https://arxiv.org/abs/1805.00961}{{\color{lightgray}\texttt{[1805.00961]}}}}};
-% }
-% \begin{frame}[plain,noframenumbering]{}
-%     \begin{center}
-%         \vspace{1cm}
-%         {\large\color{normal}Next stages of pre-equilibrium}\\[0.3cm]
-%         {\huge\color{destacado}Effective kinetic theory}
-%     \end{center}
-% \end{frame}
-% \setbeamertemplate{background}{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%% SLIDE %%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% \setbeamertemplate{background}{
-% \tikz[overlay,remember picture] \node[at=(current page.center), align=center] {\\[40pt]
-% {\transparent{1}\includegraphics[height=0.65\paperheight]{images/CARTOON_BUP_SS.pdf}}
-%    \\[10pt]  
-%    {\transparent{1}\footnotesize\itshape Figure from  S. Schlichting, D. Teaney \href{https://arxiv.org/abs/1908.02113}{{\color{lightgray}\texttt{[1908.02113]}}}}};
-% }
-% \begin{frame}
-%     \frametitle{Bottom-up thermalization}
-%     \framesubtitle{Equilibration at weak coupling}
-% \end{frame}
-% \setbeamertemplate{background}{}
+\begin{frame}
+    \frametitle{CGC fields}
+    \framesubtitle{Analytical fields before the collision}
+    \begin{figure}[!hbt]
+        \centering
+    	\includegraphics[width=0.7\textwidth]{images/cgc_nuclei.png}
+        \captionsetup{justification=centering}
+    \end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%% SLIDE %%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[noframenumbering]
+    \frametitle{Glasma fields}
+    \framesubtitle{Numerical field after the collision}
+    \begin{columns}[onlytextwidth,t]
+        \column{.02\textwidth}
+       \column{.46\textwidth}
+       \begin{figure}
+            \centering
+            \includegraphics[width=0.85\columnwidth]{images/cgc_col.png}
+            \captionsetup{justification=centering}
+        \end{figure}
+        \column{.02\textwidth}
+        \column{.5\textwidth}
+        \vspace{0.2cm}
+        \begin{center}
+            {\color{customgreen}$\sbullet[0.6]$ Known CGC fields} at $\tau<0$ \\[0.1cm]
+            {\color{destacado}$\sbullet[0.6]$ Boundary condition} at $\tau=0$ \\[0.1cm]
+            {\color{custompink}$\sbullet[0.6]$ Unknown Glasma fields} at $\tau>0$ \\[0.5cm]
+            {\scriptsize{\color{lightgray}Milne coordinates ($\tau$, $\eta$)} \\
+            {\color{lightgray}$\tau=\sqrt{2 x^+x^-}$, $\eta=\ln(x^+/x^-)/2$}\\[0.4cm]
+            {\color{lightgray}Boost-invariant approximation $\mathrm{fields}=\mathrm{indep}(\eta)$} \\[0.3cm]
+            {\color{lightgray}Numerical solution of Yang-Mills}\\[-0.15cm] {\color{lightgray}equations $\Rightarrow$ Glasma\footnotemark}}
+        \end{center}
+        \column{.02\textwidth}
+    \end{columns}
+    \footnotetext{\scriptsize Lappi, McLerran \href{https://doi.org/10.1016/j.nuclphysa.2006.04.001}{{\color{customblue}\texttt{[Nucl.Phys.A772(2006)]}}}}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%% SLIDE %%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+    \frametitle{Features of glasma}
+    \framesubtitle{Saturation scale, flux tubes, anisotropy}
+    \begin{columns}[onlytextwidth,t]
+        \column{.033\textwidth}
+       \column{.4\textwidth}
+       \begin{figure}
+            \centering
+            \only<1>{\includegraphics[width=0.85\textwidth]{images/QxA.pdf}
+            }
+            \only<2>{\includegraphics[width=0.85\textwidth]{images/glasma.eps}
+            }
+            \only<3>{\includegraphics[width=0.85\textwidth]{images/components.eps}
+            }
+            \only<4>{\includegraphics[width=0.7\textwidth]{images/1-s2.0-S0370269320306134-gr003_lrg.jpg}
+            }
+            \only<5>{\includegraphics[width=0.85\textwidth]{images/ratio-0_1-1.pdf}
+        }
+        \end{figure}
+        \column{.033\textwidth}
+        \column{.5\textwidth}
+        \vspace{0.2cm}
+        \begin{center}
+            \begin{itemize}
+                \onslide<1,2,3,4,5>{\item Relevant scale {\color{custompink}saturation momentum $Q_s$}}
+                \onslide<2,3,4,5>{\item Initial longitudinal color flux tubes}
+                \onslide<3,4,5>{\item Fields {\color{customgreen}dilute} after $\tau\simeq {\color{custompink}Q}^{-1}_{\color{custompink}s}$}
+                \onslide<4,5>{\item Fields arranged in {\color{customgreen}correlation domains} of $\delta x_T \simeq {\color{custompink}Q}^{-1}_{\color{custompink}s}$}
+                \onslide<5>{\item Longitudinal $\neq$ transverse pressures $\Rightarrow$ {\color{pinky}anisotropy}}
+            \end{itemize}
+        \end{center}
+        \column{.033\textwidth}
+    \end{columns}
+    \only<1>{\blfootnote{\scriptsize Gelis \href{https://doi.org/10.1088/1361-6633/abec2e}{{\color{customblue}\texttt{[Rept.Prog.Phys.84(2021)]}}}}}
+    \only<2>{\blfootnote{\scriptsize Fukushima \href{https://doi.org/10.1088/1361-6633/80/2/022301}{{\color{customblue}\texttt{[Rept.Prog.Phys.80(2017)]}}}}}
+    \only<3>{\blfootnote{\scriptsize Lappi \href{https://doi.org/10.1016/j.physletb.2006.10.017}{{\color{customblue}\texttt{[Phys.Lett.B643(2006)]}}}}}
+    \only<4>{\blfootnote{\scriptsize Ipp, Müller, Schuh \href{https://doi.org/10.1016/j.physletb.2020.135810}{{\color{customblue}\texttt{[Phys.Lett.B810(2020)]}}}}}
+    \only<5>{\blfootnote{\scriptsize Epelbaum, Gelis \href{https://doi.org/10.1103/PhysRevLett.111.232301}{{\color{customblue}\texttt{[Phys.Rev.Lett.111(2013)]}}}}}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%% SUBSECTION %%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Kinetic theory}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%% SLIDE %%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setbeamertemplate{background}{
+\tikz[overlay,remember picture] \node[opacity=0.1, at=(current page.center), align=center] {\\[3pt]
+{\transparent{0.15}\includegraphics[height=0.6\paperheight]{images/featured_hud17e234a84b7f8be63afa171c5969276_311325_720x0_resize_lanczos_3.png}}
+   };
+}
+\begin{frame}[plain,noframenumbering]{}
+    \begin{center}
+        \vspace{1cm}
+        {\large\color{normal}Next stages of pre-equilibrium}\\[0.3cm]
+        {\huge\color{destacado}Effective kinetic theory}
+    \end{center}
+\end{frame}
+\setbeamertemplate{background}{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%% SLIDE %%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setbeamertemplate{background}{
+\tikz[overlay,remember picture] \node[at=(current page.center), align=center] {\\[3pt]
+{\includegraphics[height=0.6\paperheight]{images/featured_hud17e234a84b7f8be63afa171c5969276_311325_720x0_resize_lanczos_3.png}}};
+}
+\begin{frame}[plain,noframenumbering]{}
+    \blfootnote{\scriptsize Kurkela, Mazeliauskas, Paquet, Schlichting, Teaney \href{https://journals.aps.org/prc/abstract/10.1103/PhysRevC.99.034910}{{\color{customblue}\texttt{[Phys.Rev.C99(2019)]}}}}
+\end{frame}
+\setbeamertemplate{background}{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%% SLIDE %%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setbeamertemplate{background}{
+\tikz[overlay,remember picture] \node[at=(current page.center), align=center] {\\[40pt]
+{\includegraphics[height=0.65\paperheight]{images/CARTOON_BUP_SS.pdf}}};
+}
+\begin{frame}
+    \frametitle{Bottom-up thermalization}
+    \framesubtitle{Equilibration at weak coupling}
+    \blfootnote{\scriptsize Schlichting, Teaney \href{hhttps://doi.org/10.1146/annurev-nucl-101918-023825}{{\color{customblue}\texttt{[Ann.Rev.Nucl.Part.Sci.69(2019)]}}}}
+\end{frame}
+\setbeamertemplate{background}{}
 
 % \begin{frame}
 %     \frametitle{Effective kinetic theory}
@@ -812,1447 +841,93 @@
 % % \setbeamertemplate{background}{}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%% SECTION 3 %%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{{\color{jyublue}Heavy quarks} in pre-equilibrium}
-
-\setbeamertemplate{background}{
-\tikz[overlay,remember picture] \node[opacity=0.1, at=(current page.center), align=center] {
-    % \\[-20pt]
-    \\[45pt]
-{\transparent{0.3}\includegraphics[height=0.55\paperheight]{images/Greco-HF-Theory-HP2020-v-5_edit.png}}
-   \\[10pt]  
-   {\transparent{0.3}\footnotesize\itshape Figure credits to V. Greco}};
-}
-\begin{frame}[plain,noframenumbering]{}
-    \begin{center}
-        \vspace{1cm}
-        {\huge\color{destacado}Heavy quarks in pre-equilibrium}
-    \end{center}
-\end{frame}
-\setbeamertemplate{background}{}
-
-
-\subsection{Glasma}
-
-\setbeamertemplate{background}{
-\tikz[overlay,remember picture] \node[opacity=0.1, at=(current page.center), align=center] {\\[10pt]
-{\transparent{0.1}\includegraphics[height=0.7\paperheight]{images/momentum_broadening_flipped.pdf}}
-   \\[10pt]  
-   {\transparent{0.3}\footnotesize\itshape Figure from  A. Ipp, D. Müller, D. Schuh \href{https://arxiv.org/abs/2009.14206}{{\color{lightgray}\texttt{[2009.14206]}}}}};
-}
-
-\setbeamertemplate{itemize item}{\raisebox{0.2em}{\scalebox{0.7}{${\color{normal}\blacktriangleright}$}}} 
-
-\begin{frame}[plain,noframenumbering]{}
-    \begin{center}
-        \vspace{1cm}
-        {\large\color{normal}Initial stage of pre-equilibrium}\\[0.3cm]
-        {\huge\color{destacado}Heavy quarks in glasma}\\[0.3cm]
-        {\large\color{normal}
-        \begin{center}
-            % \begin{minipage}{0.45\textwidth}
-            % \begin{itemize}
-            %     \item Momentum broadening $\langle \delta p^2\rangle$
-            %     \item Transport coefficient $\kappa$
-            %     \item Observables $R_{AA}$, $v_2$, $\mathcal{C}(\Delta\phi)$
-            % \end{itemize}
-            % \end{minipage}
-            \begin{columns}
-                \begin{column}{0.066\textwidth}\end{column}
-                \begin{column}{0.35\textwidth}
-                    \centering
-                    \setbeamertemplate{itemize item}{\raisebox{0.2em}{\scalebox{0.7}{${\color{ming}\blacktriangleright}$}}} 
-                    {\Large\color{ming} Approaches}
-                    \begin{itemize}
-                        \item Numerical trajectories
-                        \item Correlator method
-                    \end{itemize}
-                \end{column}
-                \begin{column}{0.066\textwidth}\end{column}
-                \begin{column}{0.45\textwidth}
-                    \centering
-                    \\[10pt]
-                    \setbeamertemplate{itemize item}{\raisebox{0.2em}{\scalebox{0.7}{${\color{pinky}\blacktriangleright}$}}} 
-                    {\Large\color{pinky} Quantities}
-                    \begin{itemize}
-                        \item Momentum broadening $\langle \delta p^2\rangle$
-                        \item Transport coefficient $\kappa$
-                        \item Observables $R_{AA}$, $v_2$, $\mathcal{C}(\Delta\phi)$
-                    \end{itemize}
-                \end{column}
-                \begin{column}{0.066\textwidth}\end{column}
-            \end{columns}
-        \end{center}
-        }
-        % \\[0.3cm]
-    \end{center}
-\end{frame}
-\setbeamertemplate{background}{}
-
-\begin{frame}
-    \frametitle{Particles in Yang-Mills fields}
-    \framesubtitle{Wong's equations of motion}
-        \setbeamertemplate{itemize item}{\raisebox{0.2em}{\scalebox{0.7}{${\color{ming}\blacktriangleright}$}}} 
-        \begin{itemize}
-            \item \begin{center}{{\color{ming}Approach}: {\color{ming}numerical trajectories} of classical particles in glasma fields} \end{center}
-        \end{itemize} 
-   \begin{center}
-       Wong's equations $\leftrightarrow$ classical equations of motion for particles $({\color{customblue}x^\mu},{\color{customred}p^\mu},{\color{customyellow}Q})$ \\
-    evolving in a Yang-Mills background field ${\color{starrysecond}A^\mu}$
-   \end{center} 
-        \vspace{1cm}
-        \renewcommand{\eqnhighlightheight}{\vphantom{x}}
-        \begin{equation*}
-            \frac{\d}{\d\hspace{-0.1cm}\eqnmark[destacado]{tau}{\boldsymbol{\tau}}\hspace{-0.2cm}}\eqnmark[customblue]{xmu}{x^\mu}=\frac{{\color{customred}p^\mu}}{\eqnmark[destacado]{m}{m}},\qquad \eqnmark[destacado]{Ddtau}{\frac{\mathrm{D}}{\d\boldsymbol{\tau}}}\hspace{-0.2cm}\eqnmark[customred]{pmu}{p^\mu}=2\hspace{-0.1cm}\eqnmark[destacado]{g}{g}\hspace{-0.1cm}\tr{{\color{customyellow}Q}F^{\mu\nu}[\hspace{-0.1cm}\eqnmark[starrysecond]{amu}{A^\mu}\hspace{-0.1cm}]}\frac{{\color{customred}p_\nu}}{m},\qquad 
-            \underbrace{\frac{\d}{\d\boldsymbol{\tau}}\hspace{-0.1cm}\eqnmark[customyellow]{Q}{Q}\hspace{-0.1cm}=-\mathrm{i}g [{\color{starrysecond}A_\mu},{\color{customyellow}Q}]\,\frac{{\color{customred}p^\mu}}{m}}_{\substack{\text{\footnotesize color rotation}\,\rightarrow\,{\color{customgreen}\mathcal{U}}\in\,\mathrm{SU(3)} \\[0.2cm] {\color{customyellow}Q}(\boldsymbol{\tau})=\,{\color{customgreen}\mathcal{U}}(\boldsymbol{\tau},\boldsymbol{\tau}^\prime){\color{customyellow}Q}(\boldsymbol{\tau^\prime})\,{\color{customgreen}\mathcal{U}^\dagger}(\boldsymbol{\tau},\boldsymbol{\tau}^\prime)}}
-            \end{equation*}
-            \annotate[yshift=1.2em]{above}{xmu}{coordinate}
-            \annotate[yshift=1.2em]{above}{pmu}{momentum}
-            \annotate[yshift=-0.5em]{below, right}{m}{\tiny mass}
-            \annotate[yshift=-1.5em]{below, right}{Ddtau}{\tiny covariant derivative}
-            \annotate[yshift=-1.5em]{below, right}{tau}{\tiny proper time}
-            \annotate[yshift=-0.7em]{below, right}{g}{\tiny coupling constant}
-            \annotate[yshift=1.2em]{above}{Q}{color charge}
-            \annotate[yshift=1.2em]{above, right}{amu}{gauge field}
-    %    \\
-        % \begin{center}
-        %     Symplectic numerical solver $\xrightarrow{\mathrm{assures}}$ ${\color{customyellow}Q}\in\mathrm{SU(3)}$, conservation of Casimir invariants 
-        % \end{center} 
-\end{frame}
-
-\begin{frame}[noframenumbering]
-    \frametitle{Particles in Yang-Mills fields}
-    \framesubtitle{Vizualizing the trajectories\footnote{\scriptsize Avramescu, Băran, Greco, Ipp, Müller, Ruggieri  \href{https://journals.aps.org/prd/abstract/10.1103/PhysRevD.107.114021}{{\color{customblue}\texttt{[Phys.Rev.D107(2023)]}}}}}
-    \vspace{-0.5cm}
-    \begin{columns}[onlytextwidth,t]
-        \column{.025\textwidth}
-       \column{.3\textwidth}
-                \begin{center}
-                    Change of coordinates 
-                \end{center}
-                \vspace{-20pt}
-                \begin{figure}[!hbt]
-                    \centering
-                \includegraphics[width=1.1\columnwidth]{images/wong_coord.png}
-                \end{figure}
-                \column{.025\textwidth}
-        \column{.3\textwidth}
-            \begin{center}
-                Color Lorentz force
-            \end{center}
-            \vspace{-20pt}
-            \begin{figure}[!hbt]
-                \centering
-                \includegraphics[width=1.1\columnwidth]{images/wong_mom.png}
-            \end{figure}
-            \column{.025\textwidth}
-        \column{.3\textwidth}
-            \begin{center}
-                Color rotation
-            \end{center}
-            \vspace{-15pt}
-            \begin{figure}[!hbt]
-                \centering
-                \includegraphics[width=1.05\columnwidth]{images/wong_charge.png}
-            \end{figure}
-            \column{.025\textwidth}
-    \end{columns}
-\end{frame}
-
-\begin{frame}[noframenumbering]
-    \frametitle{Particles in Yang-Mills fields}
-    % \framesubtitle{Wong's equations of motion} 
-        \begin{itemize}
-            % \setbeamertemplate{itemize item}{\raisebox{0.2em}{\scalebox{0.7}{${\color{ming}\blacktriangleright}$}}}
-            % \item {\large{{\color{ming}Approach}: {\color{ming}numerical trajectories} of classical particles in glasma fields}}
-            \setbeamertemplate{itemize item}{\raisebox{0.2em}{\scalebox{0.7}{${\color{pinky}\blacktriangleright}$}}}
-            \item  {\large{{\color{pinky}Quantities}: averaged over particle trajectories and glasma events}}
-                \\[10pt]
-                \begin{itemize}
-                    \item[\raisebox{0.2em}{\scalebox{0.6}{${\color{pinky}\blacktriangleright}$}}]   \tikzmarknode{A}{Momentum broadening ${\color{custompink}\langle\delta p_i^2\rangle}(\tau)= \langle p_i^2(\tau)-p_i^2(\tau_\mathrm{form})\rangle$} \\[5pt]
-                    \item[\raisebox{0.2em}{\scalebox{0.6}{${\color{pinky}\blacktriangleright}$}}] \tikzmarknode{B}{Transport coefficient\footnote{More on transport coefficients in QGP from {\color{jyured}Maria-Lucia}} ${\color{custompink}\kappa_i}=\dfrac{\mathrm{d}}{\mathrm{d}\tau}\langle \delta p^2_i(\tau)\rangle$ $\phantom{-p_i^2(\tau_\mathrm{form})abcd}$}\\[5pt]
-                    % \item[\raisebox{0.2em}{\scalebox{0.6}{${\color{pinky}\blacktriangleright}$}}]   \tikzmarknode{B}{Momentum anisotropy ${\color{custompink}\dfrac{\langle\delta p_L^2\rangle}{\langle\delta p_T^2\rangle}}$ $\phantom{= p_i^2(\tau)-p_i^2(\tau_\mathrm{form})abcd}$} \\[5pt]
-                    \item[\raisebox{0.2em}{\scalebox{0.6}{${\color{jyured}\blacktriangleright}$}}] \tikzmarknode{M}{Transverse momentum spectra ${\color{jyured}\dfrac{\mathrm{d}N}{\mathrm{d}p_T}}(\tau)$ using FONLL input $\dfrac{\mathrm{d}N}{\mathrm{d}p_T}(\tau_\mathrm{form})$}\\[5pt]
-                    \item[\raisebox{0.2em}{\scalebox{0.6}{${\color{jyured}\blacktriangleright}$}}] Nuclear modification factor ${\color{jyured}R_{AA}}=\dfrac{\mathrm{d}N^{AA}/\mathrm{d}p_T}{A^2 \mathrm{d}N^{pp}/\mathrm{d}p_T}$ \\[5pt]
-                    \item[\raisebox{0.2em}{\scalebox{0.6}{${\color{jyured}\blacktriangleright}$}}] \tikzmarknode{N}{Two-particle azimuthal correlation ${\color{jyured}\mathcal{C}(\Delta\phi)}= \dfrac{1}{N_\mathrm{pairs}}\dfrac{\mathrm{d}N}{\mathrm{d}\Delta\phi}$ for $Q\overline{Q}$ pairs $\phantom{abcd}$}
-                \end{itemize}
-        \end{itemize} 
-
-        \begin{tikzpicture}[overlay,remember picture,
-            BC/.style = {decorate,
-                    decoration={calligraphic brace, amplitude=4pt,
-                    raise=4pt},
-                    thick,
-                    pen colour=pinky}
-                             ]
-            \path[BC]   (A.north -| B.east) -- node[right=8pt] {\color{pinky}theoretical} (B.south east);
-        \end{tikzpicture}
-        \begin{tikzpicture}[overlay,remember picture,
-            NO/.style = {decorate,
-                    decoration={calligraphic brace, amplitude=4pt,
-                    raise=4pt},
-                    thick,
-                    pen colour=jyured}
-                             ]
-            \path[NO]   (M.north -| N.east) -- node[right=8pt] {\color{jyured}observables\footnote{More on HF observables from {\color{jyured} Mattia}}} (N.south east);
-        \end{tikzpicture}
-\end{frame}
-
-% \begin{frame}
-%     \begin{itemize}
-% \item   a: there is some \tikzmarknode{A}{content}
-% \item   b: in this item is some longer \tikzmarknode{B}{content}
-% \item   last item 
-%     \end{itemize}
-% \begin{tikzpicture}[overlay,remember picture,
-% BC/.style = {decorate,
-%         decoration={calligraphic brace, amplitude=4pt,
-%         raise=4pt},
-%         very thick,
-%         pen colour=red}
-%                  ]
-% \path[BC]   (A.north -| B.east) -- node[right=8pt] {$\Longrightarrow d$} (B.south east);
-% \end{tikzpicture}
-% \end{frame}
-
-
-\setbeamertemplate{itemize item}{\raisebox{0.2em}{\scalebox{0.7}{${\color{customblue}\blacktriangleright}$}}}
-
-% \begin{frame}[t]
-%     \frametitle{Numerical trajectories results}
-%     \begin{center}
-%         \begin{tikzpicture}[xscale=1]%[scale=0.9, every node/.style={scale=0.6}]
-%             % \draw[line width=2mm,-latex,red!20] (-0.2,0) -- (9,0);
-%             \draw[line width=0.5mm,-latex,customblue!20] (-0.2,0) -- (8.5+0.2,0);
-%             \foreach \X [evaluate=\X as \Y using int(\X-2017),count=\Z] in {2018, 2019, 2021, 2022, 2024}
-%             {
-%             % \draw[highlight on=<\Z>] ({\Y-0.2},-0.5) -- ({\Y+0.2},-0.5) -- (\Y,-0.1) -- cycle;
-%             \draw[highlight on=<\Z>] (\Y,0) circle[radius=2.5pt];
-%             % \node[circle, highlight on=<\Z>,inner sep=2pt,color=customblue] at (\Y,0) {};
-%             \node[anchor=south,highlight on=<\Z>,fill=white,rotate=45,anchor=south
-%             west,inner sep=0pt] at (\Y,0.2) {\X};
-%             }
-%         \end{tikzpicture}
-%     \end{center}
-%     \vspace{-10pt}
-%     \begin{columns}[onlytextwidth,t]
-%         \column{.02\textwidth}
-%        \column{.44\textwidth}
-%        \begin{figure}
-%             \centering
-%             \captionsetup{justification=centering}
-%             \only<1>{\includegraphics[width=\textwidth]{images/pPb_RpPb_FRAGME_new_2.pdf}}
-%             \only<2>{\includegraphics[width=0.95\textwidth]{images/1-s2.0-S0370269319306550-gr003_lrg.jpg}}
-%             \only<3>{\includegraphics[width=0.95\textwidth]{images/zoom_02fm_langevin.png}}
-%             \only<4>{\includegraphics[width=0.95\textwidth]{images/sigmap_charm_expanding_04.png}}
-%             \only<5>{\includegraphics[width=0.9\textwidth]{images/beauty_early_behaviour_mom_broad.pdf}}
-%             \only<6>{\includegraphics[width=0.8\textwidth]{images/clean_raa_tau_0.3_charm_quark_Qs_2.0_fonll_pdf_vs_npdf_v3.png}}
-%             \only<7>{\includegraphics[width=0.8\textwidth]{images/final_dNdphi_tau_dep_charm_v2.png}}
-%         \end{figure}
-%         \column{.02\textwidth}
-%         \column{.5\textwidth}
-%         % \vspace{0.2cm}
-%         \begin{center}
-%             \begin{itemize}
-%                 \item<1> $R_{pA}$ for D-mesons\only<1>{\footnotemark \\[5pt] {\color{lightgray}\footnotesize FONLL input + fragmentation\\
-%                 SU(2) glasma, static box}}
-%                 \item<2> Hybrid $R_{AA}$ and $v_2$\only<2>{\footnotemark \\[5pt] {\color{lightgray}\footnotesize Compared with Fokker-Planck diffusion\\
-%                 SU(2) glasma, static box}}
-%                 \only<3>{\item Momentum variance $\sigma_p$\footnotemark \\[5pt] {\color{lightgray}\footnotesize Compared with Langevin diffusion\\
-%                 SU(2) glasma, static box}}
-%                 \item<4> Momentum variance $\sigma_p$\only<4>{\footnotemark \\[5pt] {\color{lightgray}\footnotesize SU(2) glasma, longitudinal expansion}}
-%                 \item<5> Momentum broadening $\langle \delta p^2\rangle$\only<5>{\footnotemark}\\
-%                 Transport coefficient $\kappa$\only<5>{\footnotemark \\[5pt] {\color{lightgray}\footnotesize SU(3) glasma, CPIC particle solver}}
-%                 \item<6> $R_{AA}$ with nPDF effects
-%                 \item<7> Azimuthal decorrelation $\mathcal{C}(\Delta\phi)$ \only<7>{\\[5pt] {\color{lightgray}\footnotesize $Q\overline{Q}$ pairs evolve in glasma}}
-%             \end{itemize}
-%         \end{center}
-%         \column{.02\textwidth}
-%     \end{columns}
-%     \only<1>{\footnotetext{\scriptsize Ruggieri, Das \href{https://journals.aps.org/prd/abstract/10.1103/PhysRevD.98.094024}{{\color{customblue}\texttt{[Phys.Rev.D98(2018)]}}}}}
-%     \only<2>{\footnotetext{\scriptsize Sun, Coci, Das, Plumari, Ruggieri, Greco \href{https://doi.org/10.1016/j.physletb.2019.134933}{{\color{customblue}\texttt{[Phys.Lett.B798(2019)]}}}}}
-%     \only<3>{\footnotetext{\scriptsize Liu, Das, Greco, Ruggieri \href{https://journals.aps.org/prd/abstract/10.1103/PhysRevD.103.034029}{{\color{customblue}\texttt{[Phys.Rev.D103(2021)]}}}}}
-%     \only<4>{\footnotetext{\scriptsize Khowal, Das, Oliva, Ruggieri \href{https://link.springer.com/article/10.1140/epjp/s13360-022-02517-w}{{\color{customblue}\texttt{[Eur.Phys.J.Plus137(2022)]}}}}}
-%     \only<5>{\footnotetext{\scriptsize Avramescu, Băran, Greco, Ipp, Müller, Ruggieri  \href{https://journals.aps.org/prd/abstract/10.1103/PhysRevD.107.114021}{{\color{customblue}\texttt{[Phys.Rev.D107(2023)]}}}}}
-%     % only<2>{\footnotetext{\scriptsize Sun, Coci, Das, Plumari, Ruggieri, Greco  \href{https://doi.org/10.1016/j.physletb.2019.134933}{{\color{customblue}\texttt{[Phys.Lett.B798(2019)]}}}}}
-% \end{frame}
-
-\begin{frame}[t]
-    \frametitle{Numerical trajectories results}
-    \begin{center}
-        \begin{tikzpicture}[xscale=1]%[scale=0.9, every node/.style={scale=0.6}]
-            % \draw[line width=2mm,-latex,red!20] (-0.2,0) -- (9,0);
-            \draw[line width=0.5mm,-latex,customblue!20] (-0.2,0) -- (8.5+0.2,0);
-            \foreach \X [evaluate=\X as \Y using int(\X-2017),count=\Z] in {2018, 2019, 2021, 2022, 2024}
-            {
-            % \draw[highlight on=<\Z>] ({\Y-0.2},-0.5) -- ({\Y+0.2},-0.5) -- (\Y,-0.1) -- cycle;
-            \draw[highlight on=<\Z>] (\Y,0) circle[radius=2.5pt];
-            % \node[circle, highlight on=<\Z>,inner sep=2pt,color=customblue] at (\Y,0) {};
-            \node[anchor=south,highlight on=<\Z>,fill=white,rotate=45,anchor=south
-            west,inner sep=0pt] at (\Y,0.2) {\X};
-            }
-        \end{tikzpicture}
-    \end{center}
-    \vspace{-10pt}
-    \begin{columns}[onlytextwidth,t]
-        \column{.02\textwidth}
-       \column{.44\textwidth}
-       \begin{figure}
-            \centering
-            \captionsetup{justification=centering}
-            \only<1>{\includegraphics[width=\textwidth]{images/pPb_RpPb_FRAGME_new_2.pdf}}
-            \only<2>{\includegraphics[width=0.95\textwidth]{images/1-s2.0-S0370269319306550-gr003_lrg.jpg}}
-            \only<3>{\includegraphics[width=0.95\textwidth]{images/zoom_02fm_langevin.png}}
-            \only<4>{\includegraphics[width=0.95\textwidth]{images/sigmap_charm_expanding_04.png}}
-            \only<5>{\includegraphics[width=0.9\textwidth]{images/beauty_early_behaviour_mom_broad.pdf}}
-            % \only<6>{\includegraphics[width=0.8\textwidth]{images/clean_raa_tau_0.3_charm_quark_Qs_2.0_fonll_pdf_vs_npdf_v3.png}}
-            % \only<7>{\includegraphics[width=0.8\textwidth]{images/final_dNdphi_tau_dep_charm_v2.png}}
-        \end{figure}
-        \column{.02\textwidth}
-        \column{.5\textwidth}
-        % \vspace{0.2cm}
-        \begin{center}
-            \begin{itemize}
-                \only<1>{\item $R_{pA}$ for D-mesons\footnotemark \\[5pt] {\color{lightgray}\footnotesize First study in glasma\\ FONLL input + fragmentation\\
-                SU(2) glasma, static box}}
-                \only<2>{\item Hybrid $R_{AA}$ and $v_2$\footnotemark \\[5pt] {\color{lightgray}\footnotesize Compared with Fokker-Planck diffusion\\
-                Glasma increases $v_2$ \\
-                SU(2) glasma, static box 
-                % \\[5pt]
-                % Transport coefficients in QGP from {\color{jyured}Maria Lucia}}
-                }}
-                \only<3>{\item Momentum variance $\sigma_p$\footnotemark \\[5pt] {\color{lightgray}\footnotesize Compared with Langevin diffusion\\
-                Glasma correlation domains\\
-                SU(2) glasma, static box}}
-                \only<4>{\item Momentum variance $\sigma_p$\footnotemark \\[5pt] {\color{lightgray}\footnotesize SU(2) glasma, longitudinal expansion}}
-                \only<5>{\item Momentum broadening $\langle \delta p^2\rangle$\footnotemark\\
-                Transport coefficient $\kappa$\footnotemark \\[5pt] {\color{lightgray}\footnotesize SU(3) glasma, longitudinal expansion\\
-                Colored-particle-in-cell solver}}
-                % \only<6>{\item $R_{AA}$ with nPDF effects \\[5pt] {\color{lightgray}\footnotesize FONLL + EPPS16 input calculation}}
-                % \only<7>{\item Azimuthal decorrelation $\mathcal{C}(\Delta\phi)$ \\[5pt] {\color{lightgray}\footnotesize First study in glasma \\ $Q\overline{Q}$ pairs evolve in glasma}}
-            \end{itemize}
-        \end{center}
-        \column{.02\textwidth}
-    \end{columns}
-    \only<1>{\footnotetext{\scriptsize Ruggieri, Das \href{https://journals.aps.org/prd/abstract/10.1103/PhysRevD.98.094024}{{\color{customblue}\texttt{[Phys.Rev.D98(2018)]}}}}}
-    \only<2>{\footnotetext{\scriptsize Sun, Coci, Das, Plumari, Ruggieri, Greco \href{https://doi.org/10.1016/j.physletb.2019.134933}{{\color{customblue}\texttt{[Phys.Lett.B798(2019)]}}}}}
-    \only<3>{\footnotetext{\scriptsize Liu, Das, Greco, Ruggieri \href{https://journals.aps.org/prd/abstract/10.1103/PhysRevD.103.034029}{{\color{customblue}\texttt{[Phys.Rev.D103(2021)]}}}}}
-    \only<4>{\footnotetext{\scriptsize Khowal, Das, Oliva, Ruggieri \href{https://link.springer.com/article/10.1140/epjp/s13360-022-02517-w}{{\color{customblue}\texttt{[Eur.Phys.J.Plus137(2022)]}}}}}
-    \only<5>{\footnotetext{\scriptsize Avramescu, Băran, Greco, Ipp, Müller, Ruggieri  \href{https://journals.aps.org/prd/abstract/10.1103/PhysRevD.107.114021}{{\color{customblue}\texttt{[Phys.Rev.D107(2023)]}}}}}
-    % only<2>{\footnotetext{\scriptsize Sun, Coci, Das, Plumari, Ruggieri, Greco  \href{https://doi.org/10.1016/j.physletb.2019.134933}{{\color{customblue}\texttt{[Phys.Lett.B798(2019)]}}}}}
-\end{frame}
-
-\begin{frame}[noframenumbering]
-    \frametitle{Numerical trajectories results}
-    \begin{center}
-        \begin{tikzpicture}[xscale=1]%[scale=0.9, every node/.style={scale=0.6}]
-            \draw[line width=0.5mm,-latex,customblue!20] (-0.2,0) -- (8.5+0.2,0);
-            \foreach \X [evaluate=\X as \Y using int(\X-2017),count=\Z] in {2018, 2019, 2021, 2022}
-            {
-            \draw[highlight on=<0>] (\Y,0) circle[radius=2.5pt];
-            \node[anchor=south,highlight on=<0>,fill=white,rotate=45,anchor=south
-            west,inner sep=0pt] at (\Y,0.2) {\X};
-            }
-            \foreach \X [evaluate=\X as \Y using int(\X-2017),count=\Z] in {2024}
-            {
-            \draw[highlight on=<\Z>] (\Y,0) circle[radius=2.5pt];
-            \node[anchor=south,highlight on=<\Z>,fill=white,rotate=45,anchor=south
-            west,inner sep=0pt] at (\Y,0.2) {\X};
-            }
-        \end{tikzpicture}
-    \end{center}
-    \vspace{-10pt}
-    \begin{columns}[onlytextwidth,t]
-        \column{.02\textwidth}
-       \column{.44\textwidth}
-       \begin{figure}
-            \centering
-            \captionsetup{justification=centering}
-            \only<1>{\includegraphics[width=0.8\textwidth]{images/clean_raa_tau_0.3_charm_quark_Qs_2.0_fonll_pdf_vs_npdf_v3.png}}
-            % \only<7>{\includegraphics[width=0.8\textwidth]{images/final_dNdphi_tau_dep_charm_v2.png}}
-        \end{figure}
-        \column{.02\textwidth}
-        \column{.5\textwidth}
-        % \vspace{0.2cm}
-        \begin{center}
-            \begin{itemize}
-                \only<1>{\item $R_{AA}$ with nPDF effects \\[5pt] {\color{lightgray}\footnotesize FONLL + EPPS16 input calculation}}
-                % \only<7>{\item Azimuthal decorrelation $\mathcal{C}(\Delta\phi)$ \\[5pt] {\color{lightgray}\footnotesize First study in glasma \\ $Q\overline{Q}$ pairs evolve in glasma}}
-            \end{itemize}
-        \end{center}
-        \column{.02\textwidth}
-    \end{columns}
-    \only<1>{\footnotetext{\scriptsize Avramescu, Greco, Lappi, Mäntysaari, M\"{u}ller  {\color{customblue}\texttt{[in preparation]}}}}
-\end{frame}
-
-\begin{frame}[noframenumbering]
-    \frametitle{Numerical trajectories results}
-    \begin{center}
-        \begin{tikzpicture}[xscale=1]%[scale=0.9, every node/.style={scale=0.6}]
-            \draw[line width=0.5mm,-latex,customblue!20] (-0.2,0) -- (8.5+0.2,0);
-            \foreach \X [evaluate=\X as \Y using int(\X-2017),count=\Z] in {2018, 2019, 2021, 2022}
-            {
-            \draw[highlight on=<0>] (\Y,0) circle[radius=2.5pt];
-            \node[anchor=south,highlight on=<0>,fill=white,rotate=45,anchor=south
-            west,inner sep=0pt] at (\Y,0.2) {\X};
-            }
-            \foreach \X [evaluate=\X as \Y using int(\X-2017),count=\Z] in {2024}
-            {
-            \draw[highlight on=<\Z>] (\Y,0) circle[radius=2.5pt];
-            \node[anchor=south,highlight on=<\Z>,fill=white,rotate=45,anchor=south
-            west,inner sep=0pt] at (\Y,0.2) {\X};
-            }
-        \end{tikzpicture}
-    \end{center}
-    \vspace{-10pt}
-    \begin{columns}[onlytextwidth,t]
-        \column{.02\textwidth}
-       \column{.44\textwidth}
-       \begin{figure}
-            \centering
-            \captionsetup{justification=centering}
-            % \only<1>{\includegraphics[width=0.8\textwidth]{images/clean_raa_tau_0.3_charm_quark_Qs_2.0_fonll_pdf_vs_npdf_v3.png}}
-            \only<1>{\includegraphics[width=0.8\textwidth]{images/final_dNdphi_tau_dep_charm_v2.png}}
-        \end{figure}
-        \column{.02\textwidth}
-        \column{.5\textwidth}
-        % \vspace{0.2cm}
-        \begin{center}
-            \begin{itemize}
-                % \only<1>{\item $R_{AA}$ with nPDF effects \\[5pt] {\color{lightgray}\footnotesize FONLL + EPPS16 input calculation}}
-                \only<1>{\item Azimuthal decorrelation $\mathcal{C}(\Delta\phi)$ \\[5pt] {\color{lightgray}\footnotesize First study in glasma \\ $Q\overline{Q}$ pairs evolve in glasma}}
-            \end{itemize}
-        \end{center}
-        \column{.02\textwidth}
-    \end{columns}
-    \only<1>{\footnotetext{\scriptsize Avramescu, Greco, Lappi, Mäntysaari, M\"{u}ller  {\color{customblue}\texttt{[in preparation]}}}}
-\end{frame}
-
-
-\begin{frame}
-    \frametitle{Particles in Yang-Mills fields}
-    \framesubtitle{Correlator method}
-        \setbeamertemplate{itemize item}{\raisebox{0.2em}{\scalebox{0.7}{${\color{ming}\blacktriangleright}$}}} 
-        \begin{itemize}
-            \item \begin{center}{{\color{ming}Approach}: infer particle dynamics from background {\color{ming}field correlators}} \end{center}
-        \end{itemize} 
-        \renewcommand{\eqnhighlightheight}{\vphantom{x}}
-        \begin{equation*}
-            \langle \delta p^2_i(\tau)\rangle= g^2 \int\limits_{\tau_0}^{\tau}\mathrm{d}\tau^{\prime}\int\limits_{\tau_0}^{\tau}\mathrm{d}\tau^{\prime\prime}\eqnmark[ming]{FF}{\Big\langle \mathrm{Tr}\big[\widetilde{\mathcal{F}}_i(\tau^{\prime})\widetilde{\mathcal{F}}_i(\tau^{\prime\prime})\big]\Big\rangle}
-        \end{equation*}
-        \annotate[yshift=-1em]{below, left}{FF}{gauge invariant force correlator}
-        \\[20pt]
-        \begin{center}
-            {\footnotesize
-            Lorentz force $\mathcal{F}_i=F_{i\mu}\dfrac{p^\mu}{p^\tau}$ $\xrightarrow{\text{gauge invariant}}$ parallel transport on lattice $\widetilde{\mathcal{F}}_i$}
-        \end{center}
-
-        \begin{columns}
-            \begin{column}{0.033\textwidth}\end{column}
-            \begin{column}{0.45\textwidth}
-                \centering
-                \includegraphics[width=0.9\textwidth]{images/Picture9.pdf}
-            \end{column}
-            \begin{column}{0.01\textwidth}\end{column}
-            \begin{column}{0.45\textwidth}
-                % \centering
-                \vspace{-10pt}
-                \setbeamertemplate{itemize item}{\raisebox{0.2em}{\scalebox{0.7}{${\color{customyellow}\blacktriangleright}$}}} 
-                \begin{itemize}
-                    \item {\color{customyellow} Static heavy quarks} on lattice\footnotemark
-                \end{itemize} 
-                \vspace{10pt}
-                {\footnotesize
-                \begin{equation*}
-                    \langle \delta p^2_i(\tau)\rangle\big|_{\color{customyellow}m\rightarrow\infty}\propto \int_{\tau_0}^{\tau}\mathrm{d}\tau^{\prime}\int_{\tau_0}^{\tau}\mathrm{d}\tau^{\prime\prime}\Big\langle \mathrm{Tr}\big[{\color{customyellow}E_i}(\tau^{\prime}){\color{customyellow}E_i}(\tau^{\prime\prime})\big]\Big\rangle
-                \end{equation*}}
-            \end{column}
-            \begin{column}{0.056\textwidth}\end{column}
-        \end{columns}
-        \footnotetext{Electric field correlators also used by {\color{jyured}Vijami} and {\color{jyured}Tom}}
-%    \begin{center}
-%        Wong's equations $\leftrightarrow$ classical equations of motion for particles $({\color{customblue}x^\mu},{\color{customred}p^\mu},{\color{customyellow}Q})$ \\
-%     evolving in a Yang-Mills background field ${\color{starrysecond}A^\mu}$
-%    \end{center} 
-%         \vspace{1cm}
-%         \renewcommand{\eqnhighlightheight}{\vphantom{x}}
-%         \begin{equation*}
-%             \frac{\d}{\d\hspace{-0.1cm}\eqnmark[destacado]{tau}{\boldsymbol{\tau}}\hspace{-0.2cm}}\eqnmark[customblue]{xmu}{x^\mu}=\frac{{\color{customred}p^\mu}}{\eqnmark[destacado]{m}{m}},\qquad \eqnmark[destacado]{Ddtau}{\frac{\mathrm{D}}{\d\boldsymbol{\tau}}}\hspace{-0.2cm}\eqnmark[customred]{pmu}{p^\mu}=2\hspace{-0.1cm}\eqnmark[destacado]{g}{g}\hspace{-0.1cm}\tr{{\color{customyellow}Q}F^{\mu\nu}[\hspace{-0.1cm}\eqnmark[starrysecond]{amu}{A^\mu}\hspace{-0.1cm}]}\frac{{\color{customred}p_\nu}}{m},\qquad 
-%             \underbrace{\frac{\d}{\d\boldsymbol{\tau}}\hspace{-0.1cm}\eqnmark[customyellow]{Q}{Q}\hspace{-0.1cm}=-\mathrm{i}g [{\color{starrysecond}A_\mu},{\color{customyellow}Q}]\,\frac{{\color{customred}p^\mu}}{m}}_{\substack{\text{\footnotesize color rotation}\,\rightarrow\,{\color{customgreen}\mathcal{U}}\in\,\mathrm{SU(3)} \\[0.2cm] {\color{customyellow}Q}(\boldsymbol{\tau})=\,{\color{customgreen}\mathcal{U}}(\boldsymbol{\tau},\boldsymbol{\tau}^\prime){\color{customyellow}Q}(\boldsymbol{\tau^\prime})\,{\color{customgreen}\mathcal{U}^\dagger}(\boldsymbol{\tau},\boldsymbol{\tau}^\prime)}}
-%             \end{equation*}
-%             \annotate[yshift=1.2em]{above}{xmu}{coordinate}
-%             \annotate[yshift=1.2em]{above}{pmu}{momentum}
-%             \annotate[yshift=-0.5em]{below, right}{m}{\tiny mass}
-%             \annotate[yshift=-1.5em]{below, right}{Ddtau}{\tiny covariant derivative}
-%             \annotate[yshift=-1.5em]{below, right}{tau}{\tiny proper time}
-%             \annotate[yshift=-0.7em]{below, right}{g}{\tiny coupling constant}
-%             \annotate[yshift=1.2em]{above}{Q}{color charge}
-%             \annotate[yshift=1.2em]{above, right}{amu}{gauge field}
-    %    \\
-        % \begin{center}
-        %     Symplectic numerical solver $\xrightarrow{\mathrm{assures}}$ ${\color{customyellow}Q}\in\mathrm{SU(3)}$, conservation of Casimir invariants 
-        % \end{center} 
-\end{frame}
-
-
-
-\begin{frame}[t]
-    \frametitle{Field correlators results}
-    \begin{center}
-        \begin{tikzpicture}[xscale=1]
-            \draw[line width=0.5mm,-latex,customblue!20] (-0.2,0) -- (6.5+0.2,0);
-            \foreach \X [evaluate=\X as \Y using int(\X-2019),count=\Z] in {2023, 2024}
-            {
-            \draw[highlight on=<0>] (\Y,0) circle[radius=2.5pt];
-            \node[anchor=south,highlight on=<0>,fill=white,rotate=45,anchor=south
-            west,inner sep=0pt] at (\Y,0.2) {\X};
-            }
-            \foreach \X [evaluate=\X as \Y using int(\X-2019),count=\Z] in {2020}
-            {
-            \draw[highlight on=<\Z>] (\Y,0) circle[radius=2.5pt];
-            \node[anchor=south,highlight on=<\Z>,fill=white,rotate=45,anchor=south
-            west,inner sep=0pt] at (\Y,0.2) {\X};
-            }
-        \end{tikzpicture}
-    \end{center}
-    \vspace{-10pt}
-    \begin{columns}[onlytextwidth,t]
-        \column{.02\textwidth}
-       \column{.44\textwidth}
-       \begin{figure}
-            \centering
-            \captionsetup{justification=centering}
-            \only<1>{\includegraphics[width=0.9\textwidth]{images/1-s2.0-S0375947420302244-gr003_lrg (2).jpg}}
-        \end{figure}
-        \column{.02\textwidth}
-        \column{.5\textwidth}
-        % \vspace{0.2cm}
-        \begin{center}
-            \begin{itemize}
-                \only<1>{\item Transport coefficient $\kappa$ \\ Collisional energy loss $\mathrm{d}E/\mathrm{d}x$ \\[5pt] {\color{lightgray}\footnotesize Analytical glasma fields in $\tau$ expansion \\
-                Glasma $E$ and $B$ field correlators \\
-                Fokker-Planck equation for heavy quarks \\
-                }}
-            \end{itemize}
-        \end{center}
-        \column{.02\textwidth}
-    \end{columns}
-    \only<1>{\footnotetext{\scriptsize Carrington, Czajka, Mrowczynski \href{https://doi.org/10.1016/j.nuclphysa.2020.121914}{\color{customblue}\texttt{[Nucl.Phys.A1001(2020)]}}}}
-\end{frame}
-
-
-
-\begin{frame}[noframenumbering]
-    \frametitle{Field correlators results}
-    \begin{center}
-        \begin{tikzpicture}[xscale=1]
-            \draw[line width=0.5mm,-latex,customblue!20] (-0.2,0) -- (6.5+0.2,0);
-            \foreach \X [evaluate=\X as \Y using int(\X-2019),count=\Z] in {2023, 2024}
-            {
-            \draw[highlight on=<0>] (\Y,0) circle[radius=2.5pt];
-            \node[anchor=south,highlight on=<0>,fill=white,rotate=45,anchor=south
-            west,inner sep=0pt] at (\Y,0.2) {\X};
-            }
-            \foreach \X [evaluate=\X as \Y using int(\X-2019),count=\Z] in {2020}
-            {
-            \draw[highlight on=<\Z>] (\Y,0) circle[radius=2.5pt];
-            \node[anchor=south,highlight on=<\Z>,fill=white,rotate=45,anchor=south
-            west,inner sep=0pt] at (\Y,0.2) {\X};
-            }
-        \end{tikzpicture}
-    \end{center}
-    \vspace{-10pt}
-    \begin{columns}[onlytextwidth,t]
-        \column{.02\textwidth}
-       \column{.44\textwidth}
-       \begin{figure}
-            \centering
-            \captionsetup{justification=centering}
-            \only<1>{\includegraphics[width=0.85\textwidth]{images/mombroadening_with_inset_and_approximations.pdf}}
-        \end{figure}
-        \column{.02\textwidth}
-        \column{.5\textwidth}
-        % \vspace{0.2cm}
-        \begin{center}
-            \begin{itemize}
-                \only<1>{\item Momentum broadening $\langle \delta p^2 \rangle$ \\ Transport coefficient $\kappa$ \\[5pt] {\color{lightgray}\footnotesize Over-occupied classical Yang-Mills \\
-                Numerical lattice $\langle EE\rangle$ correlator \\
-                Large peak in $\langle \delta p^2 \rangle$ \\
-                Oscillations of $\kappa$ with plasmon frequency
-                }}
-            \end{itemize}
-        \end{center}
-        \column{.02\textwidth}
-    \end{columns}
-    \only<1>{\footnotetext{\scriptsize Boguslavski, Kurkela, Lappi, Peuron \href{https://doi.org/10.1007/JHEP09(2020)077}{\color{customblue}\texttt{[JHEP09(2020)]}}}}
-\end{frame}
-
-
-
-
-\begin{frame}[noframenumbering]
-    \frametitle{Field correlators results}
-    \begin{center}
-        \begin{tikzpicture}[xscale=1]
-            \draw[line width=0.5mm,-latex,customblue!20] (-0.2,0) -- (6.5+0.2,0);
-            \foreach \X [evaluate=\X as \Y using int(\X-2019),count=\Z] in {2020, 2024}
-            {
-            \draw[highlight on=<0>] (\Y,0) circle[radius=2.5pt];
-            \node[anchor=south,highlight on=<0>,fill=white,rotate=45,anchor=south
-            west,inner sep=0pt] at (\Y,0.2) {\X};
-            }
-            \foreach \X [evaluate=\X as \Y using int(\X-2019),count=\Z] in {2023}
-            {
-            \draw[highlight on=<\Z>] (\Y,0) circle[radius=2.5pt];
-            \node[anchor=south,highlight on=<\Z>,fill=white,rotate=45,anchor=south
-            west,inner sep=0pt] at (\Y,0.2) {\X};
-            }
-        \end{tikzpicture}
-    \end{center}
-    \vspace{-10pt}
-    \begin{columns}[onlytextwidth,t]
-        \column{.02\textwidth}
-       \column{.44\textwidth}
-       \begin{figure}
-            \centering
-            \captionsetup{justification=centering}
-            \only<1>{\includegraphics[width=0.8\textwidth]{images/hp23_mom_broad_kappa_anis_wong_vs_kappa-cropped.pdf}}
-        \end{figure}
-        \column{.02\textwidth}
-        \column{.5\textwidth}
-        % \vspace{0.2cm}
-        \begin{center}
-            \begin{itemize}
-                \only<1>{\item Momentum broadening $\langle \delta p^2 \rangle$ \\ Transport coefficient $\kappa$ \\[5pt] {\color{lightgray}\footnotesize Numerical lattice $\langle EE\rangle$ correlator \\ 
-                Comparison with numerical trajectories \\
-                Ordering $\langle\delta p^2_L\rangle>\langle\delta p^2_T\rangle$, negative $\kappa_L<0$ 
-                }}
-            \end{itemize}
-        \end{center}
-        \column{.02\textwidth}
-    \end{columns}
-    \only<1>{\footnotetext{\scriptsize Avramescu, Băran, Greco, Ipp, Müller, Ruggieri  \href{https://pos.sissa.it/438/056}{{\color{customblue}\texttt{[PoSHardProbes2023(2024)]}}}}}
-\end{frame}
-
-
-\begin{frame}[noframenumbering]
-    \frametitle{Field correlators results}
-    \begin{center}
-        \begin{tikzpicture}[xscale=1]
-            \draw[line width=0.5mm,-latex,customblue!20] (-0.2,0) -- (6.5+0.2,0);
-            \foreach \X [evaluate=\X as \Y using int(\X-2019),count=\Z] in {2020, 2023}
-            {
-            \draw[highlight on=<0>] (\Y,0) circle[radius=2.5pt];
-            \node[anchor=south,highlight on=<0>,fill=white,rotate=45,anchor=south
-            west,inner sep=0pt] at (\Y,0.2) {\X};
-            }
-            \foreach \X [evaluate=\X as \Y using int(\X-2019),count=\Z] in {2024}
-            {
-            \draw[highlight on=<\Z>] (\Y,0) circle[radius=2.5pt];
-            \node[anchor=south,highlight on=<\Z>,fill=white,rotate=45,anchor=south
-            west,inner sep=0pt] at (\Y,0.2) {\X};
-            }
-        \end{tikzpicture}
-    \end{center}
-    \vspace{-10pt}
-    \begin{columns}[onlytextwidth,t]
-        \column{.02\textwidth}
-       \column{.44\textwidth}
-       \begin{figure}
-            \centering
-            \captionsetup{justification=centering}
-            \only<1>{\includegraphics[width=0.9\textwidth]{images/2Dsc_g_SR_Qt500.pdf}}
-        \end{figure}
-        \column{.02\textwidth}
-        \column{.5\textwidth}
-        % \vspace{0.2cm}
-        \begin{center}
-            \begin{itemize}
-                \only<1>{\item Transport coefficient $\kappa$ \\[5pt] {\color{lightgray}\footnotesize 
-                Glasma-like classical fields \\
-                Numerical lattice $\langle EE\rangle$ correlator \\ 
-                Effect of non-perturbative gluonic excitations \\
-                Explain the peak in $\kappa$
-                }}
-            \end{itemize}
-        \end{center}
-        \column{.02\textwidth}
-    \end{columns}
-    \only<1>{\footnotetext{\scriptsize Backfried, Boguslavski, Hotzy \href{https://arxiv.org/abs/2408.12646}{{\color{customblue}\texttt{[arXiv2408.12646]}}}}}
-\end{frame}
-
-
-    
-% \begin{frame}[t]
-%     \frametitle{Historial}
-%     \begin{tikzpicture}[xscale=0.5]
-%     \draw[line width=0.5mm,-latex,customblue!20] (-0.2,0) -- (20+0.2,0);
-%     \foreach \X [evaluate=\X as \Y using int(\X-2000),count=\Z] in {2000,2001,2002} %<- these are the years not to be highlighted
-%     {
-%     % \draw[highlight on=<0>] ({\Y-0.2},-0.5) -- ({\Y+0.2},-0.5) -- (\Y,-0.1) -- cycle;
-%     \node[circle, highlight on=<\Z>,inner sep=2pt,color=customblue] at (\Y,0) {};
-%     \node[anchor=south,highlight on=<0>,fill=white,rotate=45,anchor=south
-%     west,inner sep=0pt] at (\Y,0.2) {\X};
-%     }
-%     \foreach \X [evaluate=\X as \Y using int(\X-2000),count=\Z] in {2005,2008,2015} %<- these are the years which are to be highlighted
-%     {
-%     % \draw[highlight on=<\Z>] ({\Y-0.2},-0.5) -- ({\Y+0.2},-0.5) -- (\Y,-0.1) -- cycle;
-%     \node[circle, highlight on=<\Z>,inner sep=2pt,color=customblue] at (\Y,0) {};
-%     \node[anchor=south,highlight on=<\Z>,fill=white,rotate=45,anchor=south
-%     west,inner sep=0pt] at (\Y,0.2) {\X};
-%     }
-%     \end{tikzpicture}
-%     \begin{itemize}
-%         \item<1> November 2005: marmots start hibernating again
-%     \end{itemize}
-% \end{frame}
-
-
-
-\subsection{Kinetic theory}
-\setbeamertemplate{background}{
-\tikz[overlay,remember picture] \node[opacity=0.1, at=(current page.center), align=center] {\\[10pt]
-{\transparent{0.1}\includegraphics[height=0.7\paperheight]{images/heavy-ion3.pdf}}
-   \\[10pt]  
-   {\transparent{0.3}\footnotesize\itshape Figure from  K. Boguslavski, A. Kurkela, T. Lappi, F. Lindenbauer, J. Peuron \href{https://arxiv.org/abs/2312.00447}{{\color{lightgray}\texttt{[2312.00447]}}}}};
-}
-% \begin{frame}[plain,noframenumbering]{}
-%     \begin{center}
-%         \vspace{1cm}
-%         {\large\color{normal}Next stages of pre-equilibrium}\\[0.3cm]
-%         {\huge\color{destacado}Thermalization of heavy quarks}
-%     \end{center}
-% \end{frame}
-% \setbeamertemplate{background}{}
-
-\begin{frame}[plain,noframenumbering]{}
-    \begin{center}
-        \vspace{1cm}
-        {\large\color{normal}Next stages of pre-equilibrium}\\[0.3cm]
-        {\huge\color{destacado}Heavy quarks during bottom-up}\\[0.3cm]
-        {\large\color{normal}
-        \begin{center}
-            % \begin{minipage}{0.45\textwidth}
-            % \begin{itemize}
-            %     \item Momentum broadening $\langle \delta p^2\rangle$
-            %     \item Transport coefficient $\kappa$
-            %     \item Observables $R_{AA}$, $v_2$, $\mathcal{C}(\Delta\phi)$
-            % \end{itemize}
-            % \end{minipage}
-            \begin{columns}
-                \begin{column}{0.066\textwidth}\end{column}
-                \begin{column}{0.35\textwidth}
-                    \centering
-                    \setbeamertemplate{itemize item}{\raisebox{0.2em}{\scalebox{0.7}{${\color{ming}\blacktriangleright}$}}} 
-                    {\Large\color{ming} Approaches}
-                    \begin{itemize}
-                        \item Effective kinetic theory
-                    \end{itemize}
-                \end{column}
-                \begin{column}{0.066\textwidth}\end{column}
-                \begin{column}{0.45\textwidth}
-                    \centering
-                    \\[10pt]
-                    \setbeamertemplate{itemize item}{\raisebox{0.2em}{\scalebox{0.7}{${\color{pinky}\blacktriangleright}$}}} 
-                    {\Large\color{pinky} Quantities}
-                    \begin{itemize}
-                        \item Transport coefficient $\kappa$
-                        \item Drag, diffusion coefficients $A_i$, $B_{ij}$
-                    \end{itemize}
-                \end{column}
-                \begin{column}{0.066\textwidth}\end{column}
-            \end{columns}
-        \end{center}
-        }
-        % \\[0.3cm]
-    \end{center}
-\end{frame}
-\setbeamertemplate{background}{}
-
-
-
-\begin{frame}
-    \frametitle{Heavy quarks in EKT}
-    \framesubtitle{Extracting transport coefficients}
-        \setbeamertemplate{itemize item}{\raisebox{0.2em}{\scalebox{0.7}{${\color{ming}\blacktriangleright}$}}} 
-        \begin{itemize}
-            \item \begin{center}{{\color{ming}Approach}: {\color{ming}effective kinetic theory} description of gluon distribution $f(\boldsymbol{k})$} \end{center}
-        \end{itemize} 
-%    \begin{center}
-%        Wong's equations $\leftrightarrow$ classical equations of motion for particles $({\color{customblue}x^\mu},{\color{customred}p^\mu},{\color{customyellow}Q})$ \\
-%     evolving in a Yang-Mills background field ${\color{starrysecond}A^\mu}$
-%    \end{center} 
-        \vspace{1cm}
-        \renewcommand{\eqnhighlightheight}{\vphantom{x}}
-        \begin{equation*}
-            \kappa\propto \int\eqnmark[destacado]{PS}{\mathrm{d}\Gamma_{\mathrm{PS}}} \eqnmark[destacado]{q}{\boldsymbol{q}^2} \abs{\eqnmark[destacado]{M}{\mathcal{M}}}^2f(\eqnmark[destacado]{fk}{\boldsymbol{k}})[1+f(\eqnmark[destacado]{fkp}{\boldsymbol{k}^{\boldsymbol{\prime}}})]
-            \end{equation*}
-            \annotate[yshift=+2.0em]{above, right}{PS}{\tiny phase space measure}
-            \annotate[yshift=+0.5em]{above, right}{M}{\tiny matrix element}
-            \annotate[yshift=-2.0em]{below, right}{q}{\tiny momentum exchange}
-            \annotate[yshift=-0.5em]{below, right}{fk}{\tiny incoming}
-            \annotate[yshift=-0.5em]{below, right}{fkp}{\tiny outgoing}
-        % \begin{center}
-        %     Symplectic numerical solver $\xrightarrow{\mathrm{assures}}$ ${\color{customyellow}Q}\in\mathrm{SU(3)}$, conservation of Casimir invariants 
-        % \end{center} 
-\end{frame}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%% SECTION 4 %%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Open questions}
-
-\begin{frame}
-    \frametitle{Title}
-    \framesubtitle{Subtitle}
-\end{frame}
-
-
-% \section{Introduction}
-% \subsection{Framework}
-
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %%%%%%%%%%%%%%%%% SLIDE 1 %%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%% SECTION 3 %%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% \begin{frame}
-%     \frametitle{Heavy-ion collisions}
-%     \framesubtitle{Stitching together effective theories}
-%         % \begin{center}
-%         %     Heavy-ion collision $\leftrightarrow$ multi-stage process with each stage $\mapsto$ effective theory
-%         % \end{center}
-%     \begin{figure}[!hbt]
-%         \centering
-%     	\includegraphics[width=0.8\textwidth]{images/schlichting_initial_stages_2016.png}
-%         \captionsetup{justification=centering}
-%         % \vspace{-0.6em}
-%         \caption{\scriptsize\itshape Figure credits to S. Schlichting}
-%     \end{figure}
-% \end{frame}
-
-% \begin{frame}[noframenumbering]
-%     \frametitle{Heavy-ion collisions}
-%     \framesubtitle{Stitching together effective theories}
-%         % \begin{center}
-%         %     Heavy-ion collision $\leftrightarrow$ multi-stage process with each stage $\mapsto$ effective theory
-%         % \end{center}
-%     \begin{figure}[!hbt]
-%         \centering
-%     	\includegraphics[width=0.8\textwidth]{images/schlichting_initial_stages_2016_thistalk.png}
-%         \captionsetup{justification=centering}
-%         % \vspace{-0.6em}
-%         \caption{\scriptsize\itshape Figure credits to S. Schlichting}
-%     \end{figure}
-% \end{frame}
-
-
-% \subsection{Literature}
-
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %%%%%%%%%%%%%%%%% SLIDES 3 %%%%%%%%%%%%%%%%%
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% % %%%%%%%%%%%%%%%%% SLIDE 3.1 %%%%%%%%%%%%%%%%%
-% % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% \begin{frame}
-%     \frametitle{Hard probes in the pre-equilibrium stage}
-%     \framesubtitle{Literature timeline}
-%     \begin{columns}
-%     \begin{column}{0.05\textwidth}\end{column}
-%     \begin{column}{0.5\textwidth}
-%     \footnotesize
-%        \begin{tikzpicture}[scale=0.5,every node/.style={outer sep=5pt}]
-%         %Notation: {year, the title of the event}
-%         %NOTE! Everyting is zero-based
-%         \def\ourInfo{{
-%             {"2018","Das, Ruggieri 
-%             \color{normal}\href{https://arxiv.org/abs/1805.09617}{{\color{lightgray}\textit{[1805.09617]}}}"},
-%             {"2020","Ipp \textit{\color{normal}et al.}"},
-%             {"2021","Carrington \textit{\color{normal}et al.}"},
-%             {"2023","Boguslavski \textit{\color{normal}et al.}"},
-%             {"2024","Barata \textit{\color{normal}et al.}"},
-%         }}
-%         \pgfmathsetmacro{\length}{4}% Zero based.
-%         % Loop through the array containing all events.
-%         \foreach \i in {0, ..., \length}{
-%             \pgfmathsetmacro{\year}{\ourInfo[\i][0]}% Get the left cell (year)
-%             \pgfmathsetmacro{\eventName}{\ourInfo[\i][1]}% Get the right cell (event name)
-%             \draw[thick,customblue] (0,-2*\i-2)--(0,-2*\i);% Draw vertical line
-%             \ifnum \i=0 % Should be in red text
-%               \draw(0,-2*\i-1) node[customblue, right, align = left]{\eventName};% Display the event name
-%               \draw(0,-2*\i-1) node[customblue, left] {\year};
-%             \else % Should be in black text
-%                \draw(0,-2*\i-1) node[right, align = left]{\eventName};% Display the event name
-%                \draw(0,-2*\i-1) node[left] {\year};% Display the year
-%             \fi
-%         }
-%         % Draw the bullet with the dash
-%         \foreach \i in {0, ..., \length}{
-%             \filldraw[draw = white, fill = customblue,thick] (0,-2*\i-1) circle (5pt);
-%             % \draw[thick,customblue] (-12pt,-2*\i-1)--(0,-2*\i-1);
-%         }
-%     \end{tikzpicture}
-%     \end{column}
-%     \begin{column}{0.4\textwidth} 
-%         \footnotesize
-%         \begin{figure}[!hbt]
-%             \centering
-%             \captionsetup{justification=centering}
-%             \caption{{\large Heavy quarks in Glasma} \\[5pt]
-%             {\color{customblue}Highlights}: Diffusion, $R_{pA}$}
-%             \includegraphics[width=0.85\textwidth]{img/pPb_RpPb_screenshot.png}  
-%         \end{figure}
-%     \end{column}
-%     \begin{column}{0.05\textwidth}\end{column}
-%     \end{columns}
-% \end{frame}
-
-% % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% % %%%%%%%%%%%%%%%%% SLIDE 3.2 %%%%%%%%%%%%%%%%%
-% % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% \addtocounter{framenumber}{-1}
-% \begin{frame}
-%     \frametitle{Hard probes in the pre-equilibrium stage}
-%     \framesubtitle{Literature timeline}
-%     \begin{columns}
-%     \begin{column}{0.05\textwidth}\end{column}
-%     \begin{column}{0.5\textwidth}
-%     \footnotesize
-%        \begin{tikzpicture}[scale=0.5,every node/.style={outer sep=5pt}]
-%         \def\ourInfo{{
-%             {"2018","Heavy quarks in Glasma"},
-%             {"2020","Ipp, Müller, Schuh
-%             \color{normal} \href{https://arxiv.org/abs/2009.14206}{\textit{\color{lightgray}[2009.14206]}}"},
-%             {"2021","Carrington \textit{et al.}"},
-%             {"2023","Boguslavski \textit{et al.}"},
-%             {"2024","Barata \textit{et al.}"},
-%         }}
-%         \pgfmathsetmacro{\length}{4}
-%         \foreach \i in {0, ..., \length}{
-%             \pgfmathsetmacro{\year}{\ourInfo[\i][0]}
-%             \pgfmathsetmacro{\eventName}{\ourInfo[\i][1]}
-%             \draw[thick,customblue] (0,-2*\i-2)--(0,-2*\i);
-%             \ifnum \i=1
-%               \draw(0,-2*\i-1) node[customblue, right, align = left]{\eventName};
-%               \draw(0,-2*\i-1) node[customblue, left] {\year};
-%             \else 
-%                \draw(0,-2*\i-1) node[right, align = left]{\eventName};
-%                \draw(0,-2*\i-1) node[left] {\year};
-%             \fi
-%         }
-%         \foreach \i in {0, ..., \length}{
-%             \filldraw[draw = white, fill = customblue,thick] (0,-2*\i-1) circle (5pt);
-%         }
-%     \end{tikzpicture}
-%     \end{column}
-%     \begin{column}{0.4\textwidth} 
-%         \footnotesize
-%     \begin{figure}[!hbt]
-%             \centering
-%             \captionsetup{justification=centering}
-%             \caption{{\large Eikonal jets in Glasma} \\[5pt] {\color{customblue}Highlights}: Lattice simulations\\ Transport coefficient $\hat{q}$}
-%             \includegraphics[width=0.9\textwidth]{img/qhat_tau.pdf}
-%         \end{figure}
-%     \end{column}
-%     \begin{column}{0.05\textwidth}\end{column}
-%     \end{columns}
-% \end{frame}
-
-% % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% % %%%%%%%%%%%%%%%%% SLIDE 3.3 %%%%%%%%%%%%%%%%%
-% % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% \addtocounter{framenumber}{-1}
-% \begin{frame}
-%     \frametitle{Hard probes in the pre-equilibrium stage}
-%     \framesubtitle{Literature timeline}
-%     \begin{columns}
-%     \begin{column}{0.05\textwidth}\end{column}
-%     \begin{column}{0.5\textwidth}
-%     \footnotesize
-%        \begin{tikzpicture}[scale=0.5,every node/.style={outer sep=5pt}]
-%         \def\ourInfo{{
-%             {"2018","Heavy quarks in Glasma"},
-%             {"2020","Eikonal jets in Glasma"},
-%             {"2021","Carrington, Czajka, Mrowczynski \\
-%             \color{normal} \href{https://arxiv.org/abs/2202.00357}{\textit{\color{lightgray}[2202.00357]}}"},
-%             {"2023","Boguslavski \textit{et al.}"},
-%             {"2024","Barata \textit{et al.}"},
-%         }}
-%         \pgfmathsetmacro{\length}{4}
-%         \foreach \i in {0, ..., \length}{
-%             \pgfmathsetmacro{\year}{\ourInfo[\i][0]}
-%             \pgfmathsetmacro{\eventName}{\ourInfo[\i][1]}
-%             \draw[thick,customblue] (0,-2*\i-2)--(0,-2*\i);
-%             \ifnum \i=2
-%               \draw(0,-2*\i-1) node[customblue, right, align = left]{\eventName};
-%               \draw(0,-2*\i-1) node[customblue, left] {\year};
-%             \else 
-%                \draw(0,-2*\i-1) node[right, align = left]{\eventName};
-%                \draw(0,-2*\i-1) node[left] {\year};
-%             \fi
-%         }
-%         \foreach \i in {0, ..., \length}{
-%             \filldraw[draw = white, fill = customblue,thick] (0,-2*\i-1) circle (5pt);
-%         }
-%     \end{tikzpicture}
-%     \end{column}
-%     \begin{column}{0.4\textwidth} 
-%         \footnotesize
-%     \begin{figure}[!hbt]
-%             \centering
-%             \captionsetup{justification=centering}
-%             \caption{{\large Hard probes in Glasma} \\[5pt]
-%             {\color{customblue}Highlight}: Analytical calculations\\
-%             Transport coefficient $\hat{q}$}
-%             \includegraphics[width=0.85\textwidth]{img/plot-qhat-six-cases.pdf}
-%         \end{figure}
-%     \end{column}
-%     \begin{column}{0.05\textwidth}\end{column}
-%     \end{columns}
-% \end{frame}
-
-% % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% % %%%%%%%%%%%%%%%%% SLIDE 3.4 %%%%%%%%%%%%%%%%%
-% % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% \addtocounter{framenumber}{-1}
-% \begin{frame}
-%     \frametitle{Hard probes in the pre-equilibrium stage}
-%     \framesubtitle{Literature timeline}
-%     \begin{columns}
-%     \begin{column}{0.05\textwidth}\end{column}
-%     \begin{column}{0.5\textwidth}
-%     \footnotesize
-%        \begin{tikzpicture}[scale=0.5,every node/.style={outer sep=5pt}]
-%         \def\ourInfo{{
-%             {"2018","Heavy quarks in Glasma"},
-%             {"2020","Eikonal jets in Glasma"},
-%             {"2021","Hard probes in Glasma"},
-%             {"2023","Boguslavski, Kurkela, Lappi, Lindenbauer, Peuron \\ \href{https://arxiv.org/abs/2303.12595}{\color{lightgray}\textit{[2303.12595]}}"},
-%             {"2024","Barata \textit{et al.}"},
-%         }}
-%         \pgfmathsetmacro{\length}{4}
-%         \foreach \i in {0, ..., \length}{
-%             \pgfmathsetmacro{\year}{\ourInfo[\i][0]}
-%             \pgfmathsetmacro{\eventName}{\ourInfo[\i][1]}
-%             \draw[thick,customblue] (0,-2*\i-2)--(0,-2*\i);
-%             \ifnum \i=3
-%               \draw(0,-2*\i-1) node[customblue, right, align = left]{\eventName};
-%               \draw(0,-2*\i-1) node[customblue, left] {\year};
-%             \else 
-%                \draw(0,-2*\i-1) node[right, align = left]{\eventName};
-%                \draw(0,-2*\i-1) node[left] {\year};
-%             \fi
-%         }
-%         \foreach \i in {0, ..., \length}{
-%             \filldraw[draw = white, fill = customblue,thick] (0,-2*\i-1) circle (5pt);
-%         }
-%     \end{tikzpicture}
-%     \end{column}
-%     \begin{column}{0.4\textwidth} 
-%     \begin{figure}[!hbt]
-%             \centering
-%             \captionsetup{justification=centering}
-%             \caption{{\large Hard probes in kinetic theory} \\[5pt]
-%             {\color{customblue}Highlight}: Stage after Glasma\\
-%             Compatible $\hat{q}$ and $\kappa$}
-%             \includegraphics[width=0.8\textwidth]{img/2023-03-07-16-41-35_qhat_appetizer_glasma_comparison_493.pdf}
-%         \end{figure}
-%     \end{column}
-%     \begin{column}{0.05\textwidth}\end{column}
-%     \end{columns}
-% \end{frame}
-
-
-% % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% % %%%%%%%%%%%%%%%%% SLIDE 3.5 %%%%%%%%%%%%%%%%%
-% % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% \addtocounter{framenumber}{-1}
-% \begin{frame}
-%     \frametitle{Hard probes in the pre-equilibrium stage}
-%     \framesubtitle{Literature timeline}
-%     \begin{columns}
-%     \begin{column}{0.05\textwidth}\end{column}
-%     \begin{column}{0.5\textwidth}
-%     \footnotesize
-%        \begin{tikzpicture}[scale=0.5,every node/.style={outer sep=5pt}]
-%         \def\ourInfo{{
-%             {"2018","Heavy quarks in Glasma"},
-%             {"2020","Eikonal jets in Glasma"},
-%             {"2021","Hard probes in Glasma"},
-%             {"2023","Hard probes in kinetic theory"},
-%             {"2024","Barata, Hauksson, López, Sadofyev \href{https://arxiv.org/abs/2406.07615}{\color{lightgray}\textit{[2406.07615]}}"},
-%         }}
-%         \pgfmathsetmacro{\length}{4}
-%         \foreach \i in {0, ..., \length}{
-%             \pgfmathsetmacro{\year}{\ourInfo[\i][0]}
-%             \pgfmathsetmacro{\eventName}{\ourInfo[\i][1]}
-%             \draw[thick,customblue] (0,-2*\i-2)--(0,-2*\i);
-%             \ifnum \i=4
-%               \draw(0,-2*\i-1) node[customblue, right, align = left]{\eventName};
-%               \draw(0,-2*\i-1) node[customblue, left] {\year};
-%             \else 
-%                \draw(0,-2*\i-1) node[right, align = left]{\eventName};
-%                \draw(0,-2*\i-1) node[left] {\year};
-%             \fi
-%         }
-%         \foreach \i in {0, ..., \length}{
-%             \filldraw[draw = white, fill = customblue,thick] (0,-2*\i-1) circle (5pt);
-%         }
-%     \end{tikzpicture}
-%     \end{column}
-%     \begin{column}{0.4\textwidth} 
-%     \begin{figure}[!hbt]
-%             \centering
-%             \captionsetup{justification=centering}
-%             \caption{{\large Energy loss in Glasma} \\[5pt]
-%             {\color{customblue}Highlight}: Analytical calculations\\
-%            Medium-induced gluon radiation}
-%             \includegraphics[width=0.8\textwidth]{images/SU2manyallother-cropped.pdf}
-%         \end{figure}
-%     \end{column}
-%     \begin{column}{0.05\textwidth}\end{column}
-%     \end{columns}
-% \end{frame}
-
-
-% \subsection{This study}
-
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %%%%%%%%%%%%%%%%% SLIDE 3 %%%%%%%%%%%%%%%%%
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-% \begin{frame}
-%     \frametitle{Hard probes in Glasma}
-%     \framesubtitle{Classical transport in the very-early stage}
-%     \begin{center}
-%         \onslide<1,2>{\textit{Prerequisite: }{\color{pinky}Classical lattice gauge theory} $\xrightarrow{\text{solver}}$ {\color{customblue}Glasma fields}\\[0.3cm]}\onslide<2>{\textit{This work: }{\color{customblue}Glasma fields} $\xleftrightarrow{\text{background}}$ test {\color{customgreen}particles} $\xleftarrow{\text{solver}}$ {\color{pinky}colored particle-in-cell}}
-%         \begin{figure}[!hbt]
-%             \centering
-%             \only<1>{\includegraphics[width=0.8\textwidth]{images/hqs_flux_tubes_background.png}
-%             }\only<2>{\includegraphics[width=0.8\textwidth]{images/hqs_flux_tubes_background+hqs.png}}
-%         \end{figure}
-%     \end{center}
-% \end{frame}
-
-% \section{The Glasma}
-% \subsection{Color Glass Condensate}
-
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %%%%%%%%%%%%%%%%% SLIDE X %%%%%%%%%%%%%%%%%
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+% \section{{\color{jyublue}Heavy quarks} in pre-equilibrium}
 
 % \setbeamertemplate{background}{
-% \tikz[overlay,remember picture] \node[opacity=0.15, at=(current page.center)] {
-%    \includegraphics[height=0.85\paperheight]{img/fig1_overview.pdf}};
+% \tikz[overlay,remember picture] \node[opacity=0.1, at=(current page.center), align=center] {
+%     % \\[-20pt]
+%     \\[45pt]
+% {\transparent{0.3}\includegraphics[height=0.55\paperheight]{images/Greco-HF-Theory-HP2020-v-5_edit.png}}
+%    \\[10pt]  
+%    {\transparent{0.3}\footnotesize\itshape Figure credits to V. Greco}};
 % }
 % \begin{frame}[plain,noframenumbering]{}
 %     \begin{center}
 %         \vspace{1cm}
-%         {\large\color{normal}Part 1}\\[0.3cm]
-%         {\huge\color{destacado}The Glasma}
+%         {\huge\color{destacado}Heavy quarks in pre-equilibrium}
 %     \end{center}
 % \end{frame}
 % \setbeamertemplate{background}{}
 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %%%%%%%%%%%%%%%%% SLIDE 4 %%%%%%%%%%%%%%%%%
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% \begin{frame}
-%     \frametitle{High energy QCD}
-%     \framesubtitle{Glons as main degrees of freedom}
-%         % \begin{center}
-%         %     Initial stage using {\color{customblue}Color Glass Condensate} $\leftrightarrow$ EFT for high energy QCD \\
-%         %     High energy nucleus $\leadsto$ many gluons 
-%         %     % $\Leftrightarrow$ high occupation numbers for gluon fields \\ 
-%         %     $\Rightarrow$ classical colored fields $\equiv$ {\color{custompink}Glasma}
-%         % \end{center}
-%     % \vspace{-0.2cm}
-%     \begin{figure}[!hbt]
-%         \centering
-%     	\includegraphics[width=0.7\textwidth]{images/qcd_1.png}
-%         \captionsetup{justification=centering}
-%         \vspace{-0.2em}
-%         \caption{\scriptsize\itshape Figure credits to T. Ullrich}
-%     \end{figure}
-% \end{frame}
-
-% \begin{frame}[noframenumbering]
-%     \frametitle{High energy QCD}
-%     \framesubtitle{Glons as main degrees of freedom}
-%         % \begin{center}
-%         %     Initial stage using {\color{customblue}Color Glass Condensate} $\leftrightarrow$ EFT for high energy QCD \\
-%         %     High energy nucleus $\leadsto$ many gluons 
-%         %     % $\Leftrightarrow$ high occupation numbers for gluon fields \\ 
-%         %     $\Rightarrow$ classical colored fields $\equiv$ {\color{custompink}Glasma}
-%         % \end{center}
-%     % \vspace{-0.2cm}
-%     \begin{figure}[!hbt]
-%         \centering
-%     	\includegraphics[width=0.7\textwidth]{images/qcd_2.png}
-%         \captionsetup{justification=centering}
-%         \vspace{-0.2em}
-%         \caption{\scriptsize\itshape Figure credits to T. Ullrich}
-%     \end{figure}
-% \end{frame}
-
-
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %%%%%%%%%%%%%%%%%% SLIDE 5 %%%%%%%%%%%%%%%%%%
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% \subsection{Features of the Glasma fields}
-
-% \begin{frame}
-%     \frametitle{CGC as an EFT for high energy QCD}
-%     \framesubtitle{Classical Yang-Mills fields}
-%     \begin{columns}
-%     \begin{column}{0.1\textwidth}\end{column}
-%     \begin{column}{0.4\textwidth}
-%         \begin{figure}[!hbt]
-%             \centering
-%             \includegraphics[width=\textwidth]{images/small_large_x.png}
-%             \captionsetup{justification=centering}
-%             \vspace{-0.2em}
-%         \end{figure}
-%     \end{column}
-%     \begin{column}{0.5\textwidth}
-%         \vspace{-1.3cm}
-%         \begin{center}
-%             Separation of scales between\\
-%             {\color{customgreen}small-{\tiny $x$}} and {\color{custompink}large-{\huge $x$}} degrees of freedom
-%         \end{center}
-%     \end{column}
-%     \begin{column}{0.1\textwidth}\end{column}
-%     \end{columns}
-
-%     % \begin{center}
-%     %     Separation of scales between {\color{customgreen}small-{\tiny $x$}} and {\color{custompink}large-{\huge $x$}} degrees of freedom\\
-%     %  {\color{customgreen}Small-{\tiny $x$}} $\Leftrightarrow$ classical gluon fields $\mapsto$ {\color{customblue}Yang-Mills} equations with sources $\Leftrightarrow$ {\color{custompink}large-{\huge $x$}}
-%     % \end{center}
-%      \vspace{-0.5cm}
-%      \renewcommand{\eqnhighlightheight}{\vphantom{\mathcal{D}_\mu}\mathstrut}\begin{equation*}
-%             \hspace{-3cm}\text{CYM equations: }\Big(\eqnmark[starrymain]{dmu}{\mathcal{D}_\mu}\eqnmark[starrysecond]{fmunu}{F^{\mu\nu}}\Big)\Big[\eqnmark[customgreen]{amu}{A^\mu}\Big]=\eqnmark[custompink]{jnu}{J^\nu}
-%             \end{equation*}
-%             \annotate[yshift=0.7em]{above, left}{dmu}{covariant derivative}
-%             \annotate[yshift=0.7em]{above}{fmunu}{field strength tensor}
-%             \annotate[yshift=-0.5em]{below, left}{amu}{gluons gauge field}
-%             \annotate[yshift=-0.5em]{below, right}{jnu}{color current of nucleus}
-%    \begin{center}
-%     \vspace{-0.4cm}
-%         \renewcommand{\eqnhighlightheight}{\vphantom{\delta^{\mu+}}\mathstrut}
-%         \begin{equation*}
-%             \eqnmark[customblue]{MV}{\text{MV model}}\text{and LC kinematics} \Rightarrow J^{\mu,a}(x)\propto
-%             \delta^{\mu+}\eqnmark[custompink]{rho}{\rho^a}(x^-,\boldsymbol{x}_\perp)
-%             \end{equation*}
-%             \annotate[yshift=-0.1em]{below, left}{MV}{large nuclei}
-%             \annotate[yshift=-0.1em]{below, right}{rho}{stochastic variable}
-%         \\[0.1cm]
-%         Two-point function $\langle {\color{custompink}\rho^a\rho^a}\rangle \propto {\color{customgreen} Q}^2_{\color{customgreen}s}$ {\color{customgreen}saturation momentum}   
-%     \end{center}
-% \end{frame}
-
-
-% \begin{frame}[noframenumbering]
-%     \frametitle{CGC as an EFT for high energy QCD}
-%     \framesubtitle{Gauge fields before the collision}
-%         % \begin{center}
-%         %     Initial stage using {\color{customblue}Color Glass Condensate} $\leftrightarrow$ EFT for high energy QCD \\
-%         %     High energy nucleus $\leadsto$ many gluons 
-%         %     % $\Leftrightarrow$ high occupation numbers for gluon fields \\ 
-%         %     $\Rightarrow$ classical colored fields $\equiv$ {\color{custompink}Glasma}
-%         % \end{center}
-%     % \vspace{-0.2cm}
-%     \begin{figure}[!hbt]
-%         \centering
-%     	\includegraphics[width=0.7\textwidth]{images/cgc_nuclei.png}
-%         \captionsetup{justification=centering}
-%     \end{figure}
-% \end{frame}
-
-
-
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %%%%%%%%%%%%%%%%%% SLIDE 7 %%%%%%%%%%%%%%%%%%
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% % \addtocounter{framenumber}{-1}
-% \begin{frame}
-%     \frametitle{Collision of CGC nuclei}
-%     \framesubtitle{Light-cone diagram of the collision}
-%     \begin{columns}[onlytextwidth,t]
-%        \column{.6\textwidth}
-%        \begin{figure}
-%             \centering
-%             \includegraphics[width=0.7\columnwidth]{images/cgc_col.png}
-%             % \vspace{-0.7cm}
-%             \captionsetup{justification=centering}
-%             % \caption{\scriptsize\itshape Figure credits to D. M\"{u}ller}
-%         \end{figure}
-%         \column{.35\textwidth}
-%         \vspace{0.2cm}
-%         \begin{center}
-%             {\color{customgreen}$\sbullet[0.6]$ Known CGC fields} before the collision \\[0.1cm]
-%             {\color{custompink}$\sbullet[0.6]$ Unknown Glasma fields} in the forward light-cone \\[0.5cm]
-%             {\scriptsize{\color{lightgray}Milne coordinates ($\tau$, $\eta$)} \\
-%             {\color{lightgray}$\tau=\sqrt{2 x^+x^-}$, $\eta=\ln(x^+/x^-)/2$}\\[0.4cm]
-%             {\color{lightgray}Boost-invariant approximation $\mathrm{fields}=\mathrm{indep}(\eta)$} \\[0.3cm]
-%             {\color{lightgray}Numerical solution of Yang-Mills}\\[-0.15cm] {\color{lightgray}equations $\Rightarrow$ Glasma}}
-%         \end{center}
-%         \column{.025\textwidth}
-%     \end{columns}    
-% \end{frame}
-
-
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %%%%%%%%%%%%%%%%% SLIDE X %%%%%%%%%%%%%%%%%
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+% \subsection{Glasma}
 
 % \setbeamertemplate{background}{
-% \tikz[overlay,remember picture] \node[opacity=0.15, at=(current page.center)] {
-%    \includegraphics[width=\textwidth]{img/flux_tubes_auau_200_nums_1_dpi_300_nounits.png}};
+% \tikz[overlay,remember picture] \node[opacity=0.1, at=(current page.center), align=center] {\\[10pt]
+% {\transparent{0.1}\includegraphics[height=0.7\paperheight]{images/momentum_broadening_flipped.pdf}}
+%    \\[10pt]  
+%    {\transparent{0.3}\footnotesize\itshape Figure from  A. Ipp, D. Müller, D. Schuh \href{https://arxiv.org/abs/2009.14206}{{\color{lightgray}\texttt{[2009.14206]}}}}};
 % }
+
+% \setbeamertemplate{itemize item}{\raisebox{0.2em}{\scalebox{0.7}{${\color{normal}\blacktriangleright}$}}} 
+
 % \begin{frame}[plain,noframenumbering]{}
 %     \begin{center}
 %         \vspace{1cm}
-%         {\large\color{normal}Part 2}\\[0.3cm]
-%         {\huge\color{destacado}Features of the Glasma}
+%         {\large\color{normal}Initial stage of pre-equilibrium}\\[0.3cm]
+%         {\huge\color{destacado}Heavy quarks in glasma}\\[0.3cm]
+%         {\large\color{normal}
+%         \begin{center}
+%             % \begin{minipage}{0.45\textwidth}
+%             % \begin{itemize}
+%             %     \item Momentum broadening $\langle \delta p^2\rangle$
+%             %     \item Transport coefficient $\kappa$
+%             %     \item Observables $R_{AA}$, $v_2$, $\mathcal{C}(\Delta\phi)$
+%             % \end{itemize}
+%             % \end{minipage}
+%             \begin{columns}
+%                 \begin{column}{0.066\textwidth}\end{column}
+%                 \begin{column}{0.35\textwidth}
+%                     \centering
+%                     \setbeamertemplate{itemize item}{\raisebox{0.2em}{\scalebox{0.7}{${\color{ming}\blacktriangleright}$}}} 
+%                     {\Large\color{ming} Approaches}
+%                     \begin{itemize}
+%                         \item Numerical trajectories
+%                         \item Correlator method
+%                     \end{itemize}
+%                 \end{column}
+%                 \begin{column}{0.066\textwidth}\end{column}
+%                 \begin{column}{0.45\textwidth}
+%                     \centering
+%                     \\[10pt]
+%                     \setbeamertemplate{itemize item}{\raisebox{0.2em}{\scalebox{0.7}{${\color{pinky}\blacktriangleright}$}}} 
+%                     {\Large\color{pinky} Quantities}
+%                     \begin{itemize}
+%                         \item Momentum broadening $\langle \delta p^2\rangle$
+%                         \item Transport coefficient $\kappa$
+%                         \item Observables $R_{AA}$, $v_2$, $\mathcal{C}(\Delta\phi)$
+%                     \end{itemize}
+%                 \end{column}
+%                 \begin{column}{0.066\textwidth}\end{column}
+%             \end{columns}
+%         \end{center}
+%         }
+%         % \\[0.3cm]
 %     \end{center}
 % \end{frame}
 % \setbeamertemplate{background}{}
-
-
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %%%%%%%%%%%%%%%%%% SLIDE 8 %%%%%%%%%%%%%%%%%%
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% % \addtocounter{framenumber}{-1}
-% \begin{frame}
-%     \frametitle{The Glasma fields}
-%     \framesubtitle{General features}
-%     \begin{figure}
-%         \centering
-%         \includegraphics[width=0.9\textwidth]{img/flux_tubes_auau_200_nums_1_dpi_300_nounits.png}
-%         \captionsetup{justification=centering}
-%         \caption{Relevant scale ${\color{custompink}Q_s}$ \\
-%         {\scriptsize\itshape Fields {\color{customgreen}dilute} after $\delta\tau\simeq {\color{custompink}Q}^{-1}_{\color{custompink}s}$, arrange themselves in {\color{customgreen}correlation domains} of $\delta x_T \simeq {\color{custompink}Q}^{-1}_{\color{custompink}s}$} 
-%         % \\[0.2cm]
-%         % {\color{customblue}Boost-invariant} and {\color{customblue}anisotropic} field configurations
-%         }
-%     \end{figure}
-% \end{frame}
-
-% \begin{frame}[noframenumbering]
-%     \frametitle{The Glasma fields}
-%     \framesubtitle{Bjorken expansion}
-%     {\transparent{0.1}\begin{figure}
-%         \centering
-%         \includegraphics[width=0.9\textwidth]{img/flux_tubes_auau_200_nums_1_dpi_300_nounits.png}
-%         \captionsetup{justification=centering}
-%         \caption{Relevant scale ${\color{custompink}Q_s}$ \\
-%         {\scriptsize\itshape Fields {\color{customgreen}dilute} after $\delta\tau\simeq {\color{custompink}Q}^{-1}_{\color{custompink}s}$, arrange themselves in {\color{customgreen}correlation domains} of $\delta x_T \simeq {\color{custompink}Q}^{-1}_{\color{custompink}s}$} 
-%         % \\[0.2cm]
-%         % {\color{customblue}Boost-invariant} and {\color{customblue}anisotropic} field configurations
-%         }
-%     \end{figure}}
-%     \begin{center}
-%         \begin{tikzpicture}[remember picture,overlay]
-%             \node[align=center] at (0,4) {
-%                 The fields become {\color{customgreen}dilute} after $\delta\tau\simeq {\color{custompink}Q}^{-1}_{\color{custompink}s}$\\
-%                 \includegraphics[width=0.55\textwidth]{images/dilute_2.png}
-%             };
-%         \end{tikzpicture} 
-%     \end{center}
-% \end{frame}
-
-
-% \begin{frame}[noframenumbering]
-%     \frametitle{The Glasma fields}
-%     \framesubtitle{Flux tubes}
-%     {\transparent{0.1}\begin{figure}
-%         \centering
-%         \includegraphics[width=0.9\textwidth]{img/flux_tubes_auau_200_nums_1_dpi_300_nounits.png}
-%         \captionsetup{justification=centering}
-%         \caption{Relevant scale ${\color{custompink}Q_s}$ \\
-%         {\scriptsize\itshape Fields {\color{customgreen}dilute} after $\delta\tau\simeq {\color{custompink}Q}^{-1}_{\color{custompink}s}$, arrange themselves in {\color{customgreen}correlation domains} of $\delta x_T \simeq {\color{custompink}Q}^{-1}_{\color{custompink}s}$} 
-%         % \\[0.2cm]
-%         % {\color{customblue}Boost-invariant} and {\color{customblue}anisotropic} field configurations
-%         }
-%     \end{figure}}
-%     \vspace{0.3cm}
-%     \begin{center}
-%         \begin{tikzpicture}[remember picture,overlay]
-%             \node[align=center] at (0,4) {
-%                 The fields arrange themselves in {\color{customgreen}correlation domains} of $\delta x_T \simeq {\color{custompink}Q}^{-1}_{\color{custompink}s}$\\
-%                 \includegraphics[width=0.48\textwidth]{images/correlation_2.png}
-%             };
-%         \end{tikzpicture} 
-%     \end{center}
-% \end{frame}
-
-
-% \begin{frame}[noframenumbering]
-%     \frametitle{The Glasma fields}
-%     \framesubtitle{Anisotropy}
-%     {\transparent{0.1}\begin{figure}
-%         \centering
-%         \includegraphics[width=0.9\textwidth]{img/flux_tubes_auau_200_nums_1_dpi_300_nounits.png}
-%         \captionsetup{justification=centering}
-%         \caption{Relevant scale ${\color{custompink}Q_s}$ \\
-%         {\scriptsize\itshape Fields {\color{customgreen}dilute} after $\delta\tau\simeq {\color{custompink}Q}^{-1}_{\color{custompink}s}$, arrange themselves in {\color{customgreen}correlation domains} of $\delta x_T \simeq {\color{custompink}Q}^{-1}_{\color{custompink}s}$} 
-%         % \\[0.2cm]
-%         % {\color{customblue}Boost-invariant} and {\color{customblue}anisotropic} field configurations
-%         }
-%     \end{figure}}
-%     \vspace{0.3cm}
-%     \begin{center}
-%         \begin{tikzpicture}[remember picture,overlay]
-%             \node[align=center] at (0,4) {
-%                 Longitudinal $\neq$ transverse $\Rightarrow$ {\color{pinky}anisotropy}\\
-%                 \includegraphics[width=0.55\textwidth]{images/anisotropy.png}
-%             };
-%         \end{tikzpicture} 
-%     \end{center}
-% \end{frame}
-
-% \section{Hard probes in the Glasma}
-
-% \setbeamertemplate{background}{
-% \tikz[overlay,remember picture] \node[opacity=0.15, at=(current page.center)] {
-%    \includegraphics[height=0.8\paperheight]{img/momentum_broadening_flipped.pdf}};
-% }
-% \begin{frame}[plain,noframenumbering]{}
-%     \begin{center}
-%         \vspace{1cm}
-%         {\large\color{normal}Part 3}\\[0.3cm]
-%         {\huge\color{destacado}Hard probes in the Glasma}
-%     \end{center}
-% \end{frame}
-% \setbeamertemplate{background}{}
-
-% \subsection{Classical transport}
-
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %%%%%%%%%%%%%%%%%% SLIDE 9 %%%%%%%%%%%%%%%%%%
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % \begin{frame}
 %     \frametitle{Particles in Yang-Mills fields}
 %     \framesubtitle{Wong's equations of motion}
+%         \setbeamertemplate{itemize item}{\raisebox{0.2em}{\scalebox{0.7}{${\color{ming}\blacktriangleright}$}}} 
+%         \begin{itemize}
+%             \item \begin{center}{{\color{ming}Approach}: {\color{ming}numerical trajectories} of classical particles in glasma fields} \end{center}
+%         \end{itemize} 
 %    \begin{center}
 %        Wong's equations $\leftrightarrow$ classical equations of motion for particles $({\color{customblue}x^\mu},{\color{customred}p^\mu},{\color{customyellow}Q})$ \\
 %     evolving in a Yang-Mills background field ${\color{starrysecond}A^\mu}$
@@ -2271,58 +946,15 @@
 %             \annotate[yshift=-0.7em]{below, right}{g}{\tiny coupling constant}
 %             \annotate[yshift=1.2em]{above}{Q}{color charge}
 %             \annotate[yshift=1.2em]{above, right}{amu}{gauge field}
-%        \\
-%         \begin{center}
-%             Symplectic numerical solver $\xrightarrow{\mathrm{assures}}$ ${\color{customyellow}Q}\in\mathrm{SU(3)}$, conservation of Casimir invariants 
-%         \end{center} 
+%     %    \\
+%         % \begin{center}
+%         %     Symplectic numerical solver $\xrightarrow{\mathrm{assures}}$ ${\color{customyellow}Q}\in\mathrm{SU(3)}$, conservation of Casimir invariants 
+%         % \end{center} 
 % \end{frame}
 
 % \begin{frame}[noframenumbering]
 %     \frametitle{Particles in Yang-Mills fields}
-%     \framesubtitle{Wong's equations of motion}
-%     {\transparent{0.1}\begin{center}
-%        Wong's equations $\leftrightarrow$ classical equations of motion for particles $({\color{customblue}x^\mu},{\color{customred}p^\mu},{\color{customyellow}Q})$ \\
-%     evolving in a Yang-Mills background field ${\color{starrysecond}A^\mu}$
-%    \end{center} 
-%         \vspace{1cm}
-%         \renewcommand{\eqnhighlightheight}{\vphantom{x}}
-%         \begin{equation*}
-%             \frac{\d}{\d\hspace{-0.1cm}\eqnmark[destacado]{tau}{\boldsymbol{\tau}}\hspace{-0.2cm}}\eqnmark[customblue]{xmu}{x^\mu}=\frac{{\color{customred}p^\mu}}{\eqnmark[destacado]{m}{m}},\qquad \eqnmark[destacado]{Ddtau}{\frac{\mathrm{D}}{\d\boldsymbol{\tau}}}\hspace{-0.2cm}\eqnmark[customred]{pmu}{p^\mu}=2\hspace{-0.1cm}\eqnmark[destacado]{g}{g}\hspace{-0.1cm}\tr{{\color{customyellow}Q}F^{\mu\nu}[\hspace{-0.1cm}\eqnmark[starrysecond]{amu}{A^\mu}\hspace{-0.1cm}]}\frac{{\color{customred}p_\nu}}{m},\qquad 
-%             \underbrace{\frac{\d}{\d\boldsymbol{\tau}}\hspace{-0.1cm}\eqnmark[customyellow]{Q}{Q}\hspace{-0.1cm}=-\mathrm{i}g [{\color{starrysecond}A_\mu},{\color{customyellow}Q}]\,\frac{{\color{customred}p^\mu}}{m}}_{\substack{\text{\footnotesize color rotation}\,\rightarrow\,{\color{customgreen}\mathcal{U}}\in\,\mathrm{SU(3)} \\[0.2cm] {\color{customyellow}Q}(\boldsymbol{\tau})=\,{\color{customgreen}\mathcal{U}}(\boldsymbol{\tau},\boldsymbol{\tau}^\prime){\color{customyellow}Q}(\boldsymbol{\tau^\prime})\,{\color{customgreen}\mathcal{U}^\dagger}(\boldsymbol{\tau},\boldsymbol{\tau}^\prime)}}
-%             \end{equation*}
-%             \annotate[yshift=1.2em]{above}{xmu}{coordinate}
-%             \annotate[yshift=1.2em]{above}{pmu}{momentum}
-%             \annotate[yshift=-0.5em]{below, right}{m}{\tiny mass}
-%             \annotate[yshift=-1.5em]{below, right}{Ddtau}{\tiny covariant derivative}
-%             \annotate[yshift=-1.5em]{below, right}{tau}{\tiny proper time}
-%             \annotate[yshift=-0.7em]{below, right}{g}{\tiny coupling constant}
-%             \annotate[yshift=1.2em]{above}{Q}{color charge}
-%             \annotate[yshift=1.2em]{above, right}{amu}{gauge field}
-%        \\
-%         \begin{center}
-%             Symplectic numerical solver $\xrightarrow{\mathrm{assures}}$ ${\color{customyellow}Q}\in\mathrm{SU(3)}$, conservation of Casimir invariants 
-%         \end{center}}
-%         \begin{center}
-%             \vspace{40pt}
-%             \begin{tikzpicture}[remember picture,overlay]
-%                 \node[align=center] at (0,4) {
-%                     \large Boltzmann-Vlasov collisionless non-Abelian plasma\\[10pt]
-%                     \large ${\color{customred}p^\mu}[\partial_\mu+g {\color{customyellow}Q^a} {\color{starrysecond}F^{\mu\nu}}({\color{customblue}x^\mu})\partial^\nu_{{\color{customred}p^\mu}}+gf^{abc}{\color{starrysecond}A^b_\mu}({\color{customblue}x^\mu}){\color{customyellow}Q^c}\partial_{{\color{customyellow}Q^a}}]\boldsymbol{f}({\color{customblue}x^\mu}, {\color{customred}p^\mu}, {\color{customyellow}Q^a})=0$\\[30pt]
-%                     \large $\boldsymbol{f}({\color{customblue}x^\mu}, {\color{customred}p^\mu}, {\color{customyellow}Q^a})\xrightarrow{\text{sample}}$ test particles $({\color{customblue}x^\mu}, {\color{customred}p^\mu}, {\color{customyellow}Q^a})$\\[10pt]
-%                     \large $\Rightarrow$ Wong's equations
-%                 };
-%             \end{tikzpicture} 
-%         \end{center}
-% \end{frame}
-
-
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %%%%%%%%%%%%%%%%%% SLIDE 10 %%%%%%%%%%%%%%%%%%
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% \begin{frame}[noframenumbering]
-%     \frametitle{Particles in Yang-Mills fields}
-%     \framesubtitle{Vizualizing the trajectories}
+%     \framesubtitle{Vizualizing the trajectories\footnote{\scriptsize Avramescu, Băran, Greco, Ipp, Müller, Ruggieri  \href{https://journals.aps.org/prd/abstract/10.1103/PhysRevD.107.114021}{{\color{customblue}\texttt{[Phys.Rev.D107(2023)]}}}}}
 %     \vspace{-0.5cm}
 %     \begin{columns}[onlytextwidth,t]
 %         \column{.025\textwidth}
@@ -2359,606 +991,793 @@
 %     \end{columns}
 % \end{frame}
 
-% \subsection{Momentum broadening}
+% \begin{frame}[noframenumbering]
+%     \frametitle{Particles in Yang-Mills fields}
+%     % \framesubtitle{Wong's equations of motion} 
+%         \begin{itemize}
+%             % \setbeamertemplate{itemize item}{\raisebox{0.2em}{\scalebox{0.7}{${\color{ming}\blacktriangleright}$}}}
+%             % \item {\large{{\color{ming}Approach}: {\color{ming}numerical trajectories} of classical particles in glasma fields}}
+%             \setbeamertemplate{itemize item}{\raisebox{0.2em}{\scalebox{0.7}{${\color{pinky}\blacktriangleright}$}}}
+%             \item  {\large{{\color{pinky}Quantities}: averaged over particle trajectories and glasma events}}
+%                 \\[10pt]
+%                 \begin{itemize}
+%                     \item[\raisebox{0.2em}{\scalebox{0.6}{${\color{ming}\blacktriangleright}$}}]   \tikzmarknode{A}{Momentum broadening ${\color{ming}\langle\delta p_i^2\rangle}(\tau)= \langle p_i^2(\tau)-p_i^2(\tau_\mathrm{form})\rangle$} \\[5pt]
+%                     \item[\raisebox{0.2em}{\scalebox{0.6}{${\color{ming}\blacktriangleright}$}}] \tikzmarknode{B}{Transport coefficient\footnote{More on transport coefficients in QGP from {\color{jyured}Maria-Lucia}} ${\color{ming}\kappa_i}=\dfrac{\mathrm{d}}{\mathrm{d}\tau}\langle \delta p^2_i(\tau)\rangle$ $\phantom{-p_i^2(\tau_\mathrm{form})abcd}$}\\[5pt]
+%                     % \item[\raisebox{0.2em}{\scalebox{0.6}{${\color{pinky}\blacktriangleright}$}}]   \tikzmarknode{B}{Momentum anisotropy ${\color{custompink}\dfrac{\langle\delta p_L^2\rangle}{\langle\delta p_T^2\rangle}}$ $\phantom{= p_i^2(\tau)-p_i^2(\tau_\mathrm{form})abcd}$} \\[5pt]
+%                     \item[\raisebox{0.2em}{\scalebox{0.6}{${\color{custompink}\blacktriangleright}$}}] \tikzmarknode{M}{Transverse momentum spectra ${\color{custompink}\dfrac{\mathrm{d}N}{\mathrm{d}p_T}}(\tau)$ using FONLL input $\dfrac{\mathrm{d}N}{\mathrm{d}p_T}(\tau_\mathrm{form})$}\\[5pt]
+%                     \item[\raisebox{0.2em}{\scalebox{0.6}{${\color{custompink}\blacktriangleright}$}}] Nuclear modification factor ${\color{custompink}R_{AA}}=\dfrac{\mathrm{d}N^{AA}/\mathrm{d}p_T}{A^2 \mathrm{d}N^{pp}/\mathrm{d}p_T}$ \\[5pt]
+%                     \item[\raisebox{0.2em}{\scalebox{0.6}{${\color{custompink}\blacktriangleright}$}}] \tikzmarknode{N}{Two-particle azimuthal correlation ${\color{custompink}\mathcal{C}(\Delta\phi)}= \dfrac{1}{N_\mathrm{pairs}}\dfrac{\mathrm{d}N}{\mathrm{d}\Delta\phi}$ for $Q\overline{Q}$ pairs $\phantom{abcd}$}
+%                 \end{itemize}
+%         \end{itemize} 
 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %%%%%%%%%%%%%%%%%% SLIDE 7 %%%%%%%%%%%%%%%%%%
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% \begin{frame}
-%     \frametitle{Quantifying the effect of Glasma}
-%     \framesubtitle{Momentum broadening}
-%     \begin{columns}[onlytextwidth,t]
-%         \column{.03\textwidth}
-%        \column{.45\textwidth}
-%         \vspace{-15pt}
-%        \begin{figure}
-%             \centering
-%             \includegraphics[width=\columnwidth]{img/hqs_trajectories.png}
-%             % \vspace{-0.7cm}
-%             \captionsetup{justification=centering}
-%             % \caption{\scriptsize\itshape Figure credits to D. M\"{u}ller}
-%         \end{figure}
-%         \column{.08\textwidth}
-%         \column{.4\textwidth}
-%         \vspace{0.2cm}
-%         \begin{center}
-%             {\color{ming}Momentum broadening} 
-%             \begin{equation*}
-%                 {\color{ming}\delta p_i^2}(\tau)\equiv p_i^2(\tau)-p_i^2(\tau_\mathrm{form})
-%             \end{equation*}
-%             Instantaneous {\color{customyellow}transport coefficient}
-%             \begin{equation*}
-%                 \frac{\d }{\d\tau}\langle\delta p^2_i(\tau)\rangle\equiv \begin{cases}{\color{customyellow}\kappa_i}(\tau),&\text{heavy quarks}\\
-%                 {\color{customyellow}\hat{q}_i}(\tau),&\text{jets}\end{cases}
-%             \end{equation*}
-%             {\color{customblue}Anisotropy} $\equiv$ ${\color{customblue}\langle\delta p_L^2\rangle/\langle\delta p_T^2\rangle}$
-            
-%         \end{center}
-%         \column{.05\textwidth}
-%     \end{columns}    
+%         \begin{tikzpicture}[overlay,remember picture,
+%             BC/.style = {decorate,
+%                     decoration={calligraphic brace, amplitude=4pt,
+%                     raise=4pt},
+%                     thick,
+%                     pen colour=ming}
+%                              ]
+%             \path[BC]   (A.north -| B.east) -- node[right=8pt] {\color{ming}theoretical} (B.south east);
+%         \end{tikzpicture}
+%         \begin{tikzpicture}[overlay,remember picture,
+%             NO/.style = {decorate,
+%                     decoration={calligraphic brace, amplitude=4pt,
+%                     raise=4pt},
+%                     thick,
+%                     pen colour=custompink}
+%                              ]
+%             \path[NO]   (M.north -| N.east) -- node[right=8pt] {\color{custompink}observables\footnote{More on HF observables from {\color{jyured} Mattia}}} (N.south east);
+%         \end{tikzpicture}
 % \end{frame}
 
+% % \begin{frame}
+% %     \begin{itemize}
+% % \item   a: there is some \tikzmarknode{A}{content}
+% % \item   b: in this item is some longer \tikzmarknode{B}{content}
+% % \item   last item 
+% %     \end{itemize}
+% % \begin{tikzpicture}[overlay,remember picture,
+% % BC/.style = {decorate,
+% %         decoration={calligraphic brace, amplitude=4pt,
+% %         raise=4pt},
+% %         very thick,
+% %         pen colour=red}
+% %                  ]
+% % \path[BC]   (A.north -| B.east) -- node[right=8pt] {$\Longrightarrow d$} (B.south east);
+% % \end{tikzpicture}
+% % \end{frame}
 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %%%%%%%%%%%%%%%%%% SLIDE 12 %%%%%%%%%%%%%%%%%%
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% \begin{frame}
-%     \frametitle{Heavy quarks in Glasma}
-%     \framesubtitle{Momentum broadening and $\kappa$}
-%     \vspace{5pt}
+% \setbeamertemplate{itemize item}{\raisebox{0.2em}{\scalebox{0.7}{${\color{customblue}\blacktriangleright}$}}}
+
+% % \begin{frame}[t]
+% %     \frametitle{Numerical trajectories results}
+% %     \begin{center}
+% %         \begin{tikzpicture}[xscale=1]%[scale=0.9, every node/.style={scale=0.6}]
+% %             % \draw[line width=2mm,-latex,red!20] (-0.2,0) -- (9,0);
+% %             \draw[line width=0.5mm,-latex,customblue!20] (-0.2,0) -- (8.5+0.2,0);
+% %             \foreach \X [evaluate=\X as \Y using int(\X-2017),count=\Z] in {2018, 2019, 2021, 2022, 2024}
+% %             {
+% %             % \draw[highlight on=<\Z>] ({\Y-0.2},-0.5) -- ({\Y+0.2},-0.5) -- (\Y,-0.1) -- cycle;
+% %             \draw[highlight on=<\Z>] (\Y,0) circle[radius=2.5pt];
+% %             % \node[circle, highlight on=<\Z>,inner sep=2pt,color=customblue] at (\Y,0) {};
+% %             \node[anchor=south,highlight on=<\Z>,fill=white,rotate=45,anchor=south
+% %             west,inner sep=0pt] at (\Y,0.2) {\X};
+% %             }
+% %         \end{tikzpicture}
+% %     \end{center}
+% %     \vspace{-10pt}
+% %     \begin{columns}[onlytextwidth,t]
+% %         \column{.02\textwidth}
+% %        \column{.44\textwidth}
+% %        \begin{figure}
+% %             \centering
+% %             \captionsetup{justification=centering}
+% %             \only<1>{\includegraphics[width=\textwidth]{images/pPb_RpPb_FRAGME_new_2.pdf}}
+% %             \only<2>{\includegraphics[width=0.95\textwidth]{images/1-s2.0-S0370269319306550-gr003_lrg.jpg}}
+% %             \only<3>{\includegraphics[width=0.95\textwidth]{images/zoom_02fm_langevin.png}}
+% %             \only<4>{\includegraphics[width=0.95\textwidth]{images/sigmap_charm_expanding_04.png}}
+% %             \only<5>{\includegraphics[width=0.9\textwidth]{images/beauty_early_behaviour_mom_broad.pdf}}
+% %             \only<6>{\includegraphics[width=0.8\textwidth]{images/clean_raa_tau_0.3_charm_quark_Qs_2.0_fonll_pdf_vs_npdf_v3.png}}
+% %             \only<7>{\includegraphics[width=0.8\textwidth]{images/final_dNdphi_tau_dep_charm_v2.png}}
+% %         \end{figure}
+% %         \column{.02\textwidth}
+% %         \column{.5\textwidth}
+% %         % \vspace{0.2cm}
+% %         \begin{center}
+% %             \begin{itemize}
+% %                 \item<1> $R_{pA}$ for D-mesons\only<1>{\footnotemark \\[5pt] {\color{lightgray}\footnotesize FONLL input + fragmentation\\
+% %                 SU(2) glasma, static box}}
+% %                 \item<2> Hybrid $R_{AA}$ and $v_2$\only<2>{\footnotemark \\[5pt] {\color{lightgray}\footnotesize Compared with Fokker-Planck diffusion\\
+% %                 SU(2) glasma, static box}}
+% %                 \only<3>{\item Momentum variance $\sigma_p$\footnotemark \\[5pt] {\color{lightgray}\footnotesize Compared with Langevin diffusion\\
+% %                 SU(2) glasma, static box}}
+% %                 \item<4> Momentum variance $\sigma_p$\only<4>{\footnotemark \\[5pt] {\color{lightgray}\footnotesize SU(2) glasma, longitudinal expansion}}
+% %                 \item<5> Momentum broadening $\langle \delta p^2\rangle$\only<5>{\footnotemark}\\
+% %                 Transport coefficient $\kappa$\only<5>{\footnotemark \\[5pt] {\color{lightgray}\footnotesize SU(3) glasma, CPIC particle solver}}
+% %                 \item<6> $R_{AA}$ with nPDF effects
+% %                 \item<7> Azimuthal decorrelation $\mathcal{C}(\Delta\phi)$ \only<7>{\\[5pt] {\color{lightgray}\footnotesize $Q\overline{Q}$ pairs evolve in glasma}}
+% %             \end{itemize}
+% %         \end{center}
+% %         \column{.02\textwidth}
+% %     \end{columns}
+% %     \only<1>{\footnotetext{\scriptsize Ruggieri, Das \href{https://journals.aps.org/prd/abstract/10.1103/PhysRevD.98.094024}{{\color{customblue}\texttt{[Phys.Rev.D98(2018)]}}}}}
+% %     \only<2>{\footnotetext{\scriptsize Sun, Coci, Das, Plumari, Ruggieri, Greco \href{https://doi.org/10.1016/j.physletb.2019.134933}{{\color{customblue}\texttt{[Phys.Lett.B798(2019)]}}}}}
+% %     \only<3>{\footnotetext{\scriptsize Liu, Das, Greco, Ruggieri \href{https://journals.aps.org/prd/abstract/10.1103/PhysRevD.103.034029}{{\color{customblue}\texttt{[Phys.Rev.D103(2021)]}}}}}
+% %     \only<4>{\footnotetext{\scriptsize Khowal, Das, Oliva, Ruggieri \href{https://link.springer.com/article/10.1140/epjp/s13360-022-02517-w}{{\color{customblue}\texttt{[Eur.Phys.J.Plus137(2022)]}}}}}
+% %     \only<5>{\footnotetext{\scriptsize Avramescu, Băran, Greco, Ipp, Müller, Ruggieri  \href{https://journals.aps.org/prd/abstract/10.1103/PhysRevD.107.114021}{{\color{customblue}\texttt{[Phys.Rev.D107(2023)]}}}}}
+% %     % only<2>{\footnotetext{\scriptsize Sun, Coci, Das, Plumari, Ruggieri, Greco  \href{https://doi.org/10.1016/j.physletb.2019.134933}{{\color{customblue}\texttt{[Phys.Lett.B798(2019)]}}}}}
+% % \end{frame}
+
+% \begin{frame}[t]
+%     \frametitle{Numerical trajectories results}
 %     \begin{center}
-%         \begin{figure}[!hbt]
-%         \centering
-%         \includegraphics[width=1.6\textheight]{images/hp23_mom_broad_kappa_anis_wong_vs_kappa.pdf}
-%         \end{figure}
-%         \end{center}
-%     \end{frame}
-
-
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %%%%%%%%%%%%%%%%%% SLIDE 12 %%%%%%%%%%%%%%%%%%
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% \begin{frame}
-%     \frametitle{Jets in Glasma}
-%     \framesubtitle{Momentum broadening and $\hat{q}$}
-%     \vspace{5pt}
-%     \begin{center}
-%         \begin{figure}[!hbt]
-%         \centering
-%         \includegraphics[width=1.6\textheight]{images/hp23_mom_broad_qhat_anis_wong_vs_qhat.pdf}
-%         \end{figure}
-%         \end{center}
-%     \end{frame}
-
-
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %%%%%%%%%%%%%%%%%% SLIDE 15 %%%%%%%%%%%%%%%%%%
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-% \begin{frame}
-%     \frametitle{Large transport coefficients}
-%     \framesubtitle{Plausible in an EKT framework}
-%     \vspace{-0.4cm}
+%         \begin{tikzpicture}[xscale=1]%[scale=0.9, every node/.style={scale=0.6}]
+%             % \draw[line width=2mm,-latex,red!20] (-0.2,0) -- (9,0);
+%             \draw[line width=0.5mm,-latex,customblue!20] (-0.2,0) -- (8.5+0.2,0);
+%             \foreach \X [evaluate=\X as \Y using int(\X-2017),count=\Z] in {2018, 2019, 2021, 2022, 2024}
+%             {
+%             % \draw[highlight on=<\Z>] ({\Y-0.2},-0.5) -- ({\Y+0.2},-0.5) -- (\Y,-0.1) -- cycle;
+%             \draw[highlight on=<\Z>] (\Y,0) circle[radius=2.5pt];
+%             % \node[circle, highlight on=<\Z>,inner sep=2pt,color=customblue] at (\Y,0) {};
+%             \node[anchor=south,highlight on=<\Z>,fill=white,rotate=45,anchor=south
+%             west,inner sep=0pt] at (\Y,0.2) {\X};
+%             }
+%         \end{tikzpicture}
+%     \end{center}
+%     \vspace{-10pt}
 %     \begin{columns}[onlytextwidth,t]
-%     \column{.5\textwidth}
-%         \begin{figure}[!hbt]
+%         \column{.02\textwidth}
+%        \column{.44\textwidth}
+%        \begin{figure}
 %             \centering
 %             \captionsetup{justification=centering}
-%             \caption{Schematic evolution of $\hat{q}$}\vspace{-0.3cm}
-%             \includegraphics[width=0.8\columnwidth]{img/qhat_schematic_evolution.pdf}\vspace{-0.3cm}
-%             \caption{\scriptsize\itshape Figure from \href{https://arxiv.org/abs/2303.12595}{\color{ForestGreen}[2303.12595]}}
+%             \only<1>{\includegraphics[width=\textwidth]{images/pPb_RpPb_FRAGME_new_2.pdf}}
+%             \only<2>{\includegraphics[width=0.95\textwidth]{images/1-s2.0-S0370269319306550-gr003_lrg.jpg}}
+%             \only<3>{\includegraphics[width=0.95\textwidth]{images/zoom_02fm_langevin.png}}
+%             \only<4>{\includegraphics[width=0.95\textwidth]{images/sigmap_charm_expanding_04.png}}
+%             \only<5>{\includegraphics[width=0.9\textwidth]{images/beauty_early_behaviour_mom_broad.pdf}}
+%             % \only<6>{\includegraphics[width=0.8\textwidth]{images/clean_raa_tau_0.3_charm_quark_Qs_2.0_fonll_pdf_vs_npdf_v3.png}}
+%             % \only<7>{\includegraphics[width=0.8\textwidth]{images/final_dNdphi_tau_dep_charm_v2.png}}
 %         \end{figure}
-%     \column{.5\textwidth}
-%         \begin{figure}[!hbt]
-%             \centering
-%             \captionsetup{justification=centering}
-%             \caption{{\color{ForestGreen}Kinetic theory}$^*$ connects the large $\hat{q}$ in {\color{Dandelion}Glasma}\\ to subsequent {\color{Periwinkle}hydrodynamics}}\vspace{-0.2cm}
-%             \includegraphics[width=0.8\columnwidth]{img/2023-03-07-16-41-35_qhat_appetizer_glasma_comparison_493.pdf}
-%         \end{figure}
-%     \end{columns}   
+%         \column{.02\textwidth}
+%         \column{.5\textwidth}
+%         % \vspace{0.2cm}
+%         \begin{center}
+%             \begin{itemize}
+%                 \only<1>{\item $R_{pA}$ for D-mesons\footnotemark \\[5pt] {\color{lightgray}\footnotesize First study in glasma\\ FONLL input + fragmentation\\
+%                 SU(2) glasma, static box}}
+%                 \only<2>{\item Hybrid $R_{AA}$ and $v_2$\footnotemark \\[5pt] {\color{lightgray}\footnotesize Compared with Fokker-Planck diffusion\\
+%                 Glasma increases $v_2$ \\
+%                 SU(2) glasma, static box 
+%                 % \\[5pt]
+%                 % Transport coefficients in QGP from {\color{jyured}Maria Lucia}}
+%                 }}
+%                 \only<3>{\item Momentum variance $\sigma_p$\footnotemark \\[5pt] {\color{lightgray}\footnotesize Compared with Langevin diffusion\\
+%                 Glasma correlation domains\\
+%                 SU(2) glasma, static box}}
+%                 \only<4>{\item Momentum variance $\sigma_p$\footnotemark \\[5pt] {\color{lightgray}\footnotesize SU(2) glasma, longitudinal expansion}}
+%                 \only<5>{\item Momentum broadening $\langle \delta p^2\rangle$\footnotemark\\
+%                 Transport coefficient $\kappa$\footnotemark \\[5pt] {\color{lightgray}\footnotesize SU(3) glasma, longitudinal expansion\\
+%                 Colored-particle-in-cell solver}}
+%                 % \only<6>{\item $R_{AA}$ with nPDF effects \\[5pt] {\color{lightgray}\footnotesize FONLL + EPPS16 input calculation}}
+%                 % \only<7>{\item Azimuthal decorrelation $\mathcal{C}(\Delta\phi)$ \\[5pt] {\color{lightgray}\footnotesize First study in glasma \\ $Q\overline{Q}$ pairs evolve in glasma}}
+%             \end{itemize}
+%         \end{center}
+%         \column{.02\textwidth}
+%     \end{columns}
+%     \only<1>{\footnotetext{\scriptsize Ruggieri, Das \href{https://journals.aps.org/prd/abstract/10.1103/PhysRevD.98.094024}{{\color{customblue}\texttt{[Phys.Rev.D98(2018)]}}}}}
+%     \only<2>{\footnotetext{\scriptsize Sun, Coci, Das, Plumari, Ruggieri, Greco \href{https://doi.org/10.1016/j.physletb.2019.134933}{{\color{customblue}\texttt{[Phys.Lett.B798(2019)]}}}}}
+%     \only<3>{\footnotetext{\scriptsize Liu, Das, Greco, Ruggieri \href{https://journals.aps.org/prd/abstract/10.1103/PhysRevD.103.034029}{{\color{customblue}\texttt{[Phys.Rev.D103(2021)]}}}}}
+%     \only<4>{\footnotetext{\scriptsize Khowal, Das, Oliva, Ruggieri \href{https://link.springer.com/article/10.1140/epjp/s13360-022-02517-w}{{\color{customblue}\texttt{[Eur.Phys.J.Plus137(2022)]}}}}}
+%     \only<5>{\footnotetext{\scriptsize Avramescu, Băran, Greco, Ipp, Müller, Ruggieri  \href{https://journals.aps.org/prd/abstract/10.1103/PhysRevD.107.114021}{{\color{customblue}\texttt{[Phys.Rev.D107(2023)]}}}}}
+%     % only<2>{\footnotetext{\scriptsize Sun, Coci, Das, Plumari, Ruggieri, Greco  \href{https://doi.org/10.1016/j.physletb.2019.134933}{{\color{customblue}\texttt{[Phys.Lett.B798(2019)]}}}}}
 % \end{frame}
 
 % \begin{frame}[noframenumbering]
-%     \frametitle{Large transport coefficients}
-%     \framesubtitle{Plausible in an EKT framework}
-%     \vspace{-0.4cm}
+%     \frametitle{Numerical trajectories results}
+%     \begin{center}
+%         \begin{tikzpicture}[xscale=1]%[scale=0.9, every node/.style={scale=0.6}]
+%             \draw[line width=0.5mm,-latex,customblue!20] (-0.2,0) -- (8.5+0.2,0);
+%             \foreach \X [evaluate=\X as \Y using int(\X-2017),count=\Z] in {2018, 2019, 2021, 2022}
+%             {
+%             \draw[highlight on=<0>] (\Y,0) circle[radius=2.5pt];
+%             \node[anchor=south,highlight on=<0>,fill=white,rotate=45,anchor=south
+%             west,inner sep=0pt] at (\Y,0.2) {\X};
+%             }
+%             \foreach \X [evaluate=\X as \Y using int(\X-2017),count=\Z] in {2024}
+%             {
+%             \draw[highlight on=<\Z>] (\Y,0) circle[radius=2.5pt];
+%             \node[anchor=south,highlight on=<\Z>,fill=white,rotate=45,anchor=south
+%             west,inner sep=0pt] at (\Y,0.2) {\X};
+%             }
+%         \end{tikzpicture}
+%     \end{center}
+%     \vspace{-10pt}
 %     \begin{columns}[onlytextwidth,t]
-%     \column{.5\textwidth}
-%         \begin{figure}[!hbt]
+%         \column{.02\textwidth}
+%        \column{.44\textwidth}
+%        \begin{figure}
 %             \centering
 %             \captionsetup{justification=centering}
-%             \caption{Schematic evolution of $\hat{q}$}\vspace{-0.3cm}
-%             \includegraphics[width=0.78\columnwidth]{img/qhat_schematic_evolution.pdf}\vspace{-0.3cm}
-%             \caption{\scriptsize\itshape Figure from \href{https://arxiv.org/abs/2303.12595}{\color{ForestGreen}[2303.12595]}}
+%             \only<1>{\includegraphics[width=0.8\textwidth]{images/clean_raa_tau_0.3_charm_quark_Qs_2.0_fonll_pdf_vs_npdf_v3.png}}
+%             % \only<7>{\includegraphics[width=0.8\textwidth]{images/final_dNdphi_tau_dep_charm_v2.png}}
 %         \end{figure}
-%     \column{.5\textwidth}
-%         \begin{figure}[!hbt]
+%         \column{.02\textwidth}
+%         \column{.5\textwidth}
+%         % \vspace{0.2cm}
+%         \begin{center}
+%             \begin{itemize}
+%                 \only<1>{\item $R_{AA}$ with nPDF effects \\[5pt] {\color{lightgray}\footnotesize FONLL + EPPS16 input calculation}}
+%                 % \only<7>{\item Azimuthal decorrelation $\mathcal{C}(\Delta\phi)$ \\[5pt] {\color{lightgray}\footnotesize First study in glasma \\ $Q\overline{Q}$ pairs evolve in glasma}}
+%             \end{itemize}
+%         \end{center}
+%         \column{.02\textwidth}
+%     \end{columns}
+%     \only<1>{\footnotetext{\scriptsize Avramescu, Greco, Lappi, Mäntysaari, M\"{u}ller  {\color{customblue}\texttt{[in preparation]}}}}
+% \end{frame}
+
+% \begin{frame}[noframenumbering]
+%     \frametitle{Numerical trajectories results}
+%     \begin{center}
+%         \begin{tikzpicture}[xscale=1]%[scale=0.9, every node/.style={scale=0.6}]
+%             \draw[line width=0.5mm,-latex,customblue!20] (-0.2,0) -- (8.5+0.2,0);
+%             \foreach \X [evaluate=\X as \Y using int(\X-2017),count=\Z] in {2018, 2019, 2021, 2022}
+%             {
+%             \draw[highlight on=<0>] (\Y,0) circle[radius=2.5pt];
+%             \node[anchor=south,highlight on=<0>,fill=white,rotate=45,anchor=south
+%             west,inner sep=0pt] at (\Y,0.2) {\X};
+%             }
+%             \foreach \X [evaluate=\X as \Y using int(\X-2017),count=\Z] in {2024}
+%             {
+%             \draw[highlight on=<\Z>] (\Y,0) circle[radius=2.5pt];
+%             \node[anchor=south,highlight on=<\Z>,fill=white,rotate=45,anchor=south
+%             west,inner sep=0pt] at (\Y,0.2) {\X};
+%             }
+%         \end{tikzpicture}
+%     \end{center}
+%     \vspace{-10pt}
+%     \begin{columns}[onlytextwidth,t]
+%         \column{.02\textwidth}
+%        \column{.44\textwidth}
+%        \begin{figure}
 %             \centering
 %             \captionsetup{justification=centering}
-%             \caption{{\color{ForestGreen}Kinetic theory}$^*$ connects the large $\hat{q}$ in {\color{Dandelion}Glasma}\\ to subsequent {\color{Periwinkle}hydrodynamics}}\vspace{-0.2cm}
-%             \includegraphics[width=0.8\columnwidth]{images/qhat_whole.png}
+%             % \only<1>{\includegraphics[width=0.8\textwidth]{images/clean_raa_tau_0.3_charm_quark_Qs_2.0_fonll_pdf_vs_npdf_v3.png}}
+%             \only<1>{\includegraphics[width=0.8\textwidth]{images/final_dNdphi_tau_dep_charm_v2.png}}
 %         \end{figure}
-%     \end{columns}   
+%         \column{.02\textwidth}
+%         \column{.5\textwidth}
+%         % \vspace{0.2cm}
+%         \begin{center}
+%             \begin{itemize}
+%                 % \only<1>{\item $R_{AA}$ with nPDF effects \\[5pt] {\color{lightgray}\footnotesize FONLL + EPPS16 input calculation}}
+%                 \only<1>{\item Azimuthal decorrelation $\mathcal{C}(\Delta\phi)$ \\[5pt] {\color{lightgray}\footnotesize First study in glasma \\ $Q\overline{Q}$ pairs evolve in glasma}}
+%             \end{itemize}
+%         \end{center}
+%         \column{.02\textwidth}
+%     \end{columns}
+%     \only<1>{\footnotetext{\scriptsize Avramescu, Greco, Lappi, Mäntysaari, M\"{u}ller  {\color{customblue}\texttt{[in preparation]}}}}
 % \end{frame}
 
 
-% \section{Observables}
+% \begin{frame}
+%     \frametitle{Particles in Yang-Mills fields}
+%     \framesubtitle{Correlator method}
+%         \setbeamertemplate{itemize item}{\raisebox{0.2em}{\scalebox{0.7}{${\color{ming}\blacktriangleright}$}}} 
+%         \begin{itemize}
+%             \item \begin{center}{{\color{ming}Approach}: infer particle dynamics from background {\color{ming}field correlators}} \end{center}
+%         \end{itemize} 
+%         \renewcommand{\eqnhighlightheight}{\vphantom{x}}
+%         \begin{equation*}
+%             \langle \delta p^2_i(\tau)\rangle= g^2 \int\limits_{\tau_0}^{\tau}\mathrm{d}\tau^{\prime}\int\limits_{\tau_0}^{\tau}\mathrm{d}\tau^{\prime\prime}\eqnmark[ming]{FF}{\Big\langle \mathrm{Tr}\big[\widetilde{\mathcal{F}}_i(\tau^{\prime})\widetilde{\mathcal{F}}_i(\tau^{\prime\prime})\big]\Big\rangle}
+%         \end{equation*}
+%         \annotate[yshift=-1em]{below, left}{FF}{gauge invariant force correlator}
+%         \\[20pt]
+%         \begin{center}
+%             {\footnotesize
+%             Lorentz force $\mathcal{F}_i=F_{i\mu}\dfrac{p^\mu}{p^\tau}$ $\xrightarrow{\text{gauge invariant}}$ parallel transport on lattice $\widetilde{\mathcal{F}}_i$}
+%         \end{center}
 
+%         \begin{columns}
+%             \begin{column}{0.033\textwidth}\end{column}
+%             \begin{column}{0.45\textwidth}
+%                 \centering
+%                 \includegraphics[width=0.9\textwidth]{images/Picture9.pdf}
+%             \end{column}
+%             \begin{column}{0.01\textwidth}\end{column}
+%             \begin{column}{0.45\textwidth}
+%                 % \centering
+%                 \vspace{-10pt}
+%                 \setbeamertemplate{itemize item}{\raisebox{0.2em}{\scalebox{0.7}{${\color{customyellow}\blacktriangleright}$}}} 
+%                 \begin{itemize}
+%                     \item {\color{customyellow} Static heavy quarks} on lattice\footnotemark
+%                 \end{itemize} 
+%                 \vspace{10pt}
+%                 {\footnotesize
+%                 \begin{equation*}
+%                     \langle \delta p^2_i(\tau)\rangle\big|_{\color{customyellow}m\rightarrow\infty}\propto \int_{\tau_0}^{\tau}\mathrm{d}\tau^{\prime}\int_{\tau_0}^{\tau}\mathrm{d}\tau^{\prime\prime}\Big\langle \mathrm{Tr}\big[{\color{customyellow}E_i}(\tau^{\prime}){\color{customyellow}E_i}(\tau^{\prime\prime})\big]\Big\rangle
+%                 \end{equation*}}
+%             \end{column}
+%             \begin{column}{0.056\textwidth}\end{column}
+%         \end{columns}
+%         \footnotetext{Electric field correlators also used by {\color{jyured}Vijami} and {\color{jyured}Tom}}
+% %    \begin{center}
+% %        Wong's equations $\leftrightarrow$ classical equations of motion for particles $({\color{customblue}x^\mu},{\color{customred}p^\mu},{\color{customyellow}Q})$ \\
+% %     evolving in a Yang-Mills background field ${\color{starrysecond}A^\mu}$
+% %    \end{center} 
+% %         \vspace{1cm}
+% %         \renewcommand{\eqnhighlightheight}{\vphantom{x}}
+% %         \begin{equation*}
+% %             \frac{\d}{\d\hspace{-0.1cm}\eqnmark[destacado]{tau}{\boldsymbol{\tau}}\hspace{-0.2cm}}\eqnmark[customblue]{xmu}{x^\mu}=\frac{{\color{customred}p^\mu}}{\eqnmark[destacado]{m}{m}},\qquad \eqnmark[destacado]{Ddtau}{\frac{\mathrm{D}}{\d\boldsymbol{\tau}}}\hspace{-0.2cm}\eqnmark[customred]{pmu}{p^\mu}=2\hspace{-0.1cm}\eqnmark[destacado]{g}{g}\hspace{-0.1cm}\tr{{\color{customyellow}Q}F^{\mu\nu}[\hspace{-0.1cm}\eqnmark[starrysecond]{amu}{A^\mu}\hspace{-0.1cm}]}\frac{{\color{customred}p_\nu}}{m},\qquad 
+% %             \underbrace{\frac{\d}{\d\boldsymbol{\tau}}\hspace{-0.1cm}\eqnmark[customyellow]{Q}{Q}\hspace{-0.1cm}=-\mathrm{i}g [{\color{starrysecond}A_\mu},{\color{customyellow}Q}]\,\frac{{\color{customred}p^\mu}}{m}}_{\substack{\text{\footnotesize color rotation}\,\rightarrow\,{\color{customgreen}\mathcal{U}}\in\,\mathrm{SU(3)} \\[0.2cm] {\color{customyellow}Q}(\boldsymbol{\tau})=\,{\color{customgreen}\mathcal{U}}(\boldsymbol{\tau},\boldsymbol{\tau}^\prime){\color{customyellow}Q}(\boldsymbol{\tau^\prime})\,{\color{customgreen}\mathcal{U}^\dagger}(\boldsymbol{\tau},\boldsymbol{\tau}^\prime)}}
+% %             \end{equation*}
+% %             \annotate[yshift=1.2em]{above}{xmu}{coordinate}
+% %             \annotate[yshift=1.2em]{above}{pmu}{momentum}
+% %             \annotate[yshift=-0.5em]{below, right}{m}{\tiny mass}
+% %             \annotate[yshift=-1.5em]{below, right}{Ddtau}{\tiny covariant derivative}
+% %             \annotate[yshift=-1.5em]{below, right}{tau}{\tiny proper time}
+% %             \annotate[yshift=-0.7em]{below, right}{g}{\tiny coupling constant}
+% %             \annotate[yshift=1.2em]{above}{Q}{color charge}
+% %             \annotate[yshift=1.2em]{above, right}{amu}{gauge field}
+%     %    \\
+%         % \begin{center}
+%         %     Symplectic numerical solver $\xrightarrow{\mathrm{assures}}$ ${\color{customyellow}Q}\in\mathrm{SU(3)}$, conservation of Casimir invariants 
+%         % \end{center} 
+% \end{frame}
+
+
+
+% \begin{frame}[t]
+%     \frametitle{Field correlators results}
+%     \begin{center}
+%         \begin{tikzpicture}[xscale=1]
+%             \draw[line width=0.5mm,-latex,customblue!20] (-0.2,0) -- (6.5+0.2,0);
+%             \foreach \X [evaluate=\X as \Y using int(\X-2019),count=\Z] in {2023, 2024}
+%             {
+%             \draw[highlight on=<0>] (\Y,0) circle[radius=2.5pt];
+%             \node[anchor=south,highlight on=<0>,fill=white,rotate=45,anchor=south
+%             west,inner sep=0pt] at (\Y,0.2) {\X};
+%             }
+%             \foreach \X [evaluate=\X as \Y using int(\X-2019),count=\Z] in {2020}
+%             {
+%             \draw[highlight on=<\Z>] (\Y,0) circle[radius=2.5pt];
+%             \node[anchor=south,highlight on=<\Z>,fill=white,rotate=45,anchor=south
+%             west,inner sep=0pt] at (\Y,0.2) {\X};
+%             }
+%         \end{tikzpicture}
+%     \end{center}
+%     \vspace{-10pt}
+%     \begin{columns}[onlytextwidth,t]
+%         \column{.02\textwidth}
+%        \column{.44\textwidth}
+%        \begin{figure}
+%             \centering
+%             \captionsetup{justification=centering}
+%             \only<1>{\includegraphics[width=0.9\textwidth]{images/1-s2.0-S0375947420302244-gr003_lrg (2).jpg}}
+%         \end{figure}
+%         \column{.02\textwidth}
+%         \column{.5\textwidth}
+%         % \vspace{0.2cm}
+%         \begin{center}
+%             \begin{itemize}
+%                 \only<1>{\item Transport coefficient $\kappa$ \\ Collisional energy loss $\mathrm{d}E/\mathrm{d}x$ \\[5pt] {\color{lightgray}\footnotesize Analytical glasma fields in $\tau$ expansion \\
+%                 Glasma $E$ and $B$ field correlators \\
+%                 Fokker-Planck equation for heavy quarks \\
+%                 }}
+%             \end{itemize}
+%         \end{center}
+%         \column{.02\textwidth}
+%     \end{columns}
+%     \only<1>{\footnotetext{\scriptsize Carrington, Czajka, Mrowczynski \href{https://doi.org/10.1016/j.nuclphysa.2020.121914}{\color{customblue}\texttt{[Nucl.Phys.A1001(2020)]}}}}
+% \end{frame}
+
+
+
+% \begin{frame}[noframenumbering]
+%     \frametitle{Field correlators results}
+%     \begin{center}
+%         \begin{tikzpicture}[xscale=1]
+%             \draw[line width=0.5mm,-latex,customblue!20] (-0.2,0) -- (6.5+0.2,0);
+%             \foreach \X [evaluate=\X as \Y using int(\X-2019),count=\Z] in {2023, 2024}
+%             {
+%             \draw[highlight on=<0>] (\Y,0) circle[radius=2.5pt];
+%             \node[anchor=south,highlight on=<0>,fill=white,rotate=45,anchor=south
+%             west,inner sep=0pt] at (\Y,0.2) {\X};
+%             }
+%             \foreach \X [evaluate=\X as \Y using int(\X-2019),count=\Z] in {2020}
+%             {
+%             \draw[highlight on=<\Z>] (\Y,0) circle[radius=2.5pt];
+%             \node[anchor=south,highlight on=<\Z>,fill=white,rotate=45,anchor=south
+%             west,inner sep=0pt] at (\Y,0.2) {\X};
+%             }
+%         \end{tikzpicture}
+%     \end{center}
+%     \vspace{-10pt}
+%     \begin{columns}[onlytextwidth,t]
+%         \column{.02\textwidth}
+%        \column{.44\textwidth}
+%        \begin{figure}
+%             \centering
+%             \captionsetup{justification=centering}
+%             \only<1>{\includegraphics[width=0.85\textwidth]{images/mombroadening_with_inset_and_approximations.pdf}}
+%         \end{figure}
+%         \column{.02\textwidth}
+%         \column{.5\textwidth}
+%         % \vspace{0.2cm}
+%         \begin{center}
+%             \begin{itemize}
+%                 \only<1>{\item Momentum broadening $\langle \delta p^2 \rangle$ \\ Transport coefficient $\kappa$ \\[5pt] {\color{lightgray}\footnotesize Over-occupied classical Yang-Mills \\
+%                 Numerical lattice $\langle EE\rangle$ correlator \\
+%                 Large peak in $\langle \delta p^2 \rangle$ \\
+%                 Oscillations of $\kappa$ with plasmon frequency
+%                 }}
+%             \end{itemize}
+%         \end{center}
+%         \column{.02\textwidth}
+%     \end{columns}
+%     \only<1>{\footnotetext{\scriptsize Boguslavski, Kurkela, Lappi, Peuron \href{https://doi.org/10.1007/JHEP09(2020)077}{\color{customblue}\texttt{[JHEP09(2020)]}}}}
+% \end{frame}
+
+
+
+
+% \begin{frame}[noframenumbering]
+%     \frametitle{Field correlators results}
+%     \begin{center}
+%         \begin{tikzpicture}[xscale=1]
+%             \draw[line width=0.5mm,-latex,customblue!20] (-0.2,0) -- (6.5+0.2,0);
+%             \foreach \X [evaluate=\X as \Y using int(\X-2019),count=\Z] in {2020, 2024}
+%             {
+%             \draw[highlight on=<0>] (\Y,0) circle[radius=2.5pt];
+%             \node[anchor=south,highlight on=<0>,fill=white,rotate=45,anchor=south
+%             west,inner sep=0pt] at (\Y,0.2) {\X};
+%             }
+%             \foreach \X [evaluate=\X as \Y using int(\X-2019),count=\Z] in {2023}
+%             {
+%             \draw[highlight on=<\Z>] (\Y,0) circle[radius=2.5pt];
+%             \node[anchor=south,highlight on=<\Z>,fill=white,rotate=45,anchor=south
+%             west,inner sep=0pt] at (\Y,0.2) {\X};
+%             }
+%         \end{tikzpicture}
+%     \end{center}
+%     \vspace{-10pt}
+%     \begin{columns}[onlytextwidth,t]
+%         \column{.02\textwidth}
+%        \column{.44\textwidth}
+%        \begin{figure}
+%             \centering
+%             \captionsetup{justification=centering}
+%             \only<1>{\includegraphics[width=0.8\textwidth]{images/hp23_mom_broad_kappa_anis_wong_vs_kappa-cropped.pdf}}
+%         \end{figure}
+%         \column{.02\textwidth}
+%         \column{.5\textwidth}
+%         % \vspace{0.2cm}
+%         \begin{center}
+%             \begin{itemize}
+%                 \only<1>{\item Momentum broadening $\langle \delta p^2 \rangle$ \\ Transport coefficient $\kappa$ \\[5pt] {\color{lightgray}\footnotesize Numerical lattice $\langle EE\rangle$ correlator \\ 
+%                 Comparison with numerical trajectories \\
+%                 Ordering $\langle\delta p^2_L\rangle>\langle\delta p^2_T\rangle$, negative $\kappa_L<0$ 
+%                 }}
+%             \end{itemize}
+%         \end{center}
+%         \column{.02\textwidth}
+%     \end{columns}
+%     \only<1>{\footnotetext{\scriptsize Avramescu, Băran, Greco, Ipp, Müller, Ruggieri  \href{https://pos.sissa.it/438/056}{{\color{customblue}\texttt{[PoSHardProbes2023(2024)]}}}}}
+% \end{frame}
+
+
+% \begin{frame}[noframenumbering]
+%     \frametitle{Field correlators results}
+%     \begin{center}
+%         \begin{tikzpicture}[xscale=1]
+%             \draw[line width=0.5mm,-latex,customblue!20] (-0.2,0) -- (6.5+0.2,0);
+%             \foreach \X [evaluate=\X as \Y using int(\X-2019),count=\Z] in {2020, 2023}
+%             {
+%             \draw[highlight on=<0>] (\Y,0) circle[radius=2.5pt];
+%             \node[anchor=south,highlight on=<0>,fill=white,rotate=45,anchor=south
+%             west,inner sep=0pt] at (\Y,0.2) {\X};
+%             }
+%             \foreach \X [evaluate=\X as \Y using int(\X-2019),count=\Z] in {2024}
+%             {
+%             \draw[highlight on=<\Z>] (\Y,0) circle[radius=2.5pt];
+%             \node[anchor=south,highlight on=<\Z>,fill=white,rotate=45,anchor=south
+%             west,inner sep=0pt] at (\Y,0.2) {\X};
+%             }
+%         \end{tikzpicture}
+%     \end{center}
+%     \vspace{-10pt}
+%     \begin{columns}[onlytextwidth,t]
+%         \column{.02\textwidth}
+%        \column{.44\textwidth}
+%        \begin{figure}
+%             \centering
+%             \captionsetup{justification=centering}
+%             \only<1>{\includegraphics[width=0.9\textwidth]{images/2Dsc_g_SR_Qt500.pdf}}
+%         \end{figure}
+%         \column{.02\textwidth}
+%         \column{.5\textwidth}
+%         % \vspace{0.2cm}
+%         \begin{center}
+%             \begin{itemize}
+%                 \only<1>{\item Transport coefficient $\kappa$ \\[5pt] {\color{lightgray}\footnotesize 
+%                 Glasma-like classical fields \\
+%                 Numerical lattice $\langle EE\rangle$ correlator \\ 
+%                 Effect of non-perturbative gluonic excitations \\
+%                 Explain the peak in $\kappa$
+%                 }}
+%             \end{itemize}
+%         \end{center}
+%         \column{.02\textwidth}
+%     \end{columns}
+%     \only<1>{\footnotetext{\scriptsize Backfried, Boguslavski, Hotzy \href{https://arxiv.org/abs/2408.12646}{{\color{customblue}\texttt{[arXiv2408.12646]}}}}}
+% \end{frame}
+
+
+    
+% % \begin{frame}[t]
+% %     \frametitle{Historial}
+% %     \begin{tikzpicture}[xscale=0.5]
+% %     \draw[line width=0.5mm,-latex,customblue!20] (-0.2,0) -- (20+0.2,0);
+% %     \foreach \X [evaluate=\X as \Y using int(\X-2000),count=\Z] in {2000,2001,2002} %<- these are the years not to be highlighted
+% %     {
+% %     % \draw[highlight on=<0>] ({\Y-0.2},-0.5) -- ({\Y+0.2},-0.5) -- (\Y,-0.1) -- cycle;
+% %     \node[circle, highlight on=<\Z>,inner sep=2pt,color=customblue] at (\Y,0) {};
+% %     \node[anchor=south,highlight on=<0>,fill=white,rotate=45,anchor=south
+% %     west,inner sep=0pt] at (\Y,0.2) {\X};
+% %     }
+% %     \foreach \X [evaluate=\X as \Y using int(\X-2000),count=\Z] in {2005,2008,2015} %<- these are the years which are to be highlighted
+% %     {
+% %     % \draw[highlight on=<\Z>] ({\Y-0.2},-0.5) -- ({\Y+0.2},-0.5) -- (\Y,-0.1) -- cycle;
+% %     \node[circle, highlight on=<\Z>,inner sep=2pt,color=customblue] at (\Y,0) {};
+% %     \node[anchor=south,highlight on=<\Z>,fill=white,rotate=45,anchor=south
+% %     west,inner sep=0pt] at (\Y,0.2) {\X};
+% %     }
+% %     \end{tikzpicture}
+% %     \begin{itemize}
+% %         \item<1> November 2005: marmots start hibernating again
+% %     \end{itemize}
+% % \end{frame}
+
+
+
+% \subsection{Kinetic theory}
 % \setbeamertemplate{background}{
-% \tikz[overlay,remember picture] \node[opacity=0.15, at=(current page.center)] {
-%    \includegraphics[height=0.8\paperheight]{images/Cdetadphi_3D_toy_charm_pT_1_tau_0.1_crop.png}};
+% \tikz[overlay,remember picture] \node[opacity=0.1, at=(current page.center), align=center] {\\[10pt]
+% {\transparent{0.1}\includegraphics[height=0.7\paperheight]{images/heavy-ion3.pdf}}
+%    \\[10pt]  
+%    {\transparent{0.3}\footnotesize\itshape Figure from  K. Boguslavski, A. Kurkela, T. Lappi, F. Lindenbauer, J. Peuron \href{https://arxiv.org/abs/2312.00447}{{\color{lightgray}\texttt{[2312.00447]}}}}};
 % }
+% % \begin{frame}[plain,noframenumbering]{}
+% %     \begin{center}
+% %         \vspace{1cm}
+% %         {\large\color{normal}Next stages of pre-equilibrium}\\[0.3cm]
+% %         {\huge\color{destacado}Thermalization of heavy quarks}
+% %     \end{center}
+% % \end{frame}
+% % \setbeamertemplate{background}{}
+
 % \begin{frame}[plain,noframenumbering]{}
 %     \begin{center}
 %         \vspace{1cm}
-%         {\large\color{normal}Part 4}\\[0.3cm]
-%         {\huge\color{destacado}Phenomenology}
+%         {\large\color{normal}Next stages of pre-equilibrium}\\[0.3cm]
+%         {\huge\color{destacado}Heavy quarks during bottom-up}\\[0.3cm]
+%         {\large\color{normal}
+%         \begin{center}
+%             % \begin{minipage}{0.45\textwidth}
+%             % \begin{itemize}
+%             %     \item Momentum broadening $\langle \delta p^2\rangle$
+%             %     \item Transport coefficient $\kappa$
+%             %     \item Observables $R_{AA}$, $v_2$, $\mathcal{C}(\Delta\phi)$
+%             % \end{itemize}
+%             % \end{minipage}
+%             \begin{columns}
+%                 \begin{column}{0.066\textwidth}\end{column}
+%                 \begin{column}{0.35\textwidth}
+%                     \centering
+%                     \setbeamertemplate{itemize item}{\raisebox{0.2em}{\scalebox{0.7}{${\color{ming}\blacktriangleright}$}}} 
+%                     {\Large\color{ming} Approaches}
+%                     \begin{itemize}
+%                         \item Effective kinetic theory
+%                     \end{itemize}
+%                 \end{column}
+%                 \begin{column}{0.066\textwidth}\end{column}
+%                 \begin{column}{0.45\textwidth}
+%                     \centering
+%                     \\[10pt]
+%                     \setbeamertemplate{itemize item}{\raisebox{0.2em}{\scalebox{0.7}{${\color{pinky}\blacktriangleright}$}}} 
+%                     {\Large\color{pinky} Quantities}
+%                     \begin{itemize}
+%                         \item Transport coefficient $\kappa$
+%                         \item Drag, diffusion coefficients $A_i$, $B_{ij}$
+%                     \end{itemize}
+%                 \end{column}
+%                 \begin{column}{0.066\textwidth}\end{column}
+%             \end{columns}
+%         \end{center}
+%         }
+%         % \\[0.3cm]
 %     \end{center}
 % \end{frame}
 % \setbeamertemplate{background}{}
 
-% \subsection{Two particle correlations}
-
-% \begin{frame}
-%     \frametitle{Two particle correlations}
-%     \framesubtitle{Sketch of $Q\overline{Q}$ pairs in the Glasma}
-%     \begin{center}
-%     \vspace{0.6cm}
-%     % : initial particle $p_T$ and Glasma $Q_s$\\[0.5cm]
-%     $\text{Control parameters: }\eqnmark[jyublue]{glasma}{\text{saturation momentum $Q_s$}} \text{ and }\eqnmark[pinky]{probes}{\text{initial $p_T$}}\text{\footnotesize with $\tau_\mathrm{form}=1/(2 m_T)$}$
-%     \annotate[yshift=1em]{above,left}{glasma}{\text{Glasma fields}}
-%     \annotate[yshift=1em]{above}{probes}{\text{heavy quarks}}
-%     \\[0.2cm]
-%     \begin{figure}[!hbt]
-%         \centering
-%         \includegraphics[width=0.95\textwidth]{images/sketch_quark_pair_evo_v2.png}
-%     \end{figure}
-%     \end{center}
-% \end{frame}
-
-
-% \begin{frame}[noframenumbering]
-%     \frametitle{Two particle correlations}
-%     \framesubtitle{Quantifying the decorrelation}
-%     \vspace{5pt}
-%     \begin{center}
-%     {\color{pinky}Rapidity} and {\color{pinky}azimuthal} correlations ${\color{pinky}\mathcal{C}(\Delta\eta, \Delta\phi)}\equiv\dfrac{1}{N_\mathrm{pairs}}\dfrac{\mathrm{d}^2 N}{\mathrm{d}\Delta\eta \mathrm{d}\Delta\phi}$ \\[0.3cm]
-%     {\color{customblue}Initial} $\mathcal{C}(\tau_\mathrm{form})\propto{\color{customblue}\delta(\Delta\phi-\pi)\delta(\Delta\eta)}\xmapsto{\Delta\tau\text{ in Glasma}}\mathcal{C}(\tau_\mathrm{form}+\Delta\tau)\xRightarrow{\text{extract}}{\color{pinky}\sigma_{\Delta\phi}}(\Delta\tau), {\color{pinky}\sigma_{\Delta\eta}}(\Delta\tau)$ 
-
-%     % \vspace{-10pt}
-%     \begin{figure}[!hbt]
-%     \centering
-%     \includegraphics[width=\textwidth]{images/sketch_decorrelation_v2_crop.png}
-%     \end{figure}
-%     \end{center}
-% \end{frame}
-
-% \begin{frame}
-%     \frametitle{Azimuthal decorrelation width}
-%     \framesubtitle{Effect of heavy quark $p_T$ and Glasma $Q_s$}
-%     \begin{center}
-%         \begin{columns}[onlytextwidth,t]
-%             \column{.02\textwidth}
-%            \column{.47\textwidth}
-%            \begin{figure}
-%                 \centering
-%                 \vspace{5pt}
-%                 \includegraphics[width=\columnwidth]{images/sigma_dphideta_tau_charm_beauty_pT_dep_final_azimuth.png}
-%                 % \captionsetup{justification=centering}
-%                 % \caption{\scriptsize\itshape EPPS16 nuclear PDF from \href{https://arxiv.org/abs/1612.05741}{\color{ForestGreen}[1612.05741]}}
-%                 % \vspace{-0.7cm}
-%             \end{figure}
-%             \column{.02\textwidth}
-%             \column{.47\textwidth}
-%             \vspace{-17pt}
-%             \begin{figure}
-%                 \centering
-%                 \includegraphics[width=1.02\columnwidth]{images/sigma_dphideta_tau_charm_beauty_Qs_dep_scaled_final_azimuth.png}
-%                 % \vspace{-0.7cm}
-%                 % \captionsetup{justification=centering}
-%                 % \caption{\scriptsize\itshape Figure credits to D. M\"{u}ller}
-%             \end{figure}
-%             \column{.02\textwidth}
-%         \end{columns}    
-%     \end{center}
-
-%     % \begin{center}
-%     %     \begin{figure}[!hbt]
-%     %         \centering
-%     %         \includegraphics[width=0.9\textwidth]{images/sigma_dphideta_tau_charm_beauty_pT_dep_final.png}
-%     %     \end{figure}
-%     % \end{center}
-% \end{frame}
-
-% \begin{frame}[noframenumbering]
-%     \frametitle{Azimuthal decorrelation width}
-%     \framesubtitle{Effect of heavy quark $p_T$ and Glasma $Q_s$}
-%     {\transparent{0.1}\begin{center}
-%         \begin{columns}[onlytextwidth,t]
-%             \column{.02\textwidth}
-%            \column{.47\textwidth}
-%            \begin{figure}
-%                 \centering
-%                 \vspace{5pt}
-%                 \includegraphics[width=\columnwidth]{images/sigma_dphideta_tau_charm_beauty_pT_dep_final_azimuth.png}
-%                 % \captionsetup{justification=centering}
-%                 % \caption{\scriptsize\itshape EPPS16 nuclear PDF from \href{https://arxiv.org/abs/1612.05741}{\color{ForestGreen}[1612.05741]}}
-%                 % \vspace{-0.7cm}
-%             \end{figure}
-%             \column{.02\textwidth}
-%             \column{.47\textwidth}
-%             \vspace{-17pt}
-%             \begin{figure}
-%                 \centering
-%                 \includegraphics[width=1.02\columnwidth]{images/sigma_dphideta_tau_charm_beauty_Qs_dep_scaled_final_azimuth.png}
-%                 % \vspace{-0.7cm}
-%                 % \captionsetup{justification=centering}
-%                 % \caption{\scriptsize\itshape Figure credits to D. M\"{u}ller}
-%             \end{figure}
-%             \column{.02\textwidth}
-%         \end{columns}    
-%     \end{center}}
-%     \begin{center}
-%         % \vspace{10pt}
-%         \begin{tikzpicture}[remember picture,overlay]
-%             \node[align=center] at (0,4.5) {
-%             \Large {\color{customblue}Significant decorrelaton} for $Q\overline{Q}$ pairs with\\[0.2cm]
-%             \Large sufficiently {\color{pinky}small initial $p_T$} and {\color{jyublue}large $Q_s$}
-%             };
-%         \end{tikzpicture} 
-%     \end{center}
-% \end{frame}
 
 
 % \begin{frame}
-%     \frametitle{Phenomenology implications}
-%     \framesubtitle{Azimuthal angle correlations}
-%     \begin{center}
-%         % \\[0.5cm]
-%         \vspace{5pt}
-%         {\color{pinky}First measurement} of azimuthal correlations in PbPb from \href{https://arxiv.org/abs/2308.16652}{\color{customblue}[ATLAS 2308.16652]} \\
-%         \vspace{-10pt}
-%         \begin{columns}[onlytextwidth,t]
-%             \column{.02\textwidth}
-%            \column{.47\textwidth}
-%            \begin{figure}
+%     \frametitle{Heavy quarks in EKT}
+%     \framesubtitle{Extracting transport coefficients}
+%         \setbeamertemplate{itemize item}{\raisebox{0.2em}{\scalebox{0.7}{${\color{ming}\blacktriangleright}$}}}
+%         \vspace{10pt} 
+%         \begin{itemize}
+%             \item \begin{center}{{\color{ming}Approach}: {\color{ming}effective kinetic theory} $\rightarrow$ gluon distribution function $f(\boldsymbol{k})$} \end{center}
+%         \end{itemize} 
+% %    \begin{center}
+% %        Wong's equations $\leftrightarrow$ classical equations of motion for particles $({\color{customblue}x^\mu},{\color{customred}p^\mu},{\color{customyellow}Q})$ \\
+% %     evolving in a Yang-Mills background field ${\color{starrysecond}A^\mu}$
+% %    \end{center} 
+%         \begin{columns}
+%             \begin{column}{0.066\textwidth}\end{column}
+%             \begin{column}{0.35\textwidth}
 %                 \centering
-%                 \vspace{-5pt}
-%                 \includegraphics[width=\columnwidth]{images/atlas_fig1_crop.png}
-%                 % \captionsetup{justification=centering}
-%                 % \caption{\scriptsize\itshape EPPS16 nuclear PDF from \href{https://arxiv.org/abs/1612.05741}{\color{ForestGreen}[1612.05741]}}
-%                 % \vspace{-0.7cm}
-%             \end{figure}
-%             \column{.02\textwidth}
-%             \column{.47\textwidth}
-%             % \vspace{0.1cm}
-%             \begin{figure}
-%                 \centering
-%                 \includegraphics[width=0.9\columnwidth]{images/atlas_fig2_crop.png}
-%                 % \vspace{-0.7cm}
-%                 % \captionsetup{justification=centering}
-%                 % \caption{\scriptsize\itshape Figure credits to D. M\"{u}ller}
-%             \end{figure}
-%             \column{.02\textwidth}
-%         \end{columns}    
-%     \end{center}
+%                 \begin{figure}
+%                     \centering
+%                     \captionsetup{justification=centering}
+%                     \includegraphics[width=0.9\textwidth]{images/feynmandiag_wo_title.pdf}
+%                     \caption{\scriptsize Figure credits to F. Lindenbauer}
+%                 \end{figure}
+%             \end{column}
+%             \begin{column}{0.033\textwidth}\end{column}
+%             \begin{column}{0.483\textwidth}
+%                 % \vspace{1cm}
+%                 \renewcommand{\eqnhighlightheight}{\vphantom{x}}
+%                 \begin{equation*}
+%                     \kappa\propto \int\eqnmark[starrysecond]{PS}{\mathrm{d}\Gamma_{\mathrm{PS}}}\hspace{-2pt}\eqnmark[pinky]{q}{\boldsymbol{q}^2}\hspace{-2pt}\abs{\hspace{-2pt}\eqnmark[ektblue]{M}{\mathcal{M}}\hspace{-2pt}}^2f(\hspace{-3pt}\eqnmark[ektgreen]{fk}{\boldsymbol{k}}\hspace{-3pt})[1+f(\hspace{-3pt}\eqnmark[ektgreen]{fkp}{\boldsymbol{k}^{\boldsymbol{\prime}}}\hspace{-3pt})]
+%                     \end{equation*}
+%                     \annotate[yshift=+2.0em]{above, right}{PS}{\tiny phase space measure}
+%                     \annotate[yshift=+0.5em]{above, right}{M}{\tiny matrix element}
+%                     \annotate[yshift=-2.0em]{below, right}{q}{\tiny momentum exchange}
+%                     \annotate[yshift=-0.5em]{below, right}{fk}{\tiny incoming}
+%                     \annotate[yshift=-0.5em]{below, right}{fkp}{\tiny outgoing}
+%             \end{column}
+%             \begin{column}{0.066\textwidth}\end{column}
+%         \end{columns}
+%         \vspace{-5pt}
+%         \begin{center}
+%             \footnotesize
+%             \hspace{9pt}Drag $\displaystyle A_i\propto \int\mathrm{d}\Gamma_{\mathrm{PS}}\,\boldsymbol{q}_i\,\abs{\mathcal{M}}^2f(\boldsymbol{k})[1\pm f(\boldsymbol{k}^{\boldsymbol{\prime}})]$ \\
+%             Diffusion $\displaystyle B_{ij}\propto \int\mathrm{d}\Gamma_{\mathrm{PS}}\,\boldsymbol{q}_i\boldsymbol{q}_j\,\abs{\mathcal{M}}^2f(\boldsymbol{k})[1\pm f(\boldsymbol{k}^{\boldsymbol{\prime}})]$
+%         \end{center}
+
+%         % \begin{center}
+%         %     Symplectic numerical solver $\xrightarrow{\mathrm{assures}}$ ${\color{customyellow}Q}\in\mathrm{SU(3)}$, conservation of Casimir invariants 
+%         % \end{center} 
 % \end{frame}
 
-% \begin{frame}[noframenumbering]
-%     \frametitle{Phenomenology implications}
-%     \framesubtitle{Azimuthal angle correlations}
-%     {\transparent{0.1} \begin{center}
-%         % \\[0.5cm]
-%         \vspace{5pt}
-%         {\color{pinky}First measurement} of azimuthal correlations in PbPb from \href{https://arxiv.org/abs/2308.16652}{\color{customblue}[ATLAS 2308.16652]} \\
-%         \vspace{-10pt}
-%         \begin{columns}[onlytextwidth,t]
-%             \column{.02\textwidth}
-%            \column{.47\textwidth}
-%            \begin{figure}
-%                 \centering
-%                 \vspace{-5pt}
-%                 \includegraphics[width=\columnwidth]{images/atlas_fig1_crop.png}
-%                 % \captionsetup{justification=centering}
-%                 % \caption{\scriptsize\itshape EPPS16 nuclear PDF from \href{https://arxiv.org/abs/1612.05741}{\color{ForestGreen}[1612.05741]}}
-%                 % \vspace{-0.7cm}
-%             \end{figure}
-%             \column{.02\textwidth}
-%             \column{.47\textwidth}
-%             % \vspace{0.1cm}
-%             \begin{figure}
-%                 \centering
-%                 \includegraphics[width=0.9\columnwidth]{images/atlas_fig2_crop.png}
-%                 % \vspace{-0.7cm}
-%                 % \captionsetup{justification=centering}
-%                 % \caption{\scriptsize\itshape Figure credits to D. M\"{u}ller}
-%             \end{figure}
-%             \column{.02\textwidth}
-%         \end{columns}    
-%     \end{center}}
+
+% \begin{frame}[t]
+%     \frametitle{EKT results}
 %     \begin{center}
-%         \vspace{10pt}
-%         \begin{tikzpicture}[remember picture,overlay]
-%             \node[align=center] at (0,3.8) {
-%             \Large No theoretical model predictions consider the {\color{customblue}inital stage}\\[1.0cm]
-%             \Large The azimiuthal decorrelation $\sigma_{\Delta\phi}$ from {\color{pinky}Glasma} \\[0.2cm] \Large needs to be accounted for
-%             };
-%         \end{tikzpicture} 
+%         \begin{tikzpicture}[xscale=1]
+%             \draw[line width=0.5mm,-latex,customblue!20] (-0.2,0) -- (2.5+0.2,0);
+%             \foreach \X [evaluate=\X as \Y using int(\X-2023),count=\Z] in {2024}
+%             {
+%             \draw[highlight on=<\Z>] (\Y,0) circle[radius=2.5pt];
+%             \node[anchor=south,highlight on=<\Z>,fill=white,rotate=45,anchor=south
+%             west,inner sep=0pt] at (\Y,0.2) {\X};
+%             }
+%         \end{tikzpicture}
 %     \end{center}
-% \end{frame}
-
-% \subsection{Nuclear modification factor}
-
-
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %%%%%%%%%%%%%%%%%% SLIDE 16 %%%%%%%%%%%%%%%%%%
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% \section{Highlights}
-% \begin{frame}
-%     \frametitle{Highlights}
-%     \begin{center}
-%         {\Large\color{customblue} Framework:}\\
-%         Numerical solver for hard probes in Glasma
-%         \\
-%         \textbf{Anisotropic} momentum broadening\\
-%         \textbf{Large} transport coefficients $\boldsymbol{\kappa}$ and $\boldsymbol{\hat{q}}$\\[0.5cm]
-
-%         {\Large\color{customblue} Phenomenology:}\\
-%         \textbf{Azimuthal decorrelation} of $Q\overline{Q}$ pairs\\
-%         Nuclear modification factor $R_{AA}$ with \textbf{nPDFs}\\[0.5cm]
-        
-%         {\Large\color{customblue} Improvements:}\\
-%         Energy loss
-%     \end{center}
-% \end{frame}
-
-% \appendix
-
-% \begin{frame}[plain,noframenumbering]{}
-%     \vspace{20pt}
-%     \huge\centering Thank you!
-% \end{frame}
-
-% \begin{frame}[plain,noframenumbering]{}
-%     \huge\centering Back-up
-% \end{frame}
-
-% \subsection{Nuclear modification factor}
-
-% \begin{frame}
-%     \frametitle{Nuclear modification factor}
-%     \framesubtitle{Sketch of $p_T$ spectra in the Glasma}
-%     \begin{center}
-%     \vspace{0.6cm}
-%     % : initial particle $p_T$ and Glasma $Q_s$\\[0.5cm]
-%     Heavy quarks $\xmapsto{\text{FONLL}^*}$ initial $p_T$ distribution $\propto\mathrm{d}\sigma^{pp/AA}/\mathrm{d}p_T(\sqrt{s}, \mathrm{PDF/nPDF})$
-%     \\[0.2cm]
-%     \begin{figure}[!hbt]
-%         \centering
-%         \includegraphics[width=0.95\textwidth]{images/sketch_dndpt_v3.png}
-%     \end{figure}
-%     \end{center}
-%     \begin{center}
-%         \scriptsize $^*$\textit{Fixed Order + Next-to-Leading Logarithms}, state-of-the-art resummed heavy quark production
-%     \end{center}
-% \end{frame}
-
-% \begin{frame}[noframenumbering]
-%     \frametitle{Nuclear modification factor}
-%     \framesubtitle{Extraction of $R_{AA}$ in Glasma}
+%     \vspace{-10pt}
 %     \begin{columns}[onlytextwidth,t]
-%         % \column{.02\textwidth}
-%        \column{.56\textwidth}
-%         \vspace{-20pt}
+%         \column{.02\textwidth}
+%        \column{.44\textwidth}
 %        \begin{figure}
 %             \centering
-%             \includegraphics[width=1.05\columnwidth]{images/sketch_raa_gl_fonll_v4.png}
-%             % \vspace{-0.7cm}
 %             \captionsetup{justification=centering}
-%             % \caption{\scriptsize\itshape Figure credits to D. M\"{u}ller}
+%             \only<1>{\includegraphics[width=0.9\textwidth]{images/KappaGlasmaVsEKTvsLatticev2.pdf}}
 %         \end{figure}
 %         \column{.02\textwidth}
-%         \column{.4\textwidth}
-%         \vspace{0.1cm}
+%         \column{.5\textwidth}
+%         % \vspace{0.2cm}
 %         \begin{center}
-%             Glasma $p_T$ broadening $\Rightarrow {\color{customblue}\dfrac{\mathrm{d}N}{\mathrm{d}p_T}}(\tau)$\\[0.1cm] Initialized with FONLL in $pp/AA$\\[1.2cm]   
-%             {\color{pinky}Nuclear modification factor} at $\tau$
-%             \begin{equation*}
-%                 {\color{pinky}R_{AA}}=\dfrac{\sigma_\mathrm{tot}^{AA}}{A^2\sigma_\mathrm{tot}^{pp}}\dfrac{{\color{customblue}\dfrac{\mathrm{d} N}{\mathrm{d} p_T}}(\tau;pp/AA)}{\dfrac{\mathrm{d} N^{pp}}{\mathrm{d} p_T}(\tau_\mathrm{form})}
-%             \end{equation*}
+%             \begin{itemize}
+%                 \only<1>{\item Transport coefficient $\kappa$ \\[5pt] 
+%                 {\color{lightgray}\footnotesize Compare to $\kappa$ in glasma \\
+%                 Compare with equilibrium $\kappa_{\mathrm{eq}}$ \\
+%                 Match for the same $m_D$, $T_{\star}$ and $\varepsilon$
+%                 }
+%                 }
+%             \end{itemize}
 %         \end{center}
-%         \column{.04\textwidth}
-%     \end{columns}    
-% \end{frame}
-
-
-
-% \begin{frame}
-%     \frametitle{$R_{AA}$ in the Glasma}
-%     \framesubtitle{Temporal evolution and $Q_s$ dependence}
-%     \vspace{-5pt}
-%     \begin{center}
-%         \begin{columns}[onlytextwidth,t]
-%             \column{.02\textwidth}
-%            \column{.47\textwidth}
-%            \begin{figure}
-%                 \centering
-%                 \includegraphics[width=\columnwidth]{images/clean_raa_tau_dep_quarks_charmQs_2.0_fonll_energy_5500_pdf_cteq.png}
-%                 % \captionsetup{justification=centering}
-%                 % \caption{\scriptsize\itshape EPPS16 nuclear PDF from \href{https://arxiv.org/abs/1612.05741}{\color{ForestGreen}[1612.05741]}}
-%                 % \vspace{-0.7cm}
-%             \end{figure}
-%             \column{.02\textwidth}
-%             \column{.47\textwidth}
-%             \vspace{-20pt}
-%             \begin{figure}
-%                 \centering
-%                 \includegraphics[width=1.01\columnwidth]{images/clean_raa_tau_dep_charm_quark_Qs_dep.png}
-%                 % \vspace{-0.7cm}
-%                 % \captionsetup{justification=centering}
-%                 % \caption{\scriptsize\itshape Figure credits to D. M\"{u}ller}
-%             \end{figure}
-%             \column{.02\textwidth}
-%         \end{columns}    
-%     \end{center}
-% \end{frame}
-
-% \begin{frame}[noframenumbering]
-%     \frametitle{$R_{AA}$ in the Glasma}
-%     \framesubtitle{Temporal evolution and $Q_s$ dependence}
-%     {\transparent{0.1}\vspace{-5pt}
-%     \begin{center}
-%         \begin{columns}[onlytextwidth,t]
-%             \column{.02\textwidth}
-%            \column{.47\textwidth}
-%            \begin{figure}
-%                 \centering
-%                 \includegraphics[width=\columnwidth]{images/clean_raa_tau_dep_quarks_charmQs_2.0_fonll_energy_5500_pdf_cteq.png}
-%                 % \captionsetup{justification=centering}
-%                 % \caption{\scriptsize\itshape EPPS16 nuclear PDF from \href{https://arxiv.org/abs/1612.05741}{\color{ForestGreen}[1612.05741]}}
-%                 % \vspace{-0.7cm}
-%             \end{figure}
-%             \column{.02\textwidth}
-%             \column{.47\textwidth}
-%             \vspace{-20pt}
-%             \begin{figure}
-%                 \centering
-%                 \includegraphics[width=1.01\columnwidth]{images/clean_raa_tau_dep_charm_quark_Qs_dep.png}
-%                 % \vspace{-0.7cm}
-%                 % \captionsetup{justification=centering}
-%                 % \caption{\scriptsize\itshape Figure credits to D. M\"{u}ller}
-%             \end{figure}
-%             \column{.02\textwidth}
-%         \end{columns}    
-%     \end{center}}
-%     \begin{center}
-%         \vspace{10pt}
-%         \begin{tikzpicture}[remember picture,overlay]
-%             \node[align=center] at (0,4.5) {
-%             \Large Glasma fields $\xrightarrow{p_T\text{ broadening}}$ shifted heavy quark {\color{customblue}$p_T$ spectra} \\[1.2cm]
-%             \Large Small-$p_T$ $\xmapsto{p_T\text{ migration}}$ large-$p_T$ $\Rightarrow$ {\color{pinky}$R_{AA}$ in Glasma} exhibits \\[0.2cm] 
-%             \Large {\color{pinky}suppresion} at small $p_T$ + {\color{pinky}enhancement} at large $p_T$
-%             };
-%         \end{tikzpicture} 
-%     \end{center}
-% \end{frame}
-
-% \begin{frame}
-%     \frametitle{$R_{AA}$ in the Glasma with nPDFs}
-%     \framesubtitle{Cold nuclear matter effects}
-%     \vspace{-15pt}
-%     \begin{center}
-%         \begin{columns}[onlytextwidth,t]
-%             \column{.04\textwidth}
-%            \column{.44\textwidth}
-%            \begin{figure}
-%                 \centering
-%                 \vspace{5pt}
-%                 \includegraphics[width=\columnwidth]{images/FitForm_EPPS16.pdf}
-%                 \captionsetup{justification=centering}
-%                 \caption{\scriptsize\itshape EPPS16 nuclear PDF from \href{https://arxiv.org/abs/1612.05741}{\color{ForestGreen}[1612.05741]}}
-%                 % \vspace{-0.7cm}
-%             \end{figure}
-%             \column{.04\textwidth}
-%             \column{.44\textwidth}
-%             % \vspace{0.1cm}
-%             \begin{figure}
-%                 \centering
-%                 \includegraphics[width=\columnwidth]{images/clean_raa_tau_0.6_charm_quark_Qs_2.0_fonll_pdf_vs_npdf_v2.png}
-%                 % \vspace{-0.7cm}
-%                 \captionsetup{justification=centering}
-%                 % \caption{\scriptsize\itshape Figure credits to D. M\"{u}ller}
-%             \end{figure}
-%             \column{.04\textwidth}
-%         \end{columns}    
-%     \end{center}
+%         \column{.02\textwidth}
+%     \end{columns}
+%     \only<1>{\footnotetext{\scriptsize Boguslavski, Kurkela, Lappi, Lindenbauer, Peuron \href{https://journals.aps.org/prd/abstract/10.1103/PhysRevD.109.014025}{\color{customblue}\texttt{[Phys.Rev.D109(2024)]}}}}
 % \end{frame}
 
 
 % \begin{frame}[noframenumbering]
-%     \frametitle{$R_{AA}$ in the Glasma with nPDFs}
-%     \framesubtitle{Cold nuclear matter effects}
-%     {\transparent{0.1}\vspace{-15pt}
+%     \frametitle{EKT results}
 %     \begin{center}
-%         \begin{columns}[onlytextwidth,t]
-%             \column{.04\textwidth}
-%            \column{.44\textwidth}
-%            \begin{figure}
-%                 \centering
-%                 \vspace{5pt}
-%                 \includegraphics[width=\columnwidth]{images/FitForm_EPPS16.pdf}
-%                 \captionsetup{justification=centering}
-%                 \caption{\scriptsize\itshape EPPS16 nuclear PDF from \href{https://arxiv.org/abs/1612.05741}{\color{ForestGreen}[1612.05741]}}
-%                 % \vspace{-0.7cm}
-%             \end{figure}
-%             \column{.04\textwidth}
-%             \column{.44\textwidth}
-%             % \vspace{0.1cm}
-%             \begin{figure}
-%                 \centering
-%                 \includegraphics[width=\columnwidth]{images/clean_raa_tau_0.6_charm_quark_Qs_2.0_fonll_pdf_vs_npdf_v2.png}
-%                 % \vspace{-0.7cm}
-%                 \captionsetup{justification=centering}
-%                 % \caption{\scriptsize\itshape Figure credits to D. M\"{u}ller}
-%             \end{figure}
-%             \column{.04\textwidth}
-%         \end{columns}    
-%     \end{center}}
-%     \begin{center}
-%         \vspace{10pt}
-%         \begin{tikzpicture}[remember picture,overlay]
-%             \node[align=center] at (0,4.5) {
-%             \Large Combined effect on $R_{AA}$ from 2 initial stage frameworks\\[1.2cm]
-%             \Large {\color{pinky}Gluon saturation} from Glasma\\[0.2cm]
-%             \Large +\\[0.2cm]
-%             \Large {\color{ForestGreen}Gluon shadowing} from nPDFs
-%             };
-%         \end{tikzpicture} 
+%         \begin{tikzpicture}[xscale=1]
+%             \draw[line width=0.5mm,-latex,customblue!20] (-0.2,0) -- (2.5+0.2,0);
+%             \foreach \X [evaluate=\X as \Y using int(\X-2023),count=\Z] in {2024}
+%             {
+%             \draw[highlight on=<\Z>] (\Y,0) circle[radius=2.5pt];
+%             \node[anchor=south,highlight on=<\Z>,fill=white,rotate=45,anchor=south
+%             west,inner sep=0pt] at (\Y,0.2) {\X};
+%             }
+%         \end{tikzpicture}
 %     \end{center}
-% \end{frame}
-
-
-
-% \begin{frame}
-%     \frametitle{Phenomenology implications}
-%     \framesubtitle{$R_{AA}$ and $v_2$ puzzle}
-%     \begin{center}
-%         \begin{figure}[!hbt]
+%     \vspace{-10pt}
+%     \begin{columns}[onlytextwidth,t]
+%         \column{.02\textwidth}
+%        \column{.44\textwidth}
+%        \begin{figure}
 %             \centering
 %             \captionsetup{justification=centering}
-%             \caption{$D$ mesons $R_{AA}$ and $v_2$ from \href{https://arxiv.org/abs/2110.09420}{\color{customblue}[ALICE 2110.09420]} compared to various transport models}
-%             \vspace{-10pt}
-%             \includegraphics[width=0.8\textwidth]{images/D_Raa_V2_vs_transportModel_010.pdf}
+%             \only<1>{\includegraphics[width=0.9\textwidth]{images/Ai_t.pdf}}
 %         \end{figure}
-%     \end{center}
+%         \column{.02\textwidth}
+%         \column{.5\textwidth}
+%         % \vspace{0.2cm}
+%         \begin{center}
+%             \begin{itemize}
+%                 \only<1>{\item Drag, diffusion $A_i$, $B_{ij}$ \\[5pt] 
+%                 {\color{lightgray}\footnotesize Contributions from $g, q, g+q$ \\
+%                 Angular dependence \\
+%                 Rescaled coefficients, attractor behavior
+%                 }
+%                 }
+%             \end{itemize}
+%         \end{center}
+%         \column{.02\textwidth}
+%     \end{columns}
+%     \only<1>{\footnotetext{\scriptsize Du \href{https://journals.aps.org/prc/abstract/10.1103/PhysRevC.109.014901}{\color{customblue}\texttt{[Phys.Rev.C109(2024)]}}}}
 % \end{frame}
 
-% \begin{frame}[noframenumbering]
-%     \frametitle{Phenomenology implications}
-%     \framesubtitle{$R_{AA}$ and $v_2$ puzzle}
-%     {\transparent{0.1} \begin{center}
-%         \begin{figure}[!hbt]
-%             \centering
-%             \captionsetup{justification=centering}
-%             \caption{$D$ mesons $R_{AA}$ and $v_2$ from \href{https://arxiv.org/abs/2110.09420}{\color{customblue}[ALICE 2110.09420]} compared to various transport models}
-%             \vspace{-10pt}
-%             \includegraphics[width=0.8\textwidth]{images/D_Raa_V2_vs_transportModel_010.pdf}
-%         \end{figure}
-%     \end{center}}
-%     \begin{center}
-%         \vspace{10pt}
-%         \begin{tikzpicture}[remember picture,overlay]
-%             \node[align=center] at (0,4.5) {
-%             \Large Currently, no models consider the effect of the {\color{customblue}initial stage}\\[1.2cm]
-%             \Large The $R_{AA}$ from {\color{pinky}Glasma} and {\color{ForestGreen}nPDFs} needs to be accounted for 
-%             };
-%         \end{tikzpicture} 
-%     \end{center}
+
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%% SECTION 4 %%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \section{Open questions}
+
+% \begin{frame}
+%     \frametitle{Open questions}
+%     % \framesubtitle{Wong's equations of motion} 
+%         \begin{itemize}
+%             % \setbeamertemplate{itemize item}{\raisebox{0.2em}{\scalebox{0.7}{${\color{ming}\blacktriangleright}$}}}
+%             % \item {\large{{\color{ming}Approach}: {\color{ming}numerical trajectories} of classical particles in glasma fields}}
+%             \setbeamertemplate{itemize item}{\raisebox{0.2em}{\scalebox{0.7}{${\color{ming}\blacktriangleright}$}}}
+%             \item  {\large{Theoretical improvements}}
+%                 % \\[10pt]
+%                 \begin{itemize}
+%                     \item[\raisebox{0.2em}{\scalebox{0.6}{${\color{ming}\blacktriangleright}$}}] First stage of bottom-up thermalization\\
+%                     {\scriptsize\color{lightgray}How to connect $\kappa$ from glasma to EKT? Match using gluon distribution function} \\[5pt]
+%                     \item[\raisebox{0.2em}{\scalebox{0.6}{${\color{ming}\blacktriangleright}$}}] Heavy quark energy loss in glasma \\
+%                     {\scriptsize\color{lightgray}Only recently: jet energy loss in glasma from synchrotron radiation {\color{jyured}Add reference}}
+%                 \end{itemize}
+%                 % \\[10pt]
+%             \setbeamertemplate{itemize item}{\raisebox{0.2em}{\scalebox{0.7}{${\color{pinky}\blacktriangleright}$}}}
+%                 \item  {\large{Experimental observables}}
+%                 % \\[10pt]
+%                 \begin{itemize}
+%                     \item[\raisebox{0.2em}{\scalebox{0.6}{${\color{pinky}\blacktriangleright}$}}] Observables sensitive to pre-equilibrium\\
+%                     {\scriptsize\color{lightgray}What to extract? The most sensitive is the azimuthal correlation} \\[5pt]
+%                     \item[\raisebox{0.2em}{\scalebox{0.6}{${\color{pinky}\blacktriangleright}$}}] Large initial anisotropy \\
+%                     {\scriptsize\color{lightgray}How to measure anisotropy $\rightarrow$ many studies in anisotropic systems {\color{jyured}Add references}}
+%                 \end{itemize}
+%             %     \\[10pt] 
+%                 \setbeamertemplate{itemize item}{\raisebox{0.2em}{\scalebox{0.7}{${\color{jyured}\blacktriangleright}$}}}
+%                 \item  {\large{Compare theory to experiment}}
+%                 % \\[10pt]
+%                 \begin{itemize}
+%                     \item[\raisebox{0.2em}{\scalebox{0.6}{${\color{jyured}\blacktriangleright}$}}] {\scriptsize\color{lightgray} How sensitive is data to pre-equilibrium? Simulations of all stages for HQ transport
+%                     }
+%                 \end{itemize}
+%             %     % \\[10pt] 
+%         \end{itemize} 
 % \end{frame}
 
 
