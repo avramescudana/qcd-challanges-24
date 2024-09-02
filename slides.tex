@@ -1028,7 +1028,7 @@
                 \\[10pt]
                 \begin{itemize}
                     \item[\raisebox{0.2em}{\scalebox{0.6}{${\color{ming}\blacktriangleright}$}}]   \tikzmarknode{A}{Momentum broadening ${\color{ming}\langle\delta p_i^2\rangle}(\tau)= \langle p_i^2(\tau)-p_i^2(\tau_\mathrm{form})\rangle$} \\[5pt]
-                    \item[\raisebox{0.2em}{\scalebox{0.6}{${\color{ming}\blacktriangleright}$}}] \tikzmarknode{B}{Transport coefficient\footnote{More on transport coefficients in QGP from {\color{jyured}Maria-Lucia}} ${\color{ming}\kappa_i}=\dfrac{\mathrm{d}}{\mathrm{d}\tau}\langle \delta p^2_i(\tau)\rangle$ $\phantom{-p_i^2(\tau_\mathrm{form})abcd}$}\\[5pt]
+                    \item[\raisebox{0.2em}{\scalebox{0.6}{${\color{ming}\blacktriangleright}$}}] \tikzmarknode{B}{Transport coefficient\footnote{More on transport coefficients in QGP from {\color{jyured}Maria-Lucia} and {\color{jyured}Salvatore}} ${\color{ming}\kappa_i}=\dfrac{\mathrm{d}}{\mathrm{d}\tau}\langle \delta p^2_i(\tau)\rangle$ $\phantom{-p_i^2(\tau_\mathrm{form})abcd}$}\\[5pt]
                     % \item[\raisebox{0.2em}{\scalebox{0.6}{${\color{pinky}\blacktriangleright}$}}]   \tikzmarknode{B}{Momentum anisotropy ${\color{custompink}\dfrac{\langle\delta p_L^2\rangle}{\langle\delta p_T^2\rangle}}$ $\phantom{= p_i^2(\tau)-p_i^2(\tau_\mathrm{form})abcd}$} \\[5pt]
                     \item[\raisebox{0.2em}{\scalebox{0.6}{${\color{custompink}\blacktriangleright}$}}] \tikzmarknode{M}{Transverse momentum spectra ${\color{custompink}\dfrac{\mathrm{d}N}{\mathrm{d}p_T}}(\tau)$ {\footnotesize \color{lightgray}using FONLL input $\dfrac{\mathrm{d}N}{\mathrm{d}p_T}(\tau_\mathrm{form})$}}\\[5pt]
                     \item[\raisebox{0.2em}{\scalebox{0.6}{${\color{custompink}\blacktriangleright}$}}] Nuclear modification factor ${\color{custompink}R_{AA}}=\dfrac{\mathrm{d}N^{AA}/\mathrm{d}p_T}{A^2 \mathrm{d}N^{pp}/\mathrm{d}p_T}$ \\[5pt]
@@ -1735,11 +1735,534 @@
         \end{itemize} 
 \end{frame}
 
-\appendix
-
 \begin{frame}[plain,noframenumbering]{}
     \vspace{20pt}
     \huge\centering Thank you!
 \end{frame}
+
+\appendix
+
+\begin{frame}[plain,noframenumbering]{}
+    \vspace{20pt}
+    \huge\centering Back-up
+\end{frame}
+
+\begin{frame}
+    \frametitle{Hard probes in Glasma}
+    \framesubtitle{Classical transport in the very-early stage}
+    \begin{center}
+        \onslide<1,2>{\textit{Prerequisite: }{\color{pinky}Classical lattice gauge theory} $\xrightarrow{\text{solver}}$ {\color{customblue}Glasma fields}\\[0.3cm]}\onslide<2>{\textit{This work: }{\color{customblue}Glasma fields} $\xleftrightarrow{\text{background}}$ test {\color{customgreen}particles} $\xleftarrow{\text{solver}}$ {\color{pinky}colored particle-in-cell}}
+        \begin{figure}[!hbt]
+            \centering
+            \only<1>{\includegraphics[width=0.8\textwidth]{images/hqs_flux_tubes_background.png}
+            }\only<2>{\includegraphics[width=0.8\textwidth]{images/hqs_flux_tubes_background+hqs.png}}
+        \end{figure}
+    \end{center}
+\end{frame}
+
+\begin{frame}
+    \frametitle{CGC as an EFT for high energy QCD}
+    \framesubtitle{Classical Yang-Mills fields}
+    \begin{columns}
+    \begin{column}{0.1\textwidth}\end{column}
+    \begin{column}{0.4\textwidth}
+        \begin{figure}[!hbt]
+            \centering
+            \includegraphics[width=\textwidth]{images/small_large_x.png}
+            \captionsetup{justification=centering}
+            \vspace{-0.2em}
+        \end{figure}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+        \vspace{-1.3cm}
+        \begin{center}
+            Separation of scales between\\
+            {\color{customgreen}small-{\tiny $x$}} and {\color{custompink}large-{\huge $x$}} degrees of freedom
+        \end{center}
+    \end{column}
+    \begin{column}{0.1\textwidth}\end{column}
+    \end{columns}
+     \vspace{-0.5cm}
+     \renewcommand{\eqnhighlightheight}{\vphantom{\mathcal{D}_\mu}\mathstrut}\begin{equation*}
+            \hspace{-3cm}\text{CYM equations: }\Big(\eqnmark[starrymain]{dmu}{\mathcal{D}_\mu}\eqnmark[starrysecond]{fmunu}{F^{\mu\nu}}\Big)\Big[\eqnmark[customgreen]{amu}{A^\mu}\Big]=\eqnmark[custompink]{jnu}{J^\nu}
+            \end{equation*}
+            \annotate[yshift=0.7em]{above, left}{dmu}{covariant derivative}
+            \annotate[yshift=0.7em]{above}{fmunu}{field strength tensor}
+            \annotate[yshift=-0.5em]{below, left}{amu}{gluons gauge field}
+            \annotate[yshift=-0.5em]{below, right}{jnu}{color current of nucleus}
+   \begin{center}
+    \vspace{-0.4cm}
+        \renewcommand{\eqnhighlightheight}{\vphantom{\delta^{\mu+}}\mathstrut}
+        \begin{equation*}
+            \eqnmark[customblue]{MV}{\text{MV model}}\text{and LC kinematics} \Rightarrow J^{\mu,a}(x)\propto
+            \delta^{\mu+}\eqnmark[custompink]{rho}{\rho^a}(x^-,\boldsymbol{x}_\perp)
+            \end{equation*}
+            \annotate[yshift=-0.1em]{below, left}{MV}{large nuclei}
+            \annotate[yshift=-0.1em]{below, right}{rho}{stochastic variable}
+        \\[0.1cm]
+        Two-point function $\langle {\color{custompink}\rho^a\rho^a}\rangle \propto {\color{customgreen} Q}^2_{\color{customgreen}s}$ {\color{customgreen}saturation momentum}   
+    \end{center}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Numerical implementation {\small\itshape(technicalities)}}
+    \begin{center}
+        {\color{pinky}Boost-invariant} Yang-Mills equations for ${\color{customblue}A_{i}}(\tau,\vec{x}_\perp, {\color{pinky}\xcancel{\eta}})$ and $A_{\eta}(\tau,\vec{x}_\perp, {\color{pinky}\xcancel{\eta}})$
+    \end{center}
+    \vspace{-0.5cm}
+    \begin{columns}
+        \column{.05\textwidth}
+        \column{.35\textwidth}
+        \begin{figure}[!hbt]
+            \includegraphics[width=\textwidth]{images/Plaquette.pdf}
+        \end{figure}
+        \column{.5\textwidth}
+        \begin{center}
+             Trace of a plaquette $\mapsto$ gauge invariant \\
+            Wilson lines on the lattice $\leftrightarrow$ {\color{pinky}gauge links }${\color{pinky}U_{x, \mu}}=\exp\{\mathrm{i}g a A_\mu(x)\}$\\
+        Wilson loops on lattice $\leftrightarrow$ {\color{ming}plaquettes} ${\color{ming}U_{x, \mu \nu}}\equiv{\color{pinky}U_{x, \mu}} {\color{pinky}U_{x+\mu, \nu}} {\textcolor{pinky}{U}^\dagger_{\textcolor{pinky}{x+\mu,\mu}}}{\textcolor{pinky}{U}^\dagger_{\textcolor{pinky}{x,\nu}}}$ 
+        \end{center}
+        \column{.05\textwidth}
+    \end{columns}
+    \vspace{-0.5cm}
+    \begin{center}
+        Glasma $\xrightarrow{\text{\sffamily\color{pinky} boost invariance}}$ transverse gauge links ${\color{customblue}U_i}(\tau,\vec{x}_\perp)$, while $A_{\eta}(\tau, \vec{x}_\perp)$
+    \end{center}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{The Glasma fields}
+    \framesubtitle{General features}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.9\textwidth]{images/flux_tubes_auau_200_nums_1_dpi_300_nounits.png}
+        \captionsetup{justification=centering}
+        \caption{Relevant scale ${\color{custompink}Q_s}$ \\
+        {\scriptsize\itshape Fields {\color{customgreen}dilute} after $\delta\tau\simeq {\color{custompink}Q}^{-1}_{\color{custompink}s}$, arrange themselves in {\color{customgreen}correlation domains} of $\delta x_T \simeq {\color{custompink}Q}^{-1}_{\color{custompink}s}$} 
+        % \\[0.2cm]
+        % {\color{customblue}Boost-invariant} and {\color{customblue}anisotropic} field configurations
+        }
+    \end{figure}
+\end{frame}
+
+\begin{frame}[noframenumbering]
+    \frametitle{The Glasma fields}
+    \framesubtitle{Bjorken expansion}
+    {\transparent{0.1}\begin{figure}
+        \centering
+        \includegraphics[width=0.9\textwidth]{images/flux_tubes_auau_200_nums_1_dpi_300_nounits.png}
+        \captionsetup{justification=centering}
+        \caption{Relevant scale ${\color{custompink}Q_s}$ \\
+        {\scriptsize\itshape Fields {\color{customgreen}dilute} after $\delta\tau\simeq {\color{custompink}Q}^{-1}_{\color{custompink}s}$, arrange themselves in {\color{customgreen}correlation domains} of $\delta x_T \simeq {\color{custompink}Q}^{-1}_{\color{custompink}s}$} 
+        % \\[0.2cm]
+        % {\color{customblue}Boost-invariant} and {\color{customblue}anisotropic} field configurations
+        }
+    \end{figure}}
+    \begin{center}
+        \begin{tikzpicture}[remember picture,overlay]
+            \node[align=center] at (0,4) {
+                The fields become {\color{customgreen}dilute} after $\delta\tau\simeq {\color{custompink}Q}^{-1}_{\color{custompink}s}$\\
+                \includegraphics[width=0.55\textwidth]{images/dilute_2.png}
+            };
+        \end{tikzpicture} 
+    \end{center}
+\end{frame}
+
+
+\begin{frame}[noframenumbering]
+    \frametitle{The Glasma fields}
+    \framesubtitle{Flux tubes}
+    {\transparent{0.1}\begin{figure}
+        \centering
+        \includegraphics[width=0.9\textwidth]{images/flux_tubes_auau_200_nums_1_dpi_300_nounits.png}
+        \captionsetup{justification=centering}
+        \caption{Relevant scale ${\color{custompink}Q_s}$ \\
+        {\scriptsize\itshape Fields {\color{customgreen}dilute} after $\delta\tau\simeq {\color{custompink}Q}^{-1}_{\color{custompink}s}$, arrange themselves in {\color{customgreen}correlation domains} of $\delta x_T \simeq {\color{custompink}Q}^{-1}_{\color{custompink}s}$} 
+        % \\[0.2cm]
+        % {\color{customblue}Boost-invariant} and {\color{customblue}anisotropic} field configurations
+        }
+    \end{figure}}
+    \vspace{0.3cm}
+    \begin{center}
+        \begin{tikzpicture}[remember picture,overlay]
+            \node[align=center] at (0,4) {
+                The fields arrange themselves in {\color{customgreen}correlation domains} of $\delta x_T \simeq {\color{custompink}Q}^{-1}_{\color{custompink}s}$\\
+                \includegraphics[width=0.48\textwidth]{images/correlation_2.png}
+            };
+        \end{tikzpicture} 
+    \end{center}
+\end{frame}
+
+
+\begin{frame}[noframenumbering]
+    \frametitle{The Glasma fields}
+    \framesubtitle{Anisotropy}
+    {\transparent{0.1}\begin{figure}
+        \centering
+        \includegraphics[width=0.9\textwidth]{images/flux_tubes_auau_200_nums_1_dpi_300_nounits.png}
+        \captionsetup{justification=centering}
+        \caption{Relevant scale ${\color{custompink}Q_s}$ \\
+        {\scriptsize\itshape Fields {\color{customgreen}dilute} after $\delta\tau\simeq {\color{custompink}Q}^{-1}_{\color{custompink}s}$, arrange themselves in {\color{customgreen}correlation domains} of $\delta x_T \simeq {\color{custompink}Q}^{-1}_{\color{custompink}s}$} 
+        }
+    \end{figure}}
+    \vspace{0.3cm}
+    \begin{center}
+        \begin{tikzpicture}[remember picture,overlay]
+            \node[align=center] at (0,4) {
+                Longitudinal $\neq$ transverse $\Rightarrow$ {\color{pinky}anisotropy}\\
+                \includegraphics[width=0.55\textwidth]{images/anisotropy.png}
+            };
+        \end{tikzpicture} 
+    \end{center}
+\end{frame}
+
+\begin{frame}[noframenumbering]
+    \frametitle{Particles in Yang-Mills fields}
+    \framesubtitle{Wong's equations of motion}
+    {\transparent{0.1}\begin{center}
+       Wong's equations $\leftrightarrow$ classical equations of motion for particles $({\color{customblue}x^\mu},{\color{customred}p^\mu},{\color{customyellow}Q})$ \\
+    evolving in a Yang-Mills background field ${\color{starrysecond}A^\mu}$
+   \end{center} 
+        \vspace{1cm}
+        \renewcommand{\eqnhighlightheight}{\vphantom{x}}
+        \begin{equation*}
+            \frac{\d}{\d\hspace{-0.1cm}\eqnmark[destacado]{tau}{\boldsymbol{\tau}}\hspace{-0.2cm}}\eqnmark[customblue]{xmu}{x^\mu}=\frac{{\color{customred}p^\mu}}{\eqnmark[destacado]{m}{m}},\qquad \eqnmark[destacado]{Ddtau}{\frac{\mathrm{D}}{\d\boldsymbol{\tau}}}\hspace{-0.2cm}\eqnmark[customred]{pmu}{p^\mu}=2\hspace{-0.1cm}\eqnmark[destacado]{g}{g}\hspace{-0.1cm}\tr{{\color{customyellow}Q}F^{\mu\nu}[\hspace{-0.1cm}\eqnmark[starrysecond]{amu}{A^\mu}\hspace{-0.1cm}]}\frac{{\color{customred}p_\nu}}{m},\qquad 
+            \underbrace{\frac{\d}{\d\boldsymbol{\tau}}\hspace{-0.1cm}\eqnmark[customyellow]{Q}{Q}\hspace{-0.1cm}=-\mathrm{i}g [{\color{starrysecond}A_\mu},{\color{customyellow}Q}]\,\frac{{\color{customred}p^\mu}}{m}}_{\substack{\text{\footnotesize color rotation}\,\rightarrow\,{\color{customgreen}\mathcal{U}}\in\,\mathrm{SU(3)} \\[0.2cm] {\color{customyellow}Q}(\boldsymbol{\tau})=\,{\color{customgreen}\mathcal{U}}(\boldsymbol{\tau},\boldsymbol{\tau}^\prime){\color{customyellow}Q}(\boldsymbol{\tau^\prime})\,{\color{customgreen}\mathcal{U}^\dagger}(\boldsymbol{\tau},\boldsymbol{\tau}^\prime)}}
+            \end{equation*}
+            \annotate[yshift=1.2em]{above}{xmu}{coordinate}
+            \annotate[yshift=1.2em]{above}{pmu}{momentum}
+            \annotate[yshift=-0.5em]{below, right}{m}{\tiny mass}
+            \annotate[yshift=-1.5em]{below, right}{Ddtau}{\tiny covariant derivative}
+            \annotate[yshift=-1.5em]{below, right}{tau}{\tiny proper time}
+            \annotate[yshift=-0.7em]{below, right}{g}{\tiny coupling constant}
+            \annotate[yshift=1.2em]{above}{Q}{color charge}
+            \annotate[yshift=1.2em]{above, right}{amu}{gauge field}
+       \\
+        \begin{center}
+            Symplectic numerical solver $\xrightarrow{\mathrm{assures}}$ ${\color{customyellow}Q}\in\mathrm{SU(3)}$, conservation of Casimir invariants 
+        \end{center}}
+        \begin{center}
+            \vspace{40pt}
+            \begin{tikzpicture}[remember picture,overlay]
+                \node[align=center] at (0,4) {
+                    \large Boltzmann-Vlasov collisionless non-Abelian plasma\\[10pt]
+                    \large ${\color{customred}p^\mu}[\partial_\mu+g {\color{customyellow}Q^a} {\color{starrysecond}F^{\mu\nu}}({\color{customblue}x^\mu})\partial^\nu_{{\color{customred}p^\mu}}+gf^{abc}{\color{starrysecond}A^b_\mu}({\color{customblue}x^\mu}){\color{customyellow}Q^c}\partial_{{\color{customyellow}Q^a}}]\boldsymbol{f}({\color{customblue}x^\mu}, {\color{customred}p^\mu}, {\color{customyellow}Q^a})=0$\\[30pt]
+                    \large $\boldsymbol{f}({\color{customblue}x^\mu}, {\color{customred}p^\mu}, {\color{customyellow}Q^a})\xrightarrow{\text{sample}}$ test particles $({\color{customblue}x^\mu}, {\color{customred}p^\mu}, {\color{customyellow}Q^a})$\\[10pt]
+                    \large $\Rightarrow$ Wong's equations
+                };
+            \end{tikzpicture} 
+        \end{center}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Heavy quarks in Glasma}
+    \framesubtitle{Momentum broadening and $\kappa$}
+    \vspace{5pt}
+    \begin{center}
+        \begin{figure}[!hbt]
+        \centering
+        \includegraphics[width=1.6\textheight]{images/hp23_mom_broad_kappa_anis_wong_vs_kappa.pdf}
+        \end{figure}
+        \end{center}
+    \end{frame}
+
+\begin{frame}
+    \frametitle{Jets in Glasma}
+    \framesubtitle{Momentum broadening and $\hat{q}$}
+    \vspace{5pt}
+    \begin{center}
+        \begin{figure}[!hbt]
+        \centering
+        \includegraphics[width=1.6\textheight]{images/hp23_mom_broad_qhat_anis_wong_vs_qhat.pdf}
+        \end{figure}
+        \end{center}
+    \end{frame}
+
+
+\begin{frame}
+    \frametitle{Large transport coefficients}
+    \framesubtitle{Plausible in an EKT framework}
+    \vspace{-0.4cm}
+    \begin{columns}[onlytextwidth,t]
+    \column{.5\textwidth}
+        \begin{figure}[!hbt]
+            \centering
+            \captionsetup{justification=centering}
+            \caption{Schematic evolution of $\hat{q}$}\vspace{-0.3cm}
+            \includegraphics[width=0.8\columnwidth]{images/qhat_schematic_evolution.pdf}\vspace{-0.3cm}
+            \caption{\scriptsize\itshape Figure from \href{https://arxiv.org/abs/2303.12595}{\color{ForestGreen}[2303.12595]}}
+        \end{figure}
+    \column{.5\textwidth}
+        \begin{figure}[!hbt]
+            \centering
+            \captionsetup{justification=centering}
+            \caption{{\color{ForestGreen}Kinetic theory}$^*$ connects the large $\hat{q}$ in {\color{Dandelion}Glasma}\\ to subsequent {\color{Periwinkle}hydrodynamics}}\vspace{-0.2cm}
+            \includegraphics[width=0.8\columnwidth]{images/2023-03-07-16-41-35_qhat_appetizer_glasma_comparison_493.pdf}
+        \end{figure}
+    \end{columns}   
+\end{frame}
+
+\begin{frame}[noframenumbering]
+    \frametitle{Large transport coefficients}
+    \framesubtitle{Plausible in an EKT framework}
+    \vspace{-0.4cm}
+    \begin{columns}[onlytextwidth,t]
+    \column{.5\textwidth}
+        \begin{figure}[!hbt]
+            \centering
+            \captionsetup{justification=centering}
+            \caption{Schematic evolution of $\hat{q}$}\vspace{-0.3cm}
+            \includegraphics[width=0.78\columnwidth]{images/qhat_schematic_evolution.pdf}\vspace{-0.3cm}
+            \caption{\scriptsize\itshape Figure from \href{https://arxiv.org/abs/2303.12595}{\color{ForestGreen}[2303.12595]}}
+        \end{figure}
+    \column{.5\textwidth}
+        \begin{figure}[!hbt]
+            \centering
+            \captionsetup{justification=centering}
+            \caption{{\color{ForestGreen}Kinetic theory}$^*$ connects the large $\hat{q}$ in {\color{Dandelion}Glasma}\\ to subsequent {\color{Periwinkle}hydrodynamics}}\vspace{-0.2cm}
+            \includegraphics[width=0.8\columnwidth]{images/qhat_whole.png}
+        \end{figure}
+    \end{columns}   
+\end{frame}
+
+\begin{frame}[noframenumbering]
+    \frametitle{Two particle correlations}
+    \framesubtitle{Quantifying the decorrelation}
+    \vspace{5pt}
+    \begin{center}
+    {\color{pinky}Rapidity} and {\color{pinky}azimuthal} correlations ${\color{pinky}\mathcal{C}(\Delta\eta, \Delta\phi)}\equiv\dfrac{1}{N_\mathrm{pairs}}\dfrac{\mathrm{d}^2 N}{\mathrm{d}\Delta\eta \mathrm{d}\Delta\phi}$ \\[0.3cm]
+    {\color{customblue}Initial} $\mathcal{C}(\tau_\mathrm{form})\propto{\color{customblue}\delta(\Delta\phi-\pi)\delta(\Delta\eta)}\xmapsto{\Delta\tau\text{ in Glasma}}\mathcal{C}(\tau_\mathrm{form}+\Delta\tau)\xRightarrow{\text{extract}}{\color{pinky}\sigma_{\Delta\phi}}(\Delta\tau), {\color{pinky}\sigma_{\Delta\eta}}(\Delta\tau)$ 
+    \begin{figure}[!hbt]
+    \centering
+    \includegraphics[width=\textwidth]{images/sketch_decorrelation_v2_crop.png}
+    \end{figure}
+    \end{center}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Azimuthal decorrelation width}
+    \framesubtitle{Effect of heavy quark $p_T$ and Glasma $Q_s$}
+    \begin{center}
+        \begin{columns}[onlytextwidth,t]
+            \column{.02\textwidth}
+           \column{.47\textwidth}
+           \begin{figure}
+                \centering
+                \vspace{5pt}
+                \includegraphics[width=\columnwidth]{images/sigma_dphideta_tau_charm_beauty_pT_dep_final_azimuth.png}
+            \end{figure}
+            \column{.02\textwidth}
+            \column{.47\textwidth}
+            \vspace{-17pt}
+            \begin{figure}
+                \centering
+                \includegraphics[width=1.02\columnwidth]{images/sigma_dphideta_tau_charm_beauty_Qs_dep_scaled_final_azimuth.png}
+            \end{figure}
+            \column{.02\textwidth}
+        \end{columns}    
+    \end{center}
+
+\end{frame}
+
+\begin{frame}[noframenumbering]
+    \frametitle{Azimuthal decorrelation width}
+    \framesubtitle{Effect of heavy quark $p_T$ and Glasma $Q_s$}
+    {\transparent{0.1}\begin{center}
+        \begin{columns}[onlytextwidth,t]
+            \column{.02\textwidth}
+           \column{.47\textwidth}
+           \begin{figure}
+                \centering
+                \vspace{5pt}
+                \includegraphics[width=\columnwidth]{images/sigma_dphideta_tau_charm_beauty_pT_dep_final_azimuth.png}
+            \end{figure}
+            \column{.02\textwidth}
+            \column{.47\textwidth}
+            \vspace{-17pt}
+            \begin{figure}
+                \centering
+                \includegraphics[width=1.02\columnwidth]{images/sigma_dphideta_tau_charm_beauty_Qs_dep_scaled_final_azimuth.png}
+            \end{figure}
+            \column{.02\textwidth}
+        \end{columns}    
+    \end{center}}
+    \begin{center}
+        \begin{tikzpicture}[remember picture,overlay]
+            \node[align=center] at (0,4.5) {
+            \Large {\color{customblue}Significant decorrelaton} for $Q\overline{Q}$ pairs with\\[0.2cm]
+            \Large sufficiently {\color{pinky}small initial $p_T$} and {\color{jyublue}large $Q_s$}
+            };
+        \end{tikzpicture} 
+    \end{center}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Nuclear modification factor}
+    \framesubtitle{Sketch of $p_T$ spectra in the Glasma}
+    \begin{center}
+    \vspace{0.6cm}
+    Heavy quarks $\xmapsto{\text{FONLL}^*}$ initial $p_T$ distribution $\propto\mathrm{d}\sigma^{pp/AA}/\mathrm{d}p_T(\sqrt{s}, \mathrm{PDF/nPDF})$
+    \\[0.2cm]
+    \begin{figure}[!hbt]
+        \centering
+        \includegraphics[width=0.95\textwidth]{images/sketch_dndpt_v3.png}
+    \end{figure}
+    \end{center}
+    \begin{center}
+        \scriptsize $^*$\textit{Fixed Order + Next-to-Leading Logarithms}, state-of-the-art resummed heavy quark production
+    \end{center}
+\end{frame}
+
+\begin{frame}[noframenumbering]
+    \frametitle{Nuclear modification factor}
+    \framesubtitle{Extraction of $R_{AA}$ in Glasma}
+    \begin{columns}[onlytextwidth,t]
+       \column{.56\textwidth}
+        \vspace{-20pt}
+       \begin{figure}
+            \centering
+            \includegraphics[width=1.05\columnwidth]{images/sketch_raa_gl_fonll_v4.png}
+            \captionsetup{justification=centering}
+        \end{figure}
+        \column{.02\textwidth}
+        \column{.4\textwidth}
+        \vspace{0.1cm}
+        \begin{center}
+            Glasma $p_T$ broadening $\Rightarrow {\color{customblue}\dfrac{\mathrm{d}N}{\mathrm{d}p_T}}(\tau)$\\[0.1cm] Initialized with FONLL in $pp/AA$\\[1.2cm]   
+            {\color{pinky}Nuclear modification factor} at $\tau$
+            \begin{equation*}
+                {\color{pinky}R_{AA}}=\dfrac{\sigma_\mathrm{tot}^{AA}}{A^2\sigma_\mathrm{tot}^{pp}}\dfrac{{\color{customblue}\dfrac{\mathrm{d} N}{\mathrm{d} p_T}}(\tau;pp/AA)}{\dfrac{\mathrm{d} N^{pp}}{\mathrm{d} p_T}(\tau_\mathrm{form})}
+            \end{equation*}
+        \end{center}
+        \column{.04\textwidth}
+    \end{columns}    
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{$R_{AA}$ in the Glasma}
+    \framesubtitle{Temporal evolution and $Q_s$ dependence}
+    \vspace{-5pt}
+    \begin{center}
+        \begin{columns}[onlytextwidth,t]
+            \column{.02\textwidth}
+           \column{.47\textwidth}
+           \begin{figure}
+                \centering
+                \includegraphics[width=\columnwidth]{images/clean_raa_tau_dep_quarks_charmQs_2.0_fonll_energy_5500_pdf_cteq.png}
+            \end{figure}
+            \column{.02\textwidth}
+            \column{.47\textwidth}
+            \vspace{-20pt}
+            \begin{figure}
+                \centering
+                \includegraphics[width=1.01\columnwidth]{images/clean_raa_tau_dep_charm_quark_Qs_dep.png}
+            \end{figure}
+            \column{.02\textwidth}
+        \end{columns}    
+    \end{center}
+\end{frame}
+
+\begin{frame}[noframenumbering]
+    \frametitle{$R_{AA}$ in the Glasma}
+    \framesubtitle{Temporal evolution and $Q_s$ dependence}
+    {\transparent{0.1}\vspace{-5pt}
+    \begin{center}
+        \begin{columns}[onlytextwidth,t]
+            \column{.02\textwidth}
+           \column{.47\textwidth}
+           \begin{figure}
+                \centering
+                \includegraphics[width=\columnwidth]{images/clean_raa_tau_dep_quarks_charmQs_2.0_fonll_energy_5500_pdf_cteq.png}
+            \end{figure}
+            \column{.02\textwidth}
+            \column{.47\textwidth}
+            \vspace{-20pt}
+            \begin{figure}
+                \centering
+                \includegraphics[width=1.01\columnwidth]{images/clean_raa_tau_dep_charm_quark_Qs_dep.png}
+            \end{figure}
+            \column{.02\textwidth}
+        \end{columns}    
+    \end{center}}
+    \begin{center}
+        \vspace{10pt}
+        \begin{tikzpicture}[remember picture,overlay]
+            \node[align=center] at (0,4.5) {
+            \Large Glasma fields $\xrightarrow{p_T\text{ broadening}}$ shifted heavy quark {\color{customblue}$p_T$ spectra} \\[1.2cm]
+            \Large Small-$p_T$ $\xmapsto{p_T\text{ migration}}$ large-$p_T$ $\Rightarrow$ {\color{pinky}$R_{AA}$ in Glasma} exhibits \\[0.2cm] 
+            \Large {\color{pinky}suppresion} at small $p_T$ + {\color{pinky}enhancement} at large $p_T$
+            };
+        \end{tikzpicture} 
+    \end{center}
+\end{frame}
+
+\begin{frame}
+    \frametitle{$R_{AA}$ in the Glasma with nPDFs}
+    \framesubtitle{Cold nuclear matter effects}
+    \vspace{-15pt}
+    \begin{center}
+        \begin{columns}[onlytextwidth,t]
+            \column{.04\textwidth}
+           \column{.44\textwidth}
+           \begin{figure}
+                \centering
+                \vspace{5pt}
+                \includegraphics[width=\columnwidth]{images/FitForm_EPPS16.pdf}
+                \captionsetup{justification=centering}
+                \caption{\scriptsize\itshape EPPS16 nuclear PDF from \href{https://arxiv.org/abs/1612.05741}{\color{ForestGreen}[1612.05741]}}
+            \end{figure}
+            \column{.04\textwidth}
+            \column{.44\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[width=\columnwidth]{images/clean_raa_tau_0.6_charm_quark_Qs_2.0_fonll_pdf_vs_npdf_v2.png}
+                \captionsetup{justification=centering}
+            \end{figure}
+            \column{.04\textwidth}
+        \end{columns}    
+    \end{center}
+\end{frame}
+
+
+\begin{frame}[noframenumbering]
+    \frametitle{$R_{AA}$ in the Glasma with nPDFs}
+    \framesubtitle{Cold nuclear matter effects}
+    {\transparent{0.1}\vspace{-15pt}
+    \begin{center}
+        \begin{columns}[onlytextwidth,t]
+            \column{.04\textwidth}
+           \column{.44\textwidth}
+           \begin{figure}
+                \centering
+                \vspace{5pt}
+                \includegraphics[width=\columnwidth]{images/FitForm_EPPS16.pdf}
+                \captionsetup{justification=centering}
+                \caption{\scriptsize\itshape EPPS16 nuclear PDF from \href{https://arxiv.org/abs/1612.05741}{\color{ForestGreen}[1612.05741]}}
+            \end{figure}
+            \column{.04\textwidth}
+            \column{.44\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[width=\columnwidth]{images/clean_raa_tau_0.6_charm_quark_Qs_2.0_fonll_pdf_vs_npdf_v2.png}
+                \captionsetup{justification=centering}
+            \end{figure}
+            \column{.04\textwidth}
+        \end{columns}    
+    \end{center}}
+    \begin{center}
+        \vspace{10pt}
+        \begin{tikzpicture}[remember picture,overlay]
+            \node[align=center] at (0,4.5) {
+            \Large Combined effect on $R_{AA}$ from 2 initial stage frameworks\\[1.2cm]
+            \Large {\color{pinky}Gluon saturation} from Glasma\\[0.2cm]
+            \Large +\\[0.2cm]
+            \Large {\color{ForestGreen}Gluon shadowing} from nPDFs
+            };
+        \end{tikzpicture} 
+    \end{center}
+\end{frame}
+
 
 \end{document}
